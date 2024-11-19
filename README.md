@@ -1,11 +1,14 @@
+De instalat cu terminalul:
 
    ```bash
    npm install
    npm ci
    npm install -g @ionic/cli
+   npm install @capacitor/core @capacitor/cli
+   npm install @capacitor/core @capacitor/cli
    ```
 
-Start the development server:
+Pentru a porni aplicatia:
 
    ```bash
    ionic serve

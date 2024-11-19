@@ -6,6 +6,15 @@ import HartaMagica from '../assets/sounds/HartaMagica.mp3';
 import CustomToolbar from '../components/CustomToolbar';
 import BineAiVenit from '../assets/sounds/BineAiVenit.mp3';
 
+
+
+// VARIANTA VECHE - NU MAI E FOLOSITA
+
+
+
+
+
+
 let score = 0;
 
 export const getScore = () => score;
