@@ -1,0 +1,62 @@
+.letter-page {
+    padding: 20px;
+  }
+  
+  .words-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .word-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .word {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .letter-button {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px 15px;
+    margin: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .letter-button.correct {
+    background-color: green;
+    color: white;
+  }
+  
+  .letter-button.incorrect {
+    background-color: red;
+    color: white;
+  }
+  
+  .word-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-left: 20px;
+  }
+  
+  .black-icon {
+    color: #000;
+    font-size: 32px;
+  }
+  
+  .big-arrow {
+    font-size: 48px;
+  }
+  
+  .ion-fab-button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  

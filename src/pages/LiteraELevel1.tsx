@@ -146,6 +146,8 @@ const LiteraELevel1: React.FC<RouteComponentProps> = ({ history }) => {
                         <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title="Litera E Level 2" aria-label="Next level" onMouseEnter={playHoverSoundAvanseaza} />
                     </IonFabButton>
                 </IonFab>
+
+                
             </IonContent>
         </IonPage>
     );

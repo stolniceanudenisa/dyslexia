@@ -3,7 +3,7 @@ import { IonContent, IonHeader, IonPage, IonButton, IonFab, IonFabButton, IonIco
 import { arrowForwardOutline } from 'ionicons/icons';
 import { increaseScore, useGameSettings } from './Home';
 import { RouteComponentProps } from 'react-router';
-import Bravo from '../assets/sounds/FelicitariFinalJoc.mp3';
+ 
 import O from '../assets/sounds/O!.mp3';
 import E from '../assets/sounds/E!.mp3';
 import I from '../assets/sounds/I!.mp3';
@@ -60,7 +60,7 @@ const LiteraOLevel1: React.FC<RouteComponentProps> = ({ history }) => {
                     const newCounter = prevCounter + 1;
                     if (newCounter === totalButtons * percentageOfO / 100) {
                         if (audioPlayer) {
-                            audioPlayer.src = Bravo;
+                            // audioPlayer.src = Bravo;
                             audioPlayer.playbackRate = 0.85;
                             audioPlayer.play();
                         }

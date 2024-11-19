@@ -3,7 +3,7 @@ import { IonContent, IonHeader, IonPage, IonButton, IonFab, IonFabButton, IonIco
 import { arrowForwardOutline } from 'ionicons/icons';
 import { increaseScore, useGameSettings } from './Home';
 import { RouteComponentProps } from 'react-router';
-import Bravo from '../assets/sounds/FelicitariFinalJoc.mp3';
+// import Bravo from '../assets/sounds/FelicitariFinalJoc.mp3';
 import U from '../assets/sounds/U!.mp3';
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
@@ -58,7 +58,7 @@ const LiteraULevel2: React.FC<RouteComponentProps> = ({ history }) => {
                     const newCounter = prevCounter + 1;
                     if (newCounter === totalButtons * percentageOfU / 100) {
                         if (audioPlayer) {
-                            audioPlayer.src = Bravo;
+                            // audioPlayer.src = Bravo;
                             audioPlayer.playbackRate = 0.85;
                             audioPlayer.play();
                         }
@@ -133,9 +133,17 @@ const LiteraULevel2: React.FC<RouteComponentProps> = ({ history }) => {
                     </div>
                 </div>
 
+ 
+
                 <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                    <IonFabButton onClick={() => history.push('/LiteraULevel2')} disabled={isNextLevelDisabled}>
-                        <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title="Litera U Level 2" aria-label="Next level" onMouseEnter={playHoverSoundAvanseaza} />
+                    <IonFabButton onClick={() => history.push('/LiteraULevel2')}>
+                        <IonIcon
+                            icon={arrowForwardOutline}
+                            className="black-icon big-arrow"
+                            title="Litera O Level 2"
+                            aria-label="Next level"
+                            onMouseEnter={playHoverSoundAvanseaza}
+                        />
                     </IonFabButton>
                 </IonFab>
             </IonContent>

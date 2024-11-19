@@ -11,7 +11,7 @@ import InelAudio from '../assets/sounds/Inel.mp3';
 import InsulaAudio from '../assets/sounds/Insula.mp3';
 import IepureAudio from '../assets/sounds/Iepure.mp3';
 import InimaAudio from '../assets/sounds/Inima.mp3';
-import Bravo from '../assets/sounds/FelicitariFinalJoc.mp3';
+ 
 import { RouteComponentProps } from 'react-router';
 import CustomToolbar from '../components/CustomToolbar';
 import I from '../assets/sounds/I!.mp3';
@@ -69,7 +69,7 @@ const LiteraILevel1: React.FC<RouteComponentProps> = ({ history }) => {
                     const newCounter = prevCounter + 1;
                     if (newCounter === totalButtons * percentageOfI / 100) {
                         if (audioPlayer) {
-                            audioPlayer.src = Bravo;
+                            // audioPlayer.src = Bravo;
                             audioPlayer.playbackRate = 0.85;
                             audioPlayer.play();
                         }
