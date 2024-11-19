@@ -2,10 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonButton, IonIcon, IonFab, IonFabButton } from '@ionic/react';
 import { arrowForward } from 'ionicons/icons';
 import './Litere.css';
-import erou from '../assets/images/erou.svg';
-import elefant from '../assets/images/elefant.svg';
-import evantai from '../assets/images/evantai.svg';
-import esarfa from '../assets/images/esarfa.svg';
+// import erou from '../assets/images/erou.svg';
+// import elefant from '../assets/images/elefant.svg';
+// import evantai from '../assets/images/evantai.svg';
+// import esarfa from '../assets/images/esarfa.svg';
+
+import erou from '../assets/images/erou1.png';
+import elefant from '../assets/images/elefant1.png';
+import evantai from '../assets/images/evantai1.png';
+import esarfa from '../assets/images/esarfa1.png';
+
 import erouAudio from '../assets/sounds/Erou.mp3';
 import elefantAudio from '../assets/sounds/Elefant.mp3';
 import evantaiAudio from '../assets/sounds/Evantai.mp3';
@@ -62,66 +68,66 @@ const LiteraE: React.FC<RouteComponentProps> = ({ history }) => {
                 <CustomToolbar title="Litera E" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
             </IonHeader>
             <IonContent className="letter-page" scrollY={false}>
-                <div className="container">
-                    {/* First row of images */}
-                    <div className="round-buttons">
-                        {[0, 1].map((index) => (
-                            <div key={index} className="audio-buttons-grid" onClick={() => playAudio(index)}>
-                                <div style={{ width: '150px', height: '150px', margin: 20, cursor: 'pointer' }}>
-                                    <img
-                                        src={images1[index]}
-                                        style={{ width: '100%', height: '100%' }}
-                                        alt={`Litera E - ${words1[index]}`}
-                                    />
-                                </div>
-                                <div className="audio-label" style={{ fontSize: '0.9em' }}>
-                                    <strong className="first-letter">{words1[index].charAt(0)}</strong>
-                                    {words1[index].substring(1)}
-                                </div>
-                            </div>
-                        ))}
-                        <audio ref={(audio) => setAudioPlayer(audio)} />
-                    </div>
+  <div className="container">
+    {/* First row of images */}
+    <div className="round-buttons">
+      {[0, 1].map((index) => (
+        <div key={index} className="audio-buttons-grid" onClick={() => playAudio(index)}>
+          <div style={{ width: '150px', height: '150px', margin: 20, cursor: 'pointer' }}>
+            <img
+              src={images1[index]} // This will now reference JPG files
+              style={{ width: '100%', height: '100%' }}
+              alt={`Litera E - ${words1[index]}`} // Added alt text for accessibility
+            />
+          </div>
+          <div className="audio-label" style={{ fontSize: '0.9em' }}>
+            <strong className="first-letter">{words1[index].charAt(0)}</strong>
+            {words1[index].substring(1)}
+          </div>
+        </div>
+      ))}
+      <audio ref={(audio) => setAudioPlayer(audio)} />
+    </div>
 
-                    {/* Letter display */}
-                    <div className="letter" onMouseEnter={playHoverSound}>
-                        <div className="letter-content">E</div>
-                    </div>
+    {/* Letter display */}
+    <div className="letter" onMouseEnter={playHoverSound}>
+      <div className="letter-content">E</div>
+    </div>
 
-                    {/* Second row of images */}
-                    <div className="round-buttons">
-                        {[0, 1].map((index) => (
-                            <div key={index} className="audio-buttons-grid" onClick={() => playAudio(index + 2)}>
-                                <div style={{ width: '150px', height: '150px', margin: 20, cursor: 'pointer' }}>
-                                    <img
-                                        src={images2[index]}
-                                        style={{ width: '100%', height: '100%' }}
-                                        alt={`Litera E - ${words2[index]}`}
-                                    />
-                                </div>
-                                <div className="audio-label" style={{ fontSize: '0.9em' }}>
-                                    <strong className="first-letter">{words2[index].charAt(0)}</strong>
-                                    {words2[index].substring(1)}
-                                </div>
-                            </div>
-                        ))}
-                        <audio ref={(audio) => setAudioPlayer(audio)} />
-                    </div>
-                </div>
+    {/* Second row of images */}
+    <div className="round-buttons">
+      {[0, 1].map((index) => (
+        <div key={index} className="audio-buttons-grid" onClick={() => playAudio(index + 2)}>
+          <div style={{ width: '150px', height: '150px', margin: 20, cursor: 'pointer' }}>
+            <img
+              src={images2[index]} // This will now reference JPG files
+              style={{ width: '100%', height: '100%' }}
+              alt={`Litera E - ${words2[index]}`} // Added alt text for accessibility
+            />
+          </div>
+          <div className="audio-label" style={{ fontSize: '0.9em' }}>
+            <strong className="first-letter">{words2[index].charAt(0)}</strong>
+            {words2[index].substring(1)}
+          </div>
+        </div>
+      ))}
+      <audio ref={(audio) => setAudioPlayer(audio)} />
+    </div>
+  </div>
 
-                {/* Next Level Button */}
-                <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                    <IonFabButton onClick={() => history.push('/LiteraELevel1')}>
-                        <IonIcon
-                            icon={arrowForwardOutline}
-                            className="black-icon big-arrow"
-                            title="Litera E Level 1"
-                            aria-label="Next level"
-                            onMouseEnter={playHoverSoundAvanseaza}
-                        />
-                    </IonFabButton>
-                </IonFab>
-            </IonContent>
+  {/* Next Level Button */}
+  <IonFab vertical="bottom" horizontal="end" slot="fixed">
+    <IonFabButton onClick={() => history.push('/LiteraELevel1')}>
+      <IonIcon
+        icon={arrowForwardOutline}
+        className="black-icon big-arrow"
+        title="Litera E Level 1"
+        aria-label="Next level"
+        onMouseEnter={playHoverSoundAvanseaza}
+      />
+    </IonFabButton>
+  </IonFab>
+</IonContent>
         </IonPage>
     );
 };

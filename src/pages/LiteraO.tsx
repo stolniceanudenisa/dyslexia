@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonIcon, IonFab, IonFabButton } from '@ionic/react';
 import './Litere.css';
 import { arrowForward, arrowForwardOutline } from 'ionicons/icons';
-import oaie from '../assets/images/oaie.svg';
-import oala from '../assets/images/oala.svg';
-import omida from '../assets/images/omida.svg';
-import oglinda from '../assets/images/oglinda.svg';
+import oaie from '../assets/images/oaie.png';
+import oala from '../assets/images/oala.png';
+import omida from '../assets/images/ou.png';
+import oglinda from '../assets/images/oglinda.png';
 
 
 import { increaseScore, useGameSettings } from './Home'
@@ -29,7 +29,7 @@ const LiteraO: React.FC<RouteComponentProps> = ({ history }) => {
     const images2 = [omida, oala];
     const audios = [oglindaAudio, oaieAudio, omidaAudio, oalaAudio];
     const words1 = ['OGLINDA', 'OAIE'];
-    const words2 = ['OMIDA', 'OALA'];
+    const words2 = ['OU', 'OALA'];
 
     const playAudio = (index: number) => {
         if (audioPlayer) {
@@ -57,7 +57,7 @@ const LiteraO: React.FC<RouteComponentProps> = ({ history }) => {
     return (
         <IonPage>
             <IonHeader>
-                <CustomToolbar title="Litera I" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
+                <CustomToolbar title="Litera O" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
             </IonHeader>
             <IonContent className="letter-page" scrollY={false}>
                 <div className="container">
@@ -67,9 +67,9 @@ const LiteraO: React.FC<RouteComponentProps> = ({ history }) => {
                             <div key={index} className="audio-buttons-grid" onClick={() => playAudio(index)}>
                                 <div style={{ width: '150px', height: '150px', margin: 20, cursor: 'pointer' }}>
                                     <img
-                                        src={images1[index]}
+                                        src={images1[index]}  // Now using PNG images
                                         style={{ width: '100%', height: '100%' }}
-                                        alt={`Litera I - ${words1[index]}`}
+                                        alt={`Litera O - ${words1[index]}`}
                                     />
                                 </div>
                                 <div className="audio-label" style={{ fontSize: '0.9em' }}>
@@ -92,9 +92,9 @@ const LiteraO: React.FC<RouteComponentProps> = ({ history }) => {
                             <div key={index} className="audio-buttons-grid" onClick={() => playAudio(index + 2)}>
                                 <div style={{ width: '150px', height: '150px', margin: 20, cursor: 'pointer' }}>
                                     <img
-                                        src={images2[index]}
+                                        src={images2[index]}  // Now using PNG images
                                         style={{ width: '100%', height: '100%' }}
-                                        alt={`Litera I - ${words2[index]}`}
+                                        alt={`Litera O - ${words2[index]}`}
                                     />
                                 </div>
                                 <div className="audio-label" style={{ fontSize: '0.9em' }}>

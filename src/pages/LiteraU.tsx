@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonIcon, IonFab, IonFabButton } from '@ionic/react';
 import './Litere.css';
 import { arrowForward, arrowForwardOutline } from 'ionicons/icons';
-import urs from '../assets/images/urs.svg';
-import usa from '../assets/images/usa.svg';
-import unicorn from '../assets/images/unicorn.svg';
-import umbrela from '../assets/images/umbrela.svg';
+
+import urs from '../assets/images/urs.png';
+import usa from '../assets/images/usa.png';
+import unicorn from '../assets/images/unicorn.png';
+import umbrela from '../assets/images/umbrela.png';
+
 import { increaseScore, useGameSettings } from './Home'
 import { RouteComponentProps } from 'react-router';
 import Bravo from '../assets/sounds/BravoFinalJoc.mp3';
@@ -53,11 +55,10 @@ const LiteraU: React.FC<RouteComponentProps> = ({ history }) => {
         const audio = new Audio(Avanseaza);
         audio.play();
     };
-
     return (
         <IonPage>
             <IonHeader>
-                <CustomToolbar title="Litera I" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
+                <CustomToolbar title="Litera U" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
             </IonHeader>
             <IonContent className="letter-page" scrollY={false}>
                 <div className="container">
@@ -67,7 +68,7 @@ const LiteraU: React.FC<RouteComponentProps> = ({ history }) => {
                             <div key={index} className="audio-buttons-grid" onClick={() => playAudio(index)}>
                                 <div style={{ width: '150px', height: '150px', margin: 20, cursor: 'pointer' }}>
                                     <img
-                                        src={images1[index]}
+                                        src={images1[index]}  // Now using PNG images
                                         style={{ width: '100%', height: '100%' }}
                                         alt={`Litera U - ${words1[index]}`}
                                     />
@@ -92,9 +93,9 @@ const LiteraU: React.FC<RouteComponentProps> = ({ history }) => {
                             <div key={index} className="audio-buttons-grid" onClick={() => playAudio(index + 2)}>
                                 <div style={{ width: '150px', height: '150px', margin: 20, cursor: 'pointer' }}>
                                     <img
-                                        src={images2[index]}
+                                        src={images2[index]}  // Now using PNG images
                                         style={{ width: '100%', height: '100%' }}
-                                        alt={`Litera I - ${words2[index]}`}
+                                        alt={`Litera U - ${words2[index]}`}
                                     />
                                 </div>
                                 <div className="audio-label" style={{ fontSize: '0.9em' }}>
@@ -113,7 +114,7 @@ const LiteraU: React.FC<RouteComponentProps> = ({ history }) => {
                         <IonIcon
                             icon={arrowForwardOutline}
                             className="black-icon big-arrow"
-                            title="Litera O Level 1"
+                            title="Litera U Level 1"
                             aria-label="Next level"
                             onMouseEnter={playHoverSoundAvanseaza}
                         />

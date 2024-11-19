@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonIcon, IonFab, IonFabButton } from '@ionic/react';
 import './Litere.css';
 import { arrowForward, arrowForwardOutline } from 'ionicons/icons';
-import inel from '../assets/images/inel.svg';
-import insula from '../assets/images/insula.svg';
-import iepure from '../assets/images/iepure.svg';
-import inima from '../assets/images/inima.svg';
+import inel from '../assets/images/inel.png';
+import insula from '../assets/images/insula.png';
+import iepure from '../assets/images/iepure.png';
+import inima from '../assets/images/inima.png';
+
 import { increaseScore, useGameSettings } from './Home'
 import InelAudio from '../assets/sounds/Inel.mp3';
 import InsulaAudio from '../assets/sounds/Insula.mp3';
@@ -65,7 +66,7 @@ const LiteraI: React.FC<RouteComponentProps> = ({ history }) => {
                             <div key={index} className="audio-buttons-grid" onClick={() => playAudio(index)}>
                                 <div style={{ width: '150px', height: '150px', margin: 20, cursor: 'pointer' }}>
                                     <img
-                                        src={images1[index]}
+                                        src={images1[index]}  // Updated to use PNG images
                                         style={{ width: '100%', height: '100%' }}
                                         alt={`Litera I - ${words1[index]}`}
                                     />
@@ -90,7 +91,7 @@ const LiteraI: React.FC<RouteComponentProps> = ({ history }) => {
                             <div key={index} className="audio-buttons-grid" onClick={() => playAudio(index + 2)}>
                                 <div style={{ width: '150px', height: '150px', margin: 20, cursor: 'pointer' }}>
                                     <img
-                                        src={images2[index]}
+                                        src={images2[index]}  // Updated to use PNG images
                                         style={{ width: '100%', height: '100%' }}
                                         alt={`Litera I - ${words2[index]}`}
                                     />
