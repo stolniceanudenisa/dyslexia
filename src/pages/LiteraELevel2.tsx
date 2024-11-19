@@ -73,10 +73,18 @@ const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
     audio.play();
   };
 
+  const handleBackClick = () => {
+    // Navigate back to the previous page or a valid route
+    history.goBack(); // Ensure the goBack() works correctly with your app structure
+  };
+
   return (
     <IonPage>
       <IonHeader>
-        <CustomToolbar title="Litera E Level 2 - Memory Game" />
+        <CustomToolbar
+          title="Litera E Level 2 - Memory Game"
+          onBackClick={handleBackClick} // Use handleBackClick instead of history.goBack directly
+        />
       </IonHeader>
       <IonContent className="memory-game-content">
         <IonGrid>
@@ -84,9 +92,7 @@ const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
             {cards.map((card) => (
               <IonCol size="6" key={card.id} className="card-container">
                 <div
-                  className={`memory-card ${
-                    isRevealed(card.id) ? "revealed" : ""
-                  }`}
+                  className={`memory-card ${isRevealed(card.id) ? "revealed" : ""}`}
                   onClick={() => handleCardClick(card.id)}
                 >
                   {isRevealed(card.id) ? (
@@ -104,16 +110,15 @@ const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
           </IonRow>
         </IonGrid>
 
-        {/* Next Level Button */}
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
           <IonFabButton
-            onClick={() => history.push("/literaI")}
+            onClick={() => history.push("/LiteraELevel3")} // Use the correct next level path
             disabled={isNextLevelDisabled}
           >
             <IonIcon
               icon={arrowForwardOutline}
               className="black-icon big-arrow"
-              title="Next level"
+              title="Litera E Level 3"
               aria-label="Next level"
               onMouseEnter={playHoverSoundAvanseaza}
             />
