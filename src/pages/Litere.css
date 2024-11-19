@@ -1,0 +1,98 @@
+.letter-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+ 
+ 
+.big-arrow {
+  font-size: 70px;   
+
+}
+  
+ion-fab-button {
+  width: 90px;
+  height: 90px;
+  margin-right: 40px; /* Adjust the left margin as needed */
+  margin-bottom: 20px;  /* Adjust the bottom margin */
+  
+}
+
+
+.button-matrix {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 40%;
+}
+
+.letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.letter-content {
+  font-size: 600px;
+  /* font-weight: bold; */
+   
+}
+
+.round-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  font-size: 30px;
+  margin-top: 160px;
+}
+
+.first-letter {
+  font-size: 2.5em; /* Make the first letter much larger */
+  font-weight: bold; /* Make the first letter bold */
+  color: #000; /* You can adjust this color as needed */
+}
+
+
+.audio-buttons-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.audio-label {
+    margin-top: 6px;
+    text-align: center;
+    font-size: 25px;
+    white-space: nowrap;
+}
+
+.custom-button {
+  width: 560px;
+  height: 20px;
+  font-size: 25px;
+}
+
+.button-row ion-button {
+  width: 90px;
+  height: 90px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: large;
+  font-weight: 900;
+  font-size: 40px;
+}
+

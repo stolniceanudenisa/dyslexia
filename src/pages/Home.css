@@ -1,0 +1,141 @@
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+    width: 100%; 
+}
+
+ion-content.background {
+  --background: url('../theme/trrry.png') no-repeat center center / cover; 
+  position: relative;  
+  height: 100vh;  
+  width: 100vw;  
+  padding: 0;  
+  overflow: hidden;  
+  z-index: -1;
+}
+
+
+  .button-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+    padding: 0 10px;
+
+    position: relative; 
+  
+  }
+  .background ion-button {
+    font-family: 'Cinzel', serif;
+    font-size: vw;
+    font-weight: 100;
+    color: rgba(255, 255, 255, 0.9);  
+    --background: black;
+    position: relative;
+    height: 1vw;
+    width: 1vw;
+    border-radius: 50%; 
+    background-color: black;  
+    display: flex;  
+    align-items: center;  
+    justify-content: center;  
+    margin: 10px;
+    min-width: 50px; 
+    min-height: 50px; 
+  }
+  .current_letter{
+    font-size: 40px; 
+    color: white; 
+  }
+
+  .button-a {
+    position: fixed;   
+    right: 19%;
+    top: -7%;  
+    /* z-index: 10;   */
+
+  }
+
+  
+  .button-e {
+    position: fixed;  /* Use absolute positioning for button A */
+    right: 17%;
+    top: -17%;  
+    /* z-index: 10;   */
+  
+  }
+
+  .button-i {
+    position: fixed;  /* Use absolute positioning for button A */
+    right: 16%;
+    top: -23%;  
+     z-index: 10;   
+  
+  } 
+ 
+  .button-o {
+    position: fixed;  /* Use absolute positioning for button A */
+    right: 19%;
+    top: -18%;  
+   
+  
+  }
+
+
+  .button-u {
+    position: fixed;  /* Use absolute positioning for button A */
+    right: 22%;
+    top: -7%;  
+   
+  
+  }
+
+
+
+/* 
+.checked_letter{
+  font-size: 24px;
+  color: darkgreen;
+}
+
+.blocked_letter{
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.7);
+} */
+
+
+
+
+
+/* 
+
+ 
+@media (min-width: 768px) {  
+  .button-a {
+      right: 26%;  
+      top: -3%;  
+  }
+
+  .button-e {
+      right: 8%;
+      top: -10%;  
+  }
+
+  /* .button-i {
+      right: 7%;
+      top: -15%;  
+  }
+
+  .button-o {
+      right: 6%;
+      top: -5%;  
+  }
+
+  .button-u {
+      right: 15%;
+      top: -2%;  
+  }  
+} */

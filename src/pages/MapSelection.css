@@ -1,0 +1,111 @@
+ 
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;  
+  }
+  
+  .sound-buttons-row {
+    display: flex;                    
+    justify-content: center;          
+    align-items: center;              
+    gap: 180%;                        
+    position: absolute;              
+    top: 35px;                     
+    left: 50%;                        
+    transform: translateX(-50%);       
+    z-index: 10;                     
+  }
+  
+ 
+  .sound-button-container1,
+  .sound-button-container2,
+  .sound-button-container3 {
+    display: flex;                     
+    justify-content: center;          
+    align-items: center;               
+    width: auto;                      
+  }
+  
+ 
+  .sound-button1,
+  .sound-button2,
+  .sound-button3 {
+    font-size: 30px;                  
+    background-color: transparent;    
+    border: none;                     
+    color: #fff;                    
+    cursor: pointer;  
+    width: 80px;   
+    height: 70px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+                     
+  }
+
+  .map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    height: 100vh;
+    gap: 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding-top: 65px;  
+  }
+  
+  .map-button {
+    position: relative;
+    width: 30%;  
+    aspect-ratio: 1 / 1;  
+    padding: 0;  
+    border: none;  
+    outline: none;  
+    background: transparent;  
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;  
+}
+
+  
+  .map-image {
+    width: 100%;                   
+    height: 100%;                  
+    object-fit: cover;            
+    border-radius: 10px;           
+    border: none;                
+    outline: none;                
+}
+ 
+  .map-button + .map-button {
+   
+    margin-left: 10px;
+  }
+ 
+ 
+.locked-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/images/lock.png');  /* sau lock2.png*/
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;  
+  }
+  
+ 
+  .locked-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);   
+  }

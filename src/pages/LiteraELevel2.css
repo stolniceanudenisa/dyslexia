@@ -1,0 +1,21 @@
+.centered-words-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 20px;
+}
+
+.word-row {
+    display: flex;
+    gap: 10px;
+}
+
+.letter-button {
+    width: 80px;
+    height: 80px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}

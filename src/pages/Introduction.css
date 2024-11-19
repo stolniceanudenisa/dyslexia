@@ -1,0 +1,92 @@
+.screen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .background-image {
+    width: 100%;
+    height: 104%;
+  
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .title-intro {
+    position: absolute;  
+    top: 30px;  
+    left: 50%;  
+    transform: translateX(-50%);  
+    font-size: 50px; 
+    font-family: 'Papyrus', serif;
+    font-weight: bold;  
+    color: gold; 
+    text-align: center;  
+    z-index: 3;  
+  }
+  
+
+.overlay {
+   display: none;  
+}
+
+.overlay-button {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  /* Use Flexbox for centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 60px;
+  font-size: 25px;
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
+  color: black;
+  background-color: white;
+  border: 8px solid rgba(255, 217, 0, 0.811);
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  width: auto;
+  height: auto;
+  margin-left: -150px;  
+  margin-top: -50px;  
+}
+
+ 
+.sound-button {
+  position: absolute;
+  top: 55px; /* Distance from the top */
+  right: 35px; /* Distance from the right */
+  width: 80px; /* Make the button square */
+  height: 45px; /* Make the button square */
+  display: flex; /* Center the icon */
+  align-items: center; /* Center the icon vertically */
+  justify-content: center; /* Center the icon horizontally */
+  
+  border-radius: 5px; /* Rounded corners for aesthetics */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+  cursor: pointer; /* Pointer cursor on hover */
+  z-index: 2; /* Ensure it stays above other elements */
+}
+
+.sound-icon {
+  font-size: 45px;  
+  color: black;  
+  width: 100%;  
+  height: 100%;  
+  display: flex;  
+  border-radius: 5px;  
+  align-items: center;  
+  justify-content: center;  
+  line-height: 0;  
+  background-color: white;  
+  border: 6px solid rgba(255, 217, 0, 0.811);  
+}
+ 
