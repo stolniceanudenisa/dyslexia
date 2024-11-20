@@ -5,11 +5,23 @@ import apa from '../assets/images/apa.png';
 import avion from '../assets/images/avion.png';
 import albina from '../assets/images/albina.png';
 import arici from '../assets/images/arici.png';
+import casa from '../assets/images/casa.png';
+import sac from '../assets/images/sac.png';
+import masa from '../assets/images/masa.png';
+import mac from '../assets/images/mac.png';
+
 import ApaAudio from '../assets/sounds/apa!.mp3';
 import AriciAudio from '../assets/sounds/Arici.mp3';
 import AvionAudio from '../assets/sounds/Avion.mp3';
 import AlbinaAudio from '../assets/sounds/albina!.mp3';
+import CasaAudio from '../assets/sounds/casa!.mp3';
+import SacAudio from '../assets/sounds/sac!.mp3';
+import MacAudio from '../assets/sounds/sac!.mp3';
+import MasaAudio from '../assets/sounds/casa!.mp3';
+
+
 import A from '../assets/sounds/A!.mp3';
+
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
@@ -17,12 +29,11 @@ import { RouteComponentProps } from 'react-router';
 import { arrowForwardOutline } from 'ionicons/icons';
 
 const LiteraA: React.FC<RouteComponentProps> = ({ history }) => {
-  const images1 = [apa, avion];
-  const images2 = [albina, arici];
-  const audios = [ApaAudio, AvionAudio, AlbinaAudio, AriciAudio];
-  const words1 = ['APA', 'AVION'];
-  const words2 = ['ALBINA', 'ARICI'];
-
+  const images1 = [apa, avion, casa, masa]; // Adăugăm masa la primul rând
+  const images2 = [albina, arici, sac, mac]; // Adăugăm mac la al doilea rând
+  const audios = [ApaAudio, AvionAudio, CasaAudio, MasaAudio, AlbinaAudio, AriciAudio, SacAudio, MacAudio];
+  const words1 = ['APA', 'AVION', 'CASA', 'MASA']; // Text pentru primul rând
+  const words2 = ['ALBINA', 'ARICI', 'SAC', 'MAC']; // Text pentru al doilea rând
 
   const playAudio = (index: number) => {
     const audio = new Audio(audios[index]);
@@ -45,24 +56,35 @@ const LiteraA: React.FC<RouteComponentProps> = ({ history }) => {
     audio.play();
   };
 
+  const formatWordWithBoldA = (word: string) => {
+    return (
+      <>
+        {word.split('').map((char, index) => (
+          <span key={index} className={char === 'A' ? 'highlight' : ''}>
+            {char}
+          </span>
+        ))}
+      </>
+    );
+  };
+
   return (
     <IonPage>
       <IonHeader>
-        <CustomToolbar title="Litera A" titleStyle='title' onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
+        <CustomToolbar title="Litera A" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
       </IonHeader>
 
-      <IonContent className='letter-page' scrollY={false}>
+      <IonContent className="letter-page" scrollY={false}>
         <div className="container">
           {/* First row of images */}
           <div className="round-buttons">
-            {[0, 1].map((index) => (
+            {[0, 1, 2, 3].map((index) => (
               <div key={index} className="audio-buttons-grid" onClick={() => playAudio(index)}>
-                <div style={{ width: '150px', height: '150px', margin: 20, cursor: 'pointer' }}>
+                <div style={{ width: '120px', height: '120px', margin: 10, cursor: 'pointer' }}>
                   <img src={images1[index]} style={{ width: '100%', height: '100%' }} />
                 </div>
                 <div className="audio-label" style={{ fontSize: '0.9em' }}>
-                  <strong className="first-letter">{words1[index].charAt(0)}</strong>
-                  {words1[index].substring(1)}
+                  {formatWordWithBoldA(words1[index])}
                 </div>
               </div>
             ))}
@@ -75,14 +97,13 @@ const LiteraA: React.FC<RouteComponentProps> = ({ history }) => {
 
           {/* Second row of images */}
           <div className="round-buttons">
-            {[0, 1].map((index) => (
-              <div key={index} className="audio-buttons-grid" onClick={() => playAudio(index + 2)}>
-                <div style={{ width: '150px', height: '150px', margin: 20, cursor: 'pointer' }}>
+            {[0, 1, 2, 3].map((index) => (
+              <div key={index} className="audio-buttons-grid" onClick={() => playAudio(index + 4)}>
+                <div style={{ width: '120px', height: '120px', margin: 10, cursor: 'pointer' }}>
                   <img src={images2[index]} style={{ width: '100%', height: '100%' }} />
                 </div>
                 <div className="audio-label" style={{ fontSize: '0.9em' }}>
-                  <strong className="first-letter">{words2[index].charAt(0)}</strong>
-                  {words2[index].substring(1)}
+                  {formatWordWithBoldA(words2[index])}
                 </div>
               </div>
             ))}
@@ -92,7 +113,7 @@ const LiteraA: React.FC<RouteComponentProps> = ({ history }) => {
         {/* Next Level Button */}
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
           <IonFabButton onClick={() => history.push('/LiteraALevel1')}>
-            <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title='Litera A Level 1' aria-label='Next level' onMouseEnter={playHoverSoundAvanseaza} />
+            <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title="Litera A Level 1" aria-label="Next level" onMouseEnter={playHoverSoundAvanseaza} />
           </IonFabButton>
         </IonFab>
       </IonContent>

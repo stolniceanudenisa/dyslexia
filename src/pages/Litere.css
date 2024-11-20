@@ -48,16 +48,17 @@ ion-fab-button {
 
 .letter-content {
   font-size: 600px;
-  /* font-weight: bold; */
+ 
    
 }
 
 .round-buttons {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  font-size: 30px;
-  margin-top: 160px;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1.3fr 1fr;
+  font-size: 40px;
+  margin-right: 40px;
+  margin-bottom: 50px;
 }
 
 .first-letter {
@@ -96,3 +97,8 @@ ion-fab-button {
   font-size: 40px;
 }
 
+.highlight {
+  font-weight: bold;
+  color: #00008b !important;
+  font-size: 1.8em; /* Crește dimensiunea cu 10% */
+}

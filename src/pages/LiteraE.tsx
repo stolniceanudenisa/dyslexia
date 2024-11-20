@@ -12,6 +12,16 @@ import elefant from '../assets/images/elefant1.png';
 import evantai from '../assets/images/evantai1.png';
 import esarfa from '../assets/images/esarfa1.png';
 
+import ardei from '../assets/images/ardei.png';
+import pere from '../assets/images/pere.png';
+import mere from '../assets/images/mere.png';
+import banane from '../assets/images/banane.png';
+
+import ArdeiAudio from '../assets/sounds/Elefant.mp3';
+import PereAudio from '../assets/sounds/Elefant.mp3';
+import MereAudio from '../assets/sounds/Elefant.mp3';
+import BananeAudio from '../assets/sounds/Elefant.mp3';
+
 import erouAudio from '../assets/sounds/Erou.mp3';
 import elefantAudio from '../assets/sounds/Elefant.mp3';
 import evantaiAudio from '../assets/sounds/Evantai.mp3';
@@ -31,106 +41,124 @@ import { arrowForwardOutline } from 'ionicons/icons';
 type ButtonText = "A" | "E" | "*" | "★";
 
 const LiteraE: React.FC<RouteComponentProps> = ({ history }) => {
-    const [audioPlayer, setAudioPlayer] = useState<HTMLAudioElement | null>(null);
+  const images1 = [erou, elefant, ardei, mere];
+  const images2 = [evantai, esarfa, pere, banane];
+  const audios = [
+    erouAudio,
+    elefantAudio,
+    ArdeiAudio,
+    MereAudio,
+    evantaiAudio,
+    esarfaAudio,
+    PereAudio,
+    BananeAudio,
+  ];
+  const words1 = ['EROU', 'ELEFANT', 'ARDEI', 'MERE'];
+  const words2 = ['EVANTAI', 'ESARFA', 'PERE', 'BANANE'];
 
-    const images1 = [erou, elefant];
-    const images2 = [evantai, esarfa];
-    const audios = [erouAudio, elefantAudio, evantaiAudio, esarfaAudio];
-    const words1 = ['EROU', 'ELEFANT'];
-    const words2 = ['EVANTAI', 'ESARFA'];
+  const playAudio = (index: number) => {
+    const audio = new Audio(audios[index]);
+    audio.playbackRate = 0.8;
+    audio.play();
+  };
 
-    const playAudio = (index: number) => {
-        if (audioPlayer) {
-            audioPlayer.src = audios[index];
-            audioPlayer.playbackRate = 0.8;
-            audioPlayer.play();
-        }
-    };
+  const playHoverSound = () => {
+    const audio = new Audio(E);
+    audio.play();
+  };
 
-    const playHoverSound = () => {
-        const audio = new Audio(E);
-        audio.play();
-    };
+  const playClickAudio = () => {
+    const audio = new Audio(Repeta);
+    audio.play();
+  };
 
-    const playClickAudio = () => {
-        const audio = new Audio(Repeta);
-        audio.play();
-    };
+  const playHoverSoundAvanseaza = () => {
+    const audio = new Audio(Avanseaza);
+    audio.play();
+  };
 
-    const playHoverSoundAvanseaza = () => {
-        const audio = new Audio(Avanseaza);
-        audio.play();
-    };
-
+  const formatWordWithBoldE = (word: string) => {
     return (
-        <IonPage>
-            <IonHeader>
-                <CustomToolbar title="Litera E" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
-            </IonHeader>
-            <IonContent className="letter-page" scrollY={false}>
-  <div className="container">
-    {/* First row of images */}
-    <div className="round-buttons">
-      {[0, 1].map((index) => (
-        <div key={index} className="audio-buttons-grid" onClick={() => playAudio(index)}>
-          <div style={{ width: '150px', height: '150px', margin: 20, cursor: 'pointer' }}>
-            <img
-              src={images1[index]} // This will now reference JPG files
-              style={{ width: '100%', height: '100%' }}
-              alt={`Litera E - ${words1[index]}`} // Added alt text for accessibility
-            />
-          </div>
-          <div className="audio-label" style={{ fontSize: '0.9em' }}>
-            <strong className="first-letter">{words1[index].charAt(0)}</strong>
-            {words1[index].substring(1)}
-          </div>
-        </div>
-      ))}
-      <audio ref={(audio) => setAudioPlayer(audio)} />
-    </div>
-
-    {/* Letter display */}
-    <div className="letter" onMouseEnter={playHoverSound}>
-      <div className="letter-content">E</div>
-    </div>
-
-    {/* Second row of images */}
-    <div className="round-buttons">
-      {[0, 1].map((index) => (
-        <div key={index} className="audio-buttons-grid" onClick={() => playAudio(index + 2)}>
-          <div style={{ width: '150px', height: '150px', margin: 20, cursor: 'pointer' }}>
-            <img
-              src={images2[index]} // This will now reference JPG files
-              style={{ width: '100%', height: '100%' }}
-              alt={`Litera E - ${words2[index]}`} // Added alt text for accessibility
-            />
-          </div>
-          <div className="audio-label" style={{ fontSize: '0.9em' }}>
-            <strong className="first-letter">{words2[index].charAt(0)}</strong>
-            {words2[index].substring(1)}
-          </div>
-        </div>
-      ))}
-      <audio ref={(audio) => setAudioPlayer(audio)} />
-    </div>
-  </div>
-
-  {/* Next Level Button */}
-  <IonFab vertical="bottom" horizontal="end" slot="fixed">
-    <IonFabButton onClick={() => history.push('/LiteraELevel1')}>
-      <IonIcon
-        icon={arrowForwardOutline}
-        className="black-icon big-arrow"
-        title="Litera E Level 1"
-        aria-label="Next level"
-        onMouseEnter={playHoverSoundAvanseaza}
-      />
-    </IonFabButton>
-  </IonFab>
-</IonContent>
-        </IonPage>
+      <>
+        {word.split('').map((char, index) => (
+          <span key={index} className={char === 'E' ? 'highlight' : ''}>
+            {char}
+          </span>
+        ))}
+      </>
     );
-};
+  };
 
+  return (
+    <IonPage>
+      <IonHeader>
+        <CustomToolbar
+          title="Litera E"
+          titleStyle="title"
+          onPlayClick={playClickAudio}
+          onBackClick={() => history.goBack()}
+        />
+      </IonHeader>
+
+      <IonContent className="letter-page" scrollY={false}>
+        <div className="container">
+          {/* First row of images */}
+          <div className="round-buttons">
+            {[0, 1, 2, 3].map((index) => (
+              <div key={index} className="audio-buttons-grid" onClick={() => playAudio(index)}>
+                <div style={{ width: '98px', height: '98px', margin: 20, cursor: 'pointer' }}>
+                  <img
+                    src={images1[index]}
+                    style={{ width: '100%', height: '100%' }}
+                    alt={`Litera E - ${words1[index]}`}
+                  />
+                </div>
+                <div className="audio-label" style={{ fontSize: '0.9em' }}>
+                  {formatWordWithBoldE(words1[index])}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Letter display */}
+          <div className="letter" onMouseEnter={playHoverSound}>
+            <div className="letter-content">E</div>
+          </div>
+
+          {/* Second row of images */}
+          <div className="round-buttons">
+            {[0, 1, 2, 3].map((index) => (
+              <div key={index} className="audio-buttons-grid" onClick={() => playAudio(index + 4)}>
+                <div style={{ width: '98px', height: '98px', margin: 20, cursor: 'pointer' }}>
+                  <img
+                    src={images2[index]}
+                    style={{ width: '100%', height: '100%' }}
+                    alt={`Litera E - ${words2[index]}`}
+                  />
+                </div>
+                <div className="audio-label" style={{ fontSize: '0.9em' }}>
+                  {formatWordWithBoldE(words2[index])}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Next Level Button */}
+        <IonFab vertical="bottom" horizontal="end" slot="fixed">
+          <IonFabButton onClick={() => history.push('/LiteraELevel1')}>
+            <IonIcon
+              icon={arrowForwardOutline}
+              className="black-icon big-arrow"
+              title="Litera E Level 1"
+              aria-label="Next level"
+              onMouseEnter={playHoverSoundAvanseaza}
+            />
+          </IonFabButton>
+        </IonFab>
+      </IonContent>
+    </IonPage>
+  );
+};
 
 export default LiteraE;
