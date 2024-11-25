@@ -17,18 +17,18 @@ import CustomToolbar from "../components/CustomToolbar";
 import Bravo from "../assets/sounds/BravoFinalJoc.mp3";
 import Avanseaza from "../assets/sounds/nivelul-urmator!.mp3";
 import taur from "../assets/images/taur.png";
-import castel from "../assets/images/castel.png";
-import cort from "../assets/images/cort.png";
+import timp from "../assets/images/timp.png";
+import tort from "../assets/images/tort.png";
 import { RouteComponentProps } from "react-router";
 
 const LiteraTLevel2: React.FC<RouteComponentProps> = ({ history }) => {
     const [cards, setCards] = useState([
         { id: 1, text: "TAUR", img: taur, revealed: false },
-        { id: 2, text: "CASTEL", img: castel, revealed: false },
-        { id: 3, text: "CORT", img: cort, revealed: false },
+        { id: 2, text: "TIMP", img: timp, revealed: false },
+        { id: 3, text: "TORT", img: tort, revealed: false },
         { id: 4, text: "TAUR", img: taur, revealed: false },
-        { id: 5, text: "CASTEL", img: castel, revealed: false },
-        { id: 6, text: "CORT", img: cort, revealed: false },
+        { id: 5, text: "TIMP", img: timp, revealed: false },
+        { id: 6, text: "TORT", img: tort, revealed: false },
     ]);
 
     const [flippedCards, setFlippedCards] = useState<number[]>([]);
