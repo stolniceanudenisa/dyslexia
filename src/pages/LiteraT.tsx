@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonFab, IonFabButton, IonIcon } from '@ionic/react';
 import './Litere.css';
-import bol from '../assets/images/bol.png';
-import balon from '../assets/images/balon.png';
-import cub from '../assets/images/cub.png';
-import broasca from '../assets/images/broasca.png';
-import banana from '../assets/images/banana.png';
-import sabie from '../assets/images/sabie.png';
-import bec from '../assets/images/bec.png';
-import zebra from '../assets/images/zebra.png';
+import taur from '../assets/images/taur.png';
+import pat from '../assets/images/pat.png';
+import carte from '../assets/images/carte.png';
+import tort from '../assets/images/tort.png';
+import castel from '../assets/images/castel.png';
+import trompeta from '../assets/images/trompeta.png';
+import timp from '../assets/images/timp.png';
+import cort from '../assets/images/cort.png';
 
-import BolAudio from '../assets/sounds/bol.mp3';
-import BalonAudio from '../assets/sounds/balon.mp3';
-import CubAudio from '../assets/sounds/cub.mp3';
-import BroascaAudio from '../assets/sounds/broască.mp3';
-import BananaAudio from '../assets/sounds/banană.mp3';
-import SabieAudio from '../assets/sounds/sabie.mp3';
-import BecAudio from '../assets/sounds/bec.mp3';
-import ZebraAudio from '../assets/sounds/zebră.mp3';
+import TaurAudio from '../assets/sounds/taur.mp3';
+import PatAudio from '../assets/sounds/pat.mp3';
+import CarteAudio from '../assets/sounds/carte.mp3';
+import TortAudio from '../assets/sounds/tort.mp3';
+import CastelAudio from '../assets/sounds/castel.mp4';
+import TrompetaAudio from '../assets/sounds/trompetă.mp4';
+import TimpAudio from '../assets/sounds/timp.mp4';
+import CortAudio from '../assets/sounds/cort.mp4';
 
 
-import B from '../assets/sounds/B.mp3';
+import T from '../assets/sounds/T .mp3';
 
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
@@ -28,12 +28,12 @@ import CustomToolbar from '../components/CustomToolbar';
 import { RouteComponentProps } from 'react-router';
 import { arrowForwardOutline } from 'ionicons/icons';
 
-const LiteraB: React.FC<RouteComponentProps> = ({ history }) => {
-    const images1 = [bol, balon, cub, broasca]; // Adăugăm masa la primul rând
-    const images2 = [banana, sabie, bec, zebra]; // Adăugăm mac la al doilea rând
-    const audios = [BolAudio, BalonAudio, CubAudio, BroascaAudio, BananaAudio, SabieAudio, BecAudio, ZebraAudio];
-    const words1 = ['BOL', 'BALON', 'CUB', 'BROASCĂ']; // Text pentru primul rând
-    const words2 = ['BANANĂ', 'SABIE', 'BEC', 'ZEBRĂ']; // Text pentru al doilea rând
+const LiteraT: React.FC<RouteComponentProps> = ({ history }) => {
+    const images1 = [taur, pat, carte, tort]; // Adăugăm masa la primul rând
+    const images2 = [castel, timp, trompeta, cort]; // Adăugăm mac la al doilea rând
+    const audios = [TaurAudio, PatAudio, CarteAudio, TortAudio, CastelAudio,TimpAudio , TrompetaAudio, CortAudio];
+    const words1 = ['TAUR', 'PAT', 'CARTE', 'TORT']; // Text pentru primul rând
+    const words2 = ['CASTEL', 'TIMP', 'TROMPETA', 'CORT']; // Text pentru al doilea rând
 
     const playAudio = (index: number) => {
         const audio = new Audio(audios[index]);
@@ -42,7 +42,7 @@ const LiteraB: React.FC<RouteComponentProps> = ({ history }) => {
     };
 
     const playHoverSound = () => {
-        const audio = new Audio(B);
+        const audio = new Audio(T);
         audio.play();
     };
 
@@ -60,7 +60,7 @@ const LiteraB: React.FC<RouteComponentProps> = ({ history }) => {
         return (
             <>
                 {word.split('').map((char, index) => (
-                    <span key={index} className={char === 'B' ? 'highlight' : ''}>
+                    <span key={index} className={char === 'T' ? 'highlight' : ''}>
             {char}
           </span>
                 ))}
@@ -71,7 +71,7 @@ const LiteraB: React.FC<RouteComponentProps> = ({ history }) => {
     return (
         <IonPage>
             <IonHeader>
-                <CustomToolbar title="Litera B" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
+                <CustomToolbar title="Litera T" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
             </IonHeader>
 
             <IonContent className="letter-page" scrollY={false}>
@@ -92,7 +92,7 @@ const LiteraB: React.FC<RouteComponentProps> = ({ history }) => {
 
                     {/* Letter display */}
                     <div className="letter" onMouseEnter={playHoverSound}>
-                        <div className="letter-content">B</div>
+                        <div className="letter-content">T</div>
                     </div>
 
                     {/* Second row of images */}
@@ -112,8 +112,8 @@ const LiteraB: React.FC<RouteComponentProps> = ({ history }) => {
 
                 {/* Next Level Button */}
                 <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                    <IonFabButton onClick={() => history.push('/LiteraBLevel1')}>
-                        <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title="Litera B Level 1" aria-label="Next level" onMouseEnter={playHoverSoundAvanseaza} />
+                    <IonFabButton onClick={() => history.push('/LiteraTLevel1')}>
+                        <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title="Litera T Level 1" aria-label="Next level" onMouseEnter={playHoverSoundAvanseaza} />
                     </IonFabButton>
                 </IonFab>
             </IonContent>
@@ -121,4 +121,4 @@ const LiteraB: React.FC<RouteComponentProps> = ({ history }) => {
     );
 };
 
-export default LiteraB;
+export default LiteraT;
