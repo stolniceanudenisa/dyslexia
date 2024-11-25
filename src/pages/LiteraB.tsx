@@ -4,8 +4,8 @@ import './Litere.css';
 import bol from '../assets/images/bol.png';
 import balon from '../assets/images/balon.png';
 import cub from '../assets/images/cub.png';
-import broasca from '../assets/images/broasca.png';
-import banana from '../assets/images/banana.png';
+import bani from '../assets/images/bani.png';
+import cerb from '../assets/images/cerb.png';
 import sabie from '../assets/images/sabie.png';
 import bec from '../assets/images/bec.png';
 import zebra from '../assets/images/zebra.png';
@@ -13,8 +13,8 @@ import zebra from '../assets/images/zebra.png';
 import BolAudio from '../assets/sounds/bol.mp3';
 import BalonAudio from '../assets/sounds/balon.mp3';
 import CubAudio from '../assets/sounds/cub.mp3';
-import BroascaAudio from '../assets/sounds/broască.mp3';
-import BananaAudio from '../assets/sounds/banană.mp3';
+import BaniAudio from '../assets/sounds/bani.mp3';
+import CerbAudio from '../assets/sounds/cerb.mp3';
 import SabieAudio from '../assets/sounds/sabie.mp3';
 import BecAudio from '../assets/sounds/bec.mp3';
 import ZebraAudio from '../assets/sounds/zebră.mp3';
@@ -29,11 +29,11 @@ import { RouteComponentProps } from 'react-router';
 import { arrowForwardOutline } from 'ionicons/icons';
 
 const LiteraB: React.FC<RouteComponentProps> = ({ history }) => {
-    const images1 = [bol, balon, cub, broasca]; // Adăugăm masa la primul rând
-    const images2 = [banana, sabie, bec, zebra]; // Adăugăm mac la al doilea rând
-    const audios = [BolAudio, BalonAudio, CubAudio, BroascaAudio, BananaAudio, SabieAudio, BecAudio, ZebraAudio];
-    const words1 = ['BOL', 'BALON', 'CUB', 'BROASCĂ']; // Text pentru primul rând
-    const words2 = ['BANANĂ', 'SABIE', 'BEC', 'ZEBRĂ']; // Text pentru al doilea rând
+    const images1 = [zebra,cerb , bani, sabie]; // Adăugăm masa la primul rând
+    const images2 = [balon, cub, bol, bec]; // Adăugăm mac la al doilea rând
+    const audios = [ZebraAudio, CerbAudio, BaniAudio, SabieAudio, BalonAudio, CubAudio, BolAudio, BecAudio];
+    const words1 = ['ZEBRĂ', 'CERB', 'BANI', 'SABIE']; // Text pentru primul rând
+    const words2 = ['BALON', 'CUB', 'BOL', 'BEC']; // Text pentru al doilea rând
 
     const playAudio = (index: number) => {
         const audio = new Audio(audios[index]);
