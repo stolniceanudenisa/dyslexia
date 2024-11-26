@@ -97,8 +97,15 @@ const LiteraTLevel2: React.FC<RouteComponentProps> = ({ history }) => {
                                 >
                                     {isRevealed(card.id) ? (
                                         <div className="card-content">
-                                            <strong className="highlight">T</strong>
-                                            {card.text.slice(1)}
+                                            {card.text.split("").map((char, index) =>
+                                                char.toUpperCase() === "T" ? (
+                                                    <strong key={index} className="highlight">
+                                                        {char}
+                                                    </strong>
+                                                ) : (
+                                                    char
+                                                )
+                                            )}
                                             <img src={card.img} alt={card.text} className="card-image" />
                                         </div>
                                     ) : (
