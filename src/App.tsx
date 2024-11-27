@@ -46,6 +46,8 @@ import LiteraELevel2 from './pages/LiteraELevel2';
 import LiteraULevel2 from './pages/LiteraULevel1';
 import LiteraILevel2 from './pages/LiteraILevel2';
 import LiteraOLevel2 from './pages/LiteraOLevel2';
+import LiteraF from "./pages/LiteraF";
+import LiteraFLevel1 from "./pages/LiteraFLevel1";
 // import LiteraELevel1 from './pages/LiteraELevel2';
 
 
@@ -91,9 +93,13 @@ const App: React.FC = () => (
           <Route path="/LiteraULevel1" component={LiteraULevel1} exact={true} />
           {/* <Route path="/LiteraULevel2" component={LiteraULevel2} exact={true} />    */}
 
+          <Route path="/literaF" component={LiteraF} exact={true} />
+          <Route path="/LiteraFLevel1" component={LiteraFLevel1} exact={true}  />
 
           {/*
-          
+
+          !!!!!!<Route path="/LiteraFLevel2" component={LiteraFLevel2} exact={true} />
+
 
           
           <Route path="/literaM" component={LiteraM} exact={true} />
