@@ -34,8 +34,6 @@ import Introduction from './pages/Introduction';
 import InapoiAudio from './assets/sounds/InapoiLaHarta.mp3';
 
 import LiteraALevel1 from './pages/LiteraALevel1';
-import LiteraHLevel1 from './pages/LiteraHLevel1';
-import LiteraA from './pages/LiteraA';
 import LiteraALevel2 from './pages/LiteraALevel2';
 
 import MapSelection from './pages/MapSelection';
@@ -62,8 +60,11 @@ import LiteraBLevel2 from "./pages/LiteraBLevel2";
 import LiteraT from "./pages/LiteraT";
 import LiteraTLevel1 from "./pages/LiteraTLevel1";
 import LiteraTLevel2 from "./pages/LiteraTLevel2";
+
 import LiteraH from "./pages/LiteraH";
+import LiteraHLevel1 from './pages/LiteraHLevel1';
 import LiteraHLevel2 from "./pages/LiteraHLevel2";
+
 import LiteraJ from "./pages/LiteraJ";
 import LiteraJLevel1 from "./pages/LiteraJLevel1";
 import LiteraJLevel2 from "./pages/LiteraJLevel2";
