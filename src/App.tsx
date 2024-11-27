@@ -23,6 +23,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import { colorFill, home } from 'ionicons/icons';
+import LiteraA from './pages/LiteraA';
 import LiteraE from './pages/LiteraE';
 import LiteraI from './pages/LiteraI';
 import LiteraO from './pages/LiteraO';
@@ -35,7 +36,7 @@ import LiteraZ from './pages/LiteraZ';
 import Introduction from './pages/Introduction';
 import InapoiAudio from './assets/sounds/InapoiLaHarta.mp3';
 import LiteraALevel1 from './pages/LiteraALevel1';
-import LiteraA from './pages/LiteraA';
+
 import LiteraALevel2 from './pages/LiteraALevel2';
 import MapSelection from './pages/MapSelection';
 import Map1 from './pages/Map1';
