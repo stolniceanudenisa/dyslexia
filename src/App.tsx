@@ -34,6 +34,10 @@ import Introduction from './pages/Introduction';
 import InapoiAudio from './assets/sounds/InapoiLaHarta.mp3';
 
 import LiteraALevel1 from './pages/LiteraALevel1';
+ 
+ 
+ 
+ 
 import LiteraALevel2 from './pages/LiteraALevel2';
 
 import MapSelection from './pages/MapSelection';
@@ -61,6 +65,7 @@ import LiteraT from "./pages/LiteraT";
 import LiteraTLevel1 from "./pages/LiteraTLevel1";
 import LiteraTLevel2 from "./pages/LiteraTLevel2";
  
+ 
 import LiteraC from './pages/LiteraC';
 import LiteraCLevel1 from './pages/LiteraCLevel1';
 import LiteraCLevel2 from './pages/LiteraCLevel2';
@@ -77,6 +82,7 @@ import LiteraJLevel1 from "./pages/LiteraJLevel1";
 import LiteraJLevel2 from "./pages/LiteraJLevel2";
  
 // import LiteraELevel1 from './pages/LiteraELevel2';
+ 
 
 
 const playHoverSound = () => {
