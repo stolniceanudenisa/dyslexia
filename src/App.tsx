@@ -53,11 +53,20 @@ import LiteraBLevel2 from "./pages/LiteraBLevel2";
 import LiteraT from "./pages/LiteraT";
 import LiteraTLevel1 from "./pages/LiteraTLevel1";
 import LiteraTLevel2 from "./pages/LiteraTLevel2";
+ 
+import LiteraC from './pages/LiteraC';
+import LiteraCLevel1 from './pages/LiteraCLevel1';
+import LiteraCLevel2 from './pages/LiteraCLevel2';
+import LiteraD from './pages/LiteraD';
+import LiteraDLevel1 from './pages/LiteraDLevel1';
+import LiteraDLevel2 from './pages/LiteraDLevel2';
+ 
 import LiteraH from "./pages/LiteraH";
 import LiteraHLevel2 from "./pages/LiteraHLevel2";
 import LiteraJ from "./pages/LiteraJ";
 import LiteraJLevel1 from "./pages/LiteraJLevel1";
 import LiteraJLevel2 from "./pages/LiteraJLevel2";
+ 
 // import LiteraELevel1 from './pages/LiteraELevel2';
 
 
@@ -146,14 +155,20 @@ const App: React.FC = () => (
           <Route path="/LiteraTLevel1" component={LiteraTLevel1} exact={true} />
           <Route path="/LiteraTLevel2.tsx" component={LiteraTLevel2.tsx} exact={true} />
 
-          <Route path="/literaC" component={LiteraP} exact={true} />
-          <Route path="/LiteraCLevel1" component={LiteraCLevel1} exact={true} />
-          <Route path="/LiteraCLevel2" component={LiteraCLevel2} exact={true} />
+          <Route path="/LiteraTLevel2" component={LiteraTLevel2} exact={true} /> */}
 
-          <Route path="/literaD" component={LiteraR} exact={true} />
+
+          <Route path="/literaC" component={LiteraC} exact={true} />
+          
+          <Route path="/LiteraCLevel1" component={LiteraCLevel1} exact={true} />
+          
+          <Route path="/LiteraCLevel2" component={LiteraCLevel2} exact={true} />
+          
+
+          <Route path="/literaD" component={LiteraD} exact={true} />
           <Route path="/LiteraDLevel1" component={LiteraDLevel1} exact={true} />
           <Route path="/LiteraDLevel2" component={LiteraDLevel2} exact={true} /> 
-          
+          {/*
 
 
 
