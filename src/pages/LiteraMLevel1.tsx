@@ -8,7 +8,7 @@ import avion from '../assets/images/avion.svg';
 import albina from '../assets/images/albina.svg';
 //import apaAudio from '../assets/Apa.mp3';
 import { increaseScore } from './Home'
-import Bravo from '../assets/sounds/BravoFinalJoc.mp3';
+import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import ApaAudio from '../assets/sounds/Apa2.mp3';
 import AriciAudio from '../assets/sounds/Arici.mp3';
 import AvionAudio from '../assets/sounds/Avion.mp3';

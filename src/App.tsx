@@ -33,17 +33,15 @@ import LiteraU from './pages/LiteraU';
 import Introduction from './pages/Introduction';
 import InapoiAudio from './assets/sounds/InapoiLaHarta.mp3';
 
-import LiteraALevel1 from './pages/LiteraALevel1';
- 
- 
- 
- 
-import LiteraALevel2 from './pages/LiteraALevel2';
-
 import MapSelection from './pages/MapSelection';
 import Map1 from './pages/Map1';
 import Map2 from './pages/Map2';
 import Map3 from './pages/Map3';
+
+
+import LiteraALevel1 from './pages/LiteraALevel1';
+import LiteraALevel2 from './pages/LiteraALevel2';
+
 
 import LiteraELevel1 from './pages/LiteraELevel1';
 import LiteraELevel2 from './pages/LiteraELevel2';
@@ -69,6 +67,7 @@ import LiteraTLevel2 from "./pages/LiteraTLevel2";
 import LiteraC from './pages/LiteraC';
 import LiteraCLevel1 from './pages/LiteraCLevel1';
 import LiteraCLevel2 from './pages/LiteraCLevel2';
+
 import LiteraD from './pages/LiteraD';
 import LiteraDLevel1 from './pages/LiteraDLevel1';
 import LiteraDLevel2 from './pages/LiteraDLevel2';
@@ -80,10 +79,14 @@ import LiteraHLevel2 from "./pages/LiteraHLevel2";
 import LiteraJ from "./pages/LiteraJ";
 import LiteraJLevel1 from "./pages/LiteraJLevel1";
 import LiteraJLevel2 from "./pages/LiteraJLevel2";
+import LiteraM from './pages/LiteraM';
+import LiteraMLevel1 from './pages/LiteraMLevel1';
+import LiteraMLevel2 from './pages/LiteraMLevel2';
+import LiteraN from './pages/LiteraN';
+import LiteraNLevel1 from './pages/LiteraNLevel1';
+import LiteraNLevel2 from './pages/LiteraNLevel2';
  
-// import LiteraELevel1 from './pages/LiteraELevel2';
  
-
 
 const playHoverSound = () => {
   const audio = new Audio(InapoiAudio);
@@ -151,37 +154,35 @@ const App: React.FC = () => (
           <Route path="/literaN" component={LiteraN} exact={true} />
           <Route path="/LiteraNLevel1" component={LiteraNLevel1} exact={true} />
           <Route path="/LiteraNLevel2" component={LiteraNLevel2} exact={true} />
-
+          
+{/* 
           <Route path="/literaP" component={LiteraP} exact={true} />
           <Route path="/LiteraPLevel1" component={LiteraPLevel1} exact={true} />
           <Route path="/LiteraPLevel2" component={LiteraPLevel2} exact={true} />
 
           <Route path="/literaR" component={LiteraR} exact={true} />
           <Route path="/LiteraRLevel1" component={LiteraRLevel1} exact={true} />
-          <Route path="/LiteraRLevel2" component={LiteraRLevel2} exact={true} /> 
+          <Route path="/LiteraRLevel2" component={LiteraRLevel2} exact={true} />  */}
 
 
-          <Route path="/literaT" component={LiteraN} exact={true} />
+          <Route path="/literaT" component={LiteraT} exact={true} />
           <Route path="/LiteraTLevel1" component={LiteraTLevel1} exact={true} />
-          <Route path="/LiteraTLevel2.tsx" component={LiteraTLevel2.tsx} exact={true} />
-
-          <Route path="/LiteraTLevel2" component={LiteraTLevel2} exact={true} /> */}
+      
+          <Route path="/LiteraTLevel2" component={LiteraTLevel2} exact={true} />  
 
 
           <Route path="/literaC" component={LiteraC} exact={true} />
-          
           <Route path="/LiteraCLevel1" component={LiteraCLevel1} exact={true} />
-          
           <Route path="/LiteraCLevel2" component={LiteraCLevel2} exact={true} />
           
 
           <Route path="/literaD" component={LiteraD} exact={true} />
           <Route path="/LiteraDLevel1" component={LiteraDLevel1} exact={true} />
           <Route path="/LiteraDLevel2" component={LiteraDLevel2} exact={true} /> 
+
+
+
           {/*
-
-
-
 
           <Route path="/literaF" component={LiteraM} exact={true} />
           <Route path="/LiteraFLevel1" component={LiteraFLevel1} exact={true} />

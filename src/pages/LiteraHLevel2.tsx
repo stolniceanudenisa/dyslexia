@@ -14,7 +14,7 @@ import { arrowForwardOutline } from "ionicons/icons";
 import "./LiteraHLevel2.css";
 import "./Home.css";
 import CustomToolbar from "../components/CustomToolbar";
-import Bravo from "../assets/sounds/BravoFinalJoc.mp3";
+import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import Avanseaza from "../assets/sounds/nivelul-urmator!.mp3";
 import harta from "../assets/images/harta.png";
 import hartie from "../assets/images/hartie.png";

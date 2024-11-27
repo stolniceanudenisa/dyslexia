@@ -8,7 +8,7 @@ import avion from '../assets/images/avion.svg';
 import albina from '../assets/images/albina.svg';
 //import apaAudio from '../assets/Apa.mp3';
 import { increaseScore } from './Home'
-import Bravo from '../assets/sounds/BravoFinalJoc.mp3';
+import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import ApaAudio from '../assets/sounds/Apa2.mp3';
 import AriciAudio from '../assets/sounds/Arici.mp3';
 import AvionAudio from '../assets/sounds/Avion.mp3';
@@ -18,7 +18,7 @@ import { RouteComponentProps } from 'react-router';
 import { arrowForward } from 'ionicons/icons';
 import { useGameSettings } from './Home';
 import A from '../assets/sounds/A!.mp3';
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/alege-buline-litera-A.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { arrowForwardOutline } from 'ionicons/icons';
 

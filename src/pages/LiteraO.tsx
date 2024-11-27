@@ -16,7 +16,7 @@ import autobuz from '../assets/images/autobuz.png';
 
 import { increaseScore, useGameSettings } from './Home'
 import { RouteComponentProps } from 'react-router';
-import Bravo from '../assets/sounds/BravoFinalJoc.mp3';
+import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import CustomToolbar from '../components/CustomToolbar';
 import O from '../assets/sounds/O!.mp3';
 import oaieAudio from '../assets/sounds/Oaie.mp3';

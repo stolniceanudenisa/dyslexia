@@ -4,7 +4,7 @@ import './Litere.css';
 import './Home.css';
 import { increaseScore } from './Home'
 import CustomToolbar from '../components/CustomToolbar';
-import Bravo from '../assets/sounds/BravoFinalJoc.mp3';
+import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import { RouteComponentProps } from 'react-router';
 import { useGameSettings } from './Home';
 import C from '../assets/sounds/C!.mp3';

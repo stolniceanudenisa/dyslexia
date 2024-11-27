@@ -4,7 +4,7 @@ import { IonContent, IonHeader, IonPage, IonButton, IonFab, IonFabButton, IonIco
 import './LiteraULevel2.css';
 
 import { increaseScore } from './Home';
-import Bravo from '../assets/sounds/BravoFinalJoc.mp3';
+import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import UAudio from '../assets/sounds/U!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';

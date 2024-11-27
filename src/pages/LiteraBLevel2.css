@@ -1,110 +1,97 @@
-:root {
-    --letter-size: calc((100vh - 160px) / 13);
-    --word-container-width: 88%;
-}
-
+ 
 .literaBLevel2-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 15px;
-    box-sizing: border-box;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.literaBLevel2-letters-line {
+    padding: 20px;
+  }
+  
+ 
+  .literaBLevel2-letters-line {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
-    margin-top: 15px;
-    margin-bottom: 25px;
-}
-
-.literaBLevel2-letter {
-    font-size: var(--letter-size);
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+  
+ 
+  .literaBLevel2-letter {
+    font-size: 40px; /* Font size increased for better visibility */
     font-weight: bold;
-    background-color: transparent;
-    padding: 0.5em 0.7em;
-    margin: 8px;
-    border: 2px solid rgba(0, 0, 255, 0.5);
-    color: darkblue;
+    background-color: transparent; /* Transparent background */
+    padding: 15px 25px; /* Larger padding for easier drag-and-drop */
+    margin: 10px; /* Increased margin for better spacing */
+    border: 2px solid rgba(0, 0, 255, 0.5); /* Transparent blue border */
+    color: darkblue; /* Dark blue text color */
     cursor: pointer;
     text-align: center;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
+    transition: transform 0.2s ease; /* Smooth hover animation */
+  }
 
+ 
 .literaBLevel2-letter:hover {
-    transform: scale(1.1);
-    border-color: rgba(0, 0, 255, 0.8);
+    transform: scale(1.1); /* Slightly enlarge the letter when hovered */
+    border-color: rgba(0, 0, 255, 0.8); /* Darker border on hover */
 }
 
+ 
 .literaBLevel2-letter.used {
-    background-color: rgba(0, 0, 255, 0.1);
-    color: rgba(0, 0, 255, 0.6);
-    border: 2px dashed rgba(0, 0, 255, 0.3);
-    cursor: not-allowed;
-    transform: none;
+    background-color: rgba(0, 0, 255, 0.1); /* Light blue background for used letters */
+    color: rgba(0, 0, 255, 0.6); /* Faded blue color */
+    border: 2px dashed rgba(0, 0, 255, 0.3); /* Dashed border to indicate usage */
+    cursor: not-allowed; /* Prevent dragging */
+    transform: none; /* Disable scaling effect */
 }
 
-.literaBLevel2-words-line {
+  
+  /* Linia cu cuvintele */
+  .literaBLevel2-words-line {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    flex-grow: 1;
-}
-
-.literaBLevel2-word-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
+  }
+  
+  /* Container pentru fiecare cuvânt */
+  .literaBLevel2-word-container {
+    display: flex; /* Flexbox pe orizontală */
+    justify-content: space-between; /* Asigură spațiere constantă între text și imagine */
+    align-items: center; /* Aliniază pe verticală */
+    margin-bottom: 20px;
     border: 1px solid #ccc;
-    padding: 8px;
-    width: var(--word-container-width);
-    max-width: 580px;
-    position: relative;
-    box-sizing: border-box;
-    flex-wrap: wrap;
+    padding: 10px;
+    width: 300px; /* Ajustează lățimea containerului pentru o mai bună aliniere */
+    position: relative; /* Previne mișcarea elementelor */
 }
-
-.literaBLevel2-word-image {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: calc(var(--letter-size) * 2.2);
+  
+  /* Imagini pentru cuvinte */
+  .literaBLevel2-word-image {
+    width: 110px;  /* Dimensiune ajustată */
+    height: 140px;
     object-fit: contain;
-    margin-left: 8px;
-}
-
-.literaBevel2-word-image {
-    width: calc(var(--letter-size) * 2);
-    height: calc(var(--letter-size) * 2);
-    object-fit: contain;
-    margin-left: 8px;
-}
-
-.literaBLevel2-word {
-    font-size: calc(var(--letter-size) * 0.75);
+    margin-left: 1px; /* Spațiu între cuvânt și imagine */
+  
+  }
+  
+  /* Stil pentru textul cuvântului */
+  .literaBLevel2-word {
+    font-size: 34px;
     font-weight: bold;
-    margin-right: 8px;
-    margin-left: 15px;
-    flex-grow: 1;
+    margin-right: 10px; 
+    margin-left: 20px; 
+  
 }
 
 .literaBLevel2-word .letter {
-    color: darkblue;
-    font-size: calc(var(--letter-size) * 0.7);
+    color: darkblue;  
+    font-size: 40px;  
     font-weight: bold;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease;  
+    
 }
+ 
 
 .literaBLevel2-word.red {
-    color: red;
+  color: red; /* Make the "A" red */
 }

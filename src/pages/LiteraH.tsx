@@ -6,9 +6,9 @@ import pahar from '../assets/images/pahar.png';
 import hotel from '../assets/images/hotel.png';
 import hartie from '../assets/images/hartie.png';
 import zahar from '../assets/images/zahar.png';
-import hamster from '../assets/images/hamster.png';
+import hamster from '../assets/images/harpa.png';
 import haina from '../assets/images/haina.png';
-import helicopter from '../assets/images/helicopter.png';
+import helicopter from '../assets/images/homar.png';
 
 import HartaAudio from '../assets/sounds/harta!.mp3';
 import PaharAudio from '../assets/sounds/pahar!.mp3';
@@ -32,7 +32,7 @@ const LiteraH: React.FC<RouteComponentProps> = ({ history }) => {
   const images2 = [zahar, hamster, haina, helicopter]; // Second row images
   const audios = [HartaAudio, PaharAudio, HotelAudio, HartieAudio, ZaharAudio, HamsterAudio, HainaAudio, HelicopterAudio]; // Audio files
   const words1 = ['HARTA', 'PAHAR', 'HOTEL', 'HARTIE']; // First row words
-  const words2 = ['ZAHAR', 'HAMSTER', 'HAINA', 'HELICOPTER']; // Second row words
+  const words2 = ['ZAHAR', 'HARPA', 'HAINA', 'HOMAR']; // Second row words
 
   const playAudio = (index: number) => {
     const audio = new Audio(audios[index]);

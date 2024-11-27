@@ -4,7 +4,7 @@ import { arrowForwardOutline } from 'ionicons/icons';
 import './Litere.css';
 import './Home.css';
 import { increaseScore } from './Home';
-import Bravo from '../assets/sounds/BravoFinalJoc.mp3';
+import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import EAudio from '../assets/sounds/E!.mp3';
 import AAudio from '../assets/sounds/A!.mp3';
 
