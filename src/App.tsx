@@ -2,7 +2,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
- 
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -34,6 +34,8 @@ import Introduction from './pages/Introduction';
 import InapoiAudio from './assets/sounds/InapoiLaHarta.mp3';
 
 import LiteraALevel1 from './pages/LiteraALevel1';
+import LiteraHLevel1 from './pages/LiteraHLevel1';
+import LiteraA from './pages/LiteraA';
 import LiteraALevel2 from './pages/LiteraALevel2';
 
 import MapSelection from './pages/MapSelection';
@@ -60,7 +62,12 @@ import LiteraBLevel2 from "./pages/LiteraBLevel2";
 import LiteraT from "./pages/LiteraT";
 import LiteraTLevel1 from "./pages/LiteraTLevel1";
 import LiteraTLevel2 from "./pages/LiteraTLevel2";
-
+import LiteraH from "./pages/LiteraH";
+import LiteraHLevel2 from "./pages/LiteraHLevel2";
+import LiteraJ from "./pages/LiteraJ";
+import LiteraJLevel1 from "./pages/LiteraJLevel1";
+import LiteraJLevel2 from "./pages/LiteraJLevel2";
+// import LiteraELevel1 from './pages/LiteraELevel2';
 
 
 const playHoverSound = () => {
@@ -77,28 +84,28 @@ const App: React.FC = () => (
         <IonRouterOutlet>
           <Redirect exact path="/" to="/intro" />
           <Route path="/intro" component={Introduction} exact={true} />
-          <Route path="/home" component={Home} exact={true} /> 
+          <Route path="/home" component={Home} exact={true} />
 
           <Route path="/maps" component={MapSelection} exact={true} />
           <Route path="/map1" component={Map1} exact={true} />
           <Route path="/map2" component={Map2} exact={true} />
           <Route path="/map3" component={Map3} exact={true} />
-          
+
           <Route path="/literaA" component={LiteraA} exact={true} />
           <Route path="/LiteraALevel1" component={LiteraALevel1} exact={true} />
           <Route path="/LiteraALevel2" component={LiteraALevel2} exact={true} />
-         
+
           <Route path="/literaE" component={LiteraE} exact={true} />
           <Route path="/LiteraELevel1" component={LiteraELevel1} exact={true} />
           <Route path="/LiteraELevel2" component={LiteraELevel2} exact={true} />
 
           <Route path="/literaI" component={LiteraI} exact={true} />
           <Route path="/LiteraILevel1" component={LiteraILevel1} exact={true} />
-          <Route path="/LiteraILevel2" component={LiteraILevel2} exact={true} />  
+          <Route path="/LiteraILevel2" component={LiteraILevel2} exact={true} />
 
           <Route path="/literaO" component={LiteraO} exact={true} />
-          <Route path="/LiteraOLevel1" component={LiteraOLevel1} exact={true}  /> 
-          <Route path="/LiteraOLevel2" component={LiteraOLevel2} exact={true} />  
+          <Route path="/LiteraOLevel1" component={LiteraOLevel1} exact={true}  />
+          <Route path="/LiteraOLevel2" component={LiteraOLevel2} exact={true} />
 
 
           <Route path="/literaU" component={LiteraU} exact={true} />
@@ -108,6 +115,15 @@ const App: React.FC = () => (
           <Route path="/literaB" component={LiteraB} exact={true} />
           <Route path="/LiteraBLevel1" component={LiteraBLevel1} exact={true} />
           <Route path="/LiteraBLevel2" component={LiteraBLevel2} exact={true} />
+
+          <Route path="/literaH" component={LiteraH} exact={true} />
+          <Route path="/LiteraHLevel1" component={LiteraHLevel1} exact={true} />
+          <Route path="/LiteraHLevel2" component={LiteraHLevel2} exact={true} />
+
+          <Route path="/literaJ" component={LiteraJ} exact={true} />
+          <Route path="/LiteraJLevel1" component={LiteraJLevel1} exact={true} />
+          <Route path="/LiteraJLevel2" component={LiteraJLevel2} exact={true} />
+
 
           <Route path="/literaT" component={LiteraT} exact={true} />
           <Route path="/LiteraTLevel1" component={LiteraTLevel1} exact={true} />
@@ -159,16 +175,6 @@ const App: React.FC = () => (
           <Route path="/LiteraGLevel1" component={LiteraGLevel1} exact={true} />
           <Route path="/LiteraGLevel2" component={LiteraGLevel2} exact={true} />
 
-          <Route path="/literaH" component={LiteraP} exact={true} />
-          <Route path="/LiteraHLevel1" component={LiteraHLevel1} exact={true} />
-          <Route path="/LiteraHLevel2" component={LiteraHLevel2} exact={true} />
-
-
-          <Route path="/literaJ" component={LiteraR} exact={true} />
-          <Route path="/LiteraJLevel1" component={LiteraJLevel1} exact={true} />
-          <Route path="/LiteraJLevel2" component={LiteraJLevel2} exact={true} /> 
-          
-          
 
 
            <Route path="/literaL" component={LiteraM} exact={true} />
@@ -186,10 +192,10 @@ const App: React.FC = () => (
 
           <Route path="/literaZ" component={LiteraR} exact={true} />
           <Route path="/LiteraZLevel1" component={LiteraZLevel1} exact={true} />
-          <Route path="/LiteraZLevel2" component={LiteraZsLevel2} exact={true} /> 
-          
-          
-          
+          <Route path="/LiteraZLevel2" component={LiteraZsLevel2} exact={true} />
+
+
+
           */}
 
 
