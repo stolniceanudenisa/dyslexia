@@ -11,7 +11,7 @@ import CustomToolbar from '../components/CustomToolbar';
 
 type ButtonText = "U" | "★" | "I" | "O";
 
-const LiteraULevel2: React.FC<RouteComponentProps> = ({ history }) => {
+const LiteraULevel1: React.FC<RouteComponentProps> = ({ history }) => {
     const [counter, setCounter] = useState(0);
     const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
 
@@ -106,7 +106,7 @@ const LiteraULevel2: React.FC<RouteComponentProps> = ({ history }) => {
     return (
         <IonPage>
             <IonHeader>
-                <CustomToolbar title="Litera O Level 2" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
+                <CustomToolbar title="Litera U Level 1" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
             </IonHeader>
             <IonContent className="letter-page">
                 <div className="container">
@@ -136,20 +136,20 @@ const LiteraULevel2: React.FC<RouteComponentProps> = ({ history }) => {
  
 
                 <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                    <IonFabButton onClick={() => history.push('/LiteraULevel2')}>
-                        <IonIcon
-                            icon={arrowForwardOutline}
-                            className="black-icon big-arrow"
-                            title="Litera O Level 2"
-                            aria-label="Next level"
-                            onMouseEnter={playHoverSoundAvanseaza}
-                        />
-                    </IonFabButton>
-                </IonFab>
+            <IonFabButton onClick={() => history.push('/LiteraULevel2')}>
+              <IonIcon
+                icon={arrowForwardOutline}
+                className="black-icon big-arrow"
+                title="Litera U Level 2"
+                aria-label="Next level"
+                onMouseEnter={playHoverSoundAvanseaza}
+              />
+            </IonFabButton>
+          </IonFab>
             </IonContent>
         </IonPage>
     );
 };
 
 
-export default LiteraULevel2;
+export default LiteraULevel1;

@@ -112,13 +112,13 @@ const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
           <IonFabButton
-            onClick={() => history.push("/LiteraELevel3")} // Use the correct next level path
+            onClick={() => history.push("/LiteraI")} // Use the correct next level path
             disabled={isNextLevelDisabled}
           >
             <IonIcon
               icon={arrowForwardOutline}
               className="black-icon big-arrow"
-              title="Litera E Level 3"
+              title="Litera I"
               aria-label="Next level"
               onMouseEnter={playHoverSoundAvanseaza}
             />
