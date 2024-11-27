@@ -1,46 +1,42 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonButton, IonIcon, IonFab, IonFabButton } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonButton, IonFab, IonFabButton, IonIcon } from '@ionic/react';
 import { arrowForwardOutline } from 'ionicons/icons';
-import './Litere.css';
-import './Home.css';
-import { increaseScore } from './Home';
-import Bravo from '../assets/sounds/BravoFinalJoc.mp3';
-import EAudio from '../assets/sounds/E!.mp3';
-import AAudio from '../assets/sounds/A!.mp3';
+import { increaseScore, useGameSettings } from './Home';
+import { RouteComponentProps } from 'react-router';
 
+import H from '../assets/sounds/H!.mp3';
+import F from '../assets/sounds/F!.mp3';
+import G from '../assets/sounds/G!.mp3';
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
-import { RouteComponentProps } from 'react-router';
-import { useGameSettings } from './Home';
 
+type ButtonText = "H" | "F" | "G" | "★";
 
-
-type ButtonText = "N" | "M" | "★";
-
-const LiteraNLevel1: React.FC<RouteComponentProps> = ({ history }) => {
+const LiteraHLevel1: React.FC<RouteComponentProps> = ({ history }) => {
     const [counter, setCounter] = useState(0);
     const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
 
-    const totalButtons = 20; // Larger matrix (4x5)
-    const percentageOfE = 30; // 30% E
-    const percentageOfA = 10; // 10% A
-    const traps = totalButtons - (totalButtons * (percentageOfE + percentageOfA) / 100); // Remaining are traps
+    const totalButtons = 20; // 4x5 matrix
+    const percentageOfH = 30; // 30% H
+    const percentageOfF = 10; // 10% F
+    const percentageOfG = 10; // 10% G
+    const traps = totalButtons - (totalButtons * (percentageOfH + percentageOfF + percentageOfG) / 100); // Remaining are traps
 
     const [buttonTextList, setButtonTextList] = useState<ButtonText[]>([]);
     const [clickedButtons, setClickedButtons] = useState<number[]>([]);
 
-    const [audioPlayer, setAudioPlayer] = useState<HTMLAudioElement | null>(null);
-
     useEffect(() => {
         const generateButtonTextList = () => {
             let initialList: ButtonText[] = [];
-            // Add percentages of E, A, and traps
+            // Add percentages of H, F, G, and traps
             for (let i = 0; i < totalButtons; i++) {
-                if (i < totalButtons * percentageOfE / 100) {
-                    initialList.push("N");
-                } else if (i < totalButtons * (percentageOfE + percentageOfA) / 100) {
-                    initialList.push("M");
+                if (i < totalButtons * percentageOfH / 100) {
+                    initialList.push("H");
+                } else if (i < totalButtons * (percentageOfH + percentageOfF) / 100) {
+                    initialList.push("F");
+                } else if (i < totalButtons * (percentageOfH + percentageOfF + percentageOfG) / 100) {
+                    initialList.push("G");
                 } else {
                     initialList.push("★");
                 }
@@ -57,47 +53,46 @@ const LiteraNLevel1: React.FC<RouteComponentProps> = ({ history }) => {
         if (!clickedButtons.includes(buttonIndex)) {
             setClickedButtons(prevState => [...prevState, buttonIndex]);
 
-            // Determine the behavior based on the button type
             const buttonType = buttonTextList[buttonIndex];
-            if (buttonType === "N") {
+            if (buttonType === "H") {
                 setCounter(prevCounter => {
                     const newCounter = prevCounter + 1;
-                    if (newCounter === totalButtons * percentageOfE / 100) {
-                        if (audioPlayer) {
-                            audioPlayer.src = Bravo;
-                            audioPlayer.playbackRate = 0.85;
-                            audioPlayer.play();
-                        }
-                        useGameSettings('N');
+                    if (newCounter === totalButtons * percentageOfH / 100) {
+                        useGameSettings('H');
                         setIsNextLevelDisabled(false); // Enable next level
                     }
                     return newCounter;
                 });
                 increaseScore();
-            } else if (buttonType === "M") {
-                if (audioPlayer) {
-                    audioPlayer.src = AAudio;
-                    audioPlayer.playbackRate = 1.0;
-                    audioPlayer.play();
-                }
+                const audio = new Audio(H);
+                audio.playbackRate = 1.0;
+                audio.play();
+            } else if (buttonType === "F") {
+                const audio = new Audio(F);
+                audio.playbackRate = 1.0;
+                audio.play();
+            } else if (buttonType === "G") {
+                const audio = new Audio(G);
+                audio.playbackRate = 1.0;
+                audio.play();
             } else if (buttonType === "★") {
-                if (audioPlayer) {
-                    // audioPlayer.src = TrapAudio;
-                    audioPlayer.playbackRate = 1.0;
-                    audioPlayer.play();
-                }
+                // Handle trap sound
+                const audio = new Audio(G); // You can set a trap sound here
+                audio.playbackRate = 1.0;
+                audio.play();
             }
         }
     };
 
-    const isCorrect = (buttonText: String) => {
-        if (buttonText === "N") return "success";
-        if (buttonText === "M") return "tertiary";
+    const isCorrect = (buttonText: string) => {
+        if (buttonText === "H") return "success";
+        if (buttonText === "F") return "tertiary";
+        if (buttonText === "G") return "tertiary";
         return "danger"; // Trap
     };
 
     const playHoverSound = () => {
-        const audio = new Audio(EAudio);
+        const audio = new Audio(H);
         audio.play();
     };
 
@@ -114,7 +109,7 @@ const LiteraNLevel1: React.FC<RouteComponentProps> = ({ history }) => {
     return (
         <IonPage>
             <IonHeader>
-                <CustomToolbar title="Litera N Level 2" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
+                <CustomToolbar title="Litera H Level 1" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
             </IonHeader>
             <IonContent className="letter-page">
                 <div className="container">
@@ -142,15 +137,13 @@ const LiteraNLevel1: React.FC<RouteComponentProps> = ({ history }) => {
                 </div>
 
                 <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                    <IonFabButton onClick={() => history.push('/LiteraNLevel2')} disabled={isNextLevelDisabled}>
-                        <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title="Litera N Level 2" aria-label="Next level" onMouseEnter={playHoverSoundAvanseaza} />
+                    <IonFabButton onClick={() => history.push('/LiteraHLevel2')} disabled={isNextLevelDisabled}>
+                        <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title="Litera H Level 2" aria-label="Next level" onMouseEnter={playHoverSoundAvanseaza} />
                     </IonFabButton>
                 </IonFab>
-
-
             </IonContent>
         </IonPage>
     );
 };
 
-export default LiteraNLevel1;
+export default LiteraHLevel1;

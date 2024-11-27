@@ -11,24 +11,24 @@ import {
     IonIcon,
 } from "@ionic/react";
 import { arrowForwardOutline } from "ionicons/icons";
-import "./LiteraELevel2.css";
+import "./LiteraHLevel2.css";
 import "./Home.css";
 import CustomToolbar from "../components/CustomToolbar";
 import Bravo from "../assets/sounds/BravoFinalJoc.mp3";
 import Avanseaza from "../assets/sounds/nivelul-urmator!.mp3";
-import nuca from "../assets/images/nuca.png";
-import nas from "../assets/images/nas.png";
-import nufar from "../assets/images/nufar.png";
+import harta from "../assets/images/harta.png";
+import hartie from "../assets/images/hartie.png";
+import haina from "../assets/images/haina.png";
 import { RouteComponentProps } from "react-router";
 
-const LiteraNLevel2: React.FC<RouteComponentProps> = ({ history }) => {
+const LiteraHLevel2: React.FC<RouteComponentProps> = ({ history }) => {
     const [cards, setCards] = useState([
-        { id: 1, text: "NUCA", img: nuca, revealed: false },
-        { id: 2, text: "NAS", img: nas, revealed: false },
-        { id: 3, text: "NUFAR", img: nufar, revealed: false },
-        { id: 4, text: "NUCA", img: nuca, revealed: false },
-        { id: 5, text: "NAS", img: nas, revealed: false },
-        { id: 6, text: "NUFAR", img: nufar, revealed: false },
+        { id: 1, text: "HARTĂ", img: harta, revealed: false },
+        { id: 2, text: "HÂRTIE", img: hartie, revealed: false },
+        { id: 3, text: "HAINĂ", img: haina, revealed: false },
+        { id: 4, text: "HARTĂ", img: harta, revealed: false },
+        { id: 5, text: "HÂRTIE", img: hartie, revealed: false },
+        { id: 6, text: "HAINĂ", img: haina, revealed: false },
     ]);
 
     const [flippedCards, setFlippedCards] = useState<number[]>([]);
@@ -53,9 +53,8 @@ const LiteraNLevel2: React.FC<RouteComponentProps> = ({ history }) => {
                 audio.play();
                 setMatchedCards((prev) => [...prev, firstCard.id, secondCard.id]);
 
-                // Check if all cards are matched
                 if (matchedCards.length + 2 === cards.length) {
-                    setIsNextLevelDisabled(false); // Enable the next level button
+                    setIsNextLevelDisabled(false);
                 }
             }
 
@@ -73,17 +72,12 @@ const LiteraNLevel2: React.FC<RouteComponentProps> = ({ history }) => {
         audio.play();
     };
 
-    const handleBackClick = () => {
-        // Navigate back to the previous page or a valid route
-        history.goBack(); // Ensure the goBack() works correctly with your app structure
-    };
-
     return (
         <IonPage>
             <IonHeader>
                 <CustomToolbar
-                    title="Litera N Level 2 - Memory Game"
-                    onBackClick={handleBackClick} // Use handleBackClick instead of history.goBack directly
+                    title="Litera H Level 2 - Memory Game"
+                    onBackClick={() => history.goBack()}
                 />
             </IonHeader>
             <IonContent className="memory-game-content">
@@ -97,7 +91,7 @@ const LiteraNLevel2: React.FC<RouteComponentProps> = ({ history }) => {
                                 >
                                     {isRevealed(card.id) ? (
                                         <div className="card-content">
-                                            <strong className="highlight">N</strong>
+                                            <strong className="highlight">H</strong>
                                             {card.text.slice(1)}
                                             <img src={card.img} alt={card.text} className="card-image" />
                                         </div>
@@ -112,14 +106,12 @@ const LiteraNLevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
                 <IonFab vertical="bottom" horizontal="end" slot="fixed">
                     <IonFabButton
-                        onClick={() => history.push("/LiteraNLevel3")} // Use the correct next level path
+                        onClick={() => history.push("/LiteraH")}
                         disabled={isNextLevelDisabled}
                     >
                         <IonIcon
                             icon={arrowForwardOutline}
                             className="black-icon big-arrow"
-                            title="Litera N Level 3"
-                            aria-label="Next level"
                             onMouseEnter={playHoverSoundAvanseaza}
                         />
                     </IonFabButton>
@@ -129,4 +121,4 @@ const LiteraNLevel2: React.FC<RouteComponentProps> = ({ history }) => {
     );
 };
 
-export default LiteraNLevel2;
+export default LiteraHLevel2;

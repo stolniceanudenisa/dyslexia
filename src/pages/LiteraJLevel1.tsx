@@ -1,46 +1,43 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonButton, IonIcon, IonFab, IonFabButton } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonButton, IonFab, IonFabButton, IonIcon } from '@ionic/react';
 import { arrowForwardOutline } from 'ionicons/icons';
-import './Litere.css';
-import './Home.css';
-import { increaseScore } from './Home';
-import Bravo from '../assets/sounds/BravoFinalJoc.mp3';
-import EAudio from '../assets/sounds/E!.mp3';
-import AAudio from '../assets/sounds/A!.mp3';
+import { increaseScore, useGameSettings } from './Home';
+import { RouteComponentProps } from 'react-router';
 
+import J from '../assets/sounds/J!.mp3';
+import G from '../assets/sounds/G!.mp3';
+import H from '../assets/sounds/H!.mp3';
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
-import { RouteComponentProps } from 'react-router';
-import { useGameSettings } from './Home';
 
+type ButtonText = "J" | "G" | "H" | "★";
 
-
-type ButtonText = "N" | "M" | "★";
-
-const LiteraNLevel1: React.FC<RouteComponentProps> = ({ history }) => {
+const LiteraJLevel1: React.FC<RouteComponentProps> = ({ history }) => {
     const [counter, setCounter] = useState(0);
     const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
 
-    const totalButtons = 20; // Larger matrix (4x5)
-    const percentageOfE = 30; // 30% E
-    const percentageOfA = 10; // 10% A
-    const traps = totalButtons - (totalButtons * (percentageOfE + percentageOfA) / 100); // Remaining are traps
+    const totalButtons = 20; // 4x5 matrix
+    const percentageOfJ = 30; // 30% J
+    const percentageOfG = 10; // 10% G
+    const percentageOfH = 10; // 10% H
+    const traps = totalButtons - (totalButtons * (percentageOfJ + percentageOfG + percentageOfH) / 100); // Remaining are traps
 
     const [buttonTextList, setButtonTextList] = useState<ButtonText[]>([]);
     const [clickedButtons, setClickedButtons] = useState<number[]>([]);
-
     const [audioPlayer, setAudioPlayer] = useState<HTMLAudioElement | null>(null);
 
     useEffect(() => {
         const generateButtonTextList = () => {
             let initialList: ButtonText[] = [];
-            // Add percentages of E, A, and traps
+            // Add percentages of J, G, H, and traps
             for (let i = 0; i < totalButtons; i++) {
-                if (i < totalButtons * percentageOfE / 100) {
-                    initialList.push("N");
-                } else if (i < totalButtons * (percentageOfE + percentageOfA) / 100) {
-                    initialList.push("M");
+                if (i < totalButtons * percentageOfJ / 100) {
+                    initialList.push("J");
+                } else if (i < totalButtons * (percentageOfJ + percentageOfG) / 100) {
+                    initialList.push("G");
+                } else if (i < totalButtons * (percentageOfJ + percentageOfG + percentageOfH) / 100) {
+                    initialList.push("H");
                 } else {
                     initialList.push("★");
                 }
@@ -57,32 +54,42 @@ const LiteraNLevel1: React.FC<RouteComponentProps> = ({ history }) => {
         if (!clickedButtons.includes(buttonIndex)) {
             setClickedButtons(prevState => [...prevState, buttonIndex]);
 
-            // Determine the behavior based on the button type
             const buttonType = buttonTextList[buttonIndex];
-            if (buttonType === "N") {
+            if (buttonType === "J") {
                 setCounter(prevCounter => {
                     const newCounter = prevCounter + 1;
-                    if (newCounter === totalButtons * percentageOfE / 100) {
+                    if (newCounter === totalButtons * percentageOfJ / 100) {
                         if (audioPlayer) {
-                            audioPlayer.src = Bravo;
+                            // audioPlayer.src = Bravo;
                             audioPlayer.playbackRate = 0.85;
                             audioPlayer.play();
                         }
-                        useGameSettings('N');
+                        useGameSettings('J');
                         setIsNextLevelDisabled(false); // Enable next level
                     }
                     return newCounter;
                 });
                 increaseScore();
-            } else if (buttonType === "M") {
                 if (audioPlayer) {
-                    audioPlayer.src = AAudio;
+                    audioPlayer.src = J;
+                    audioPlayer.playbackRate = 1.0;
+                    audioPlayer.play();
+                }
+            } else if (buttonType === "G") {
+                if (audioPlayer) {
+                    audioPlayer.src = G;
+                    audioPlayer.playbackRate = 1.0;
+                    audioPlayer.play();
+                }
+            } else if (buttonType === "H") {
+                if (audioPlayer) {
+                    audioPlayer.src = H;
                     audioPlayer.playbackRate = 1.0;
                     audioPlayer.play();
                 }
             } else if (buttonType === "★") {
                 if (audioPlayer) {
-                    // audioPlayer.src = TrapAudio;
+                    // Handle trap sound
                     audioPlayer.playbackRate = 1.0;
                     audioPlayer.play();
                 }
@@ -90,14 +97,15 @@ const LiteraNLevel1: React.FC<RouteComponentProps> = ({ history }) => {
         }
     };
 
-    const isCorrect = (buttonText: String) => {
-        if (buttonText === "N") return "success";
-        if (buttonText === "M") return "tertiary";
+    const isCorrect = (buttonText: string) => {
+        if (buttonText === "J") return "success";
+        if (buttonText === "G") return "tertiary";
+        if (buttonText === "H") return "tertiary";
         return "danger"; // Trap
     };
 
     const playHoverSound = () => {
-        const audio = new Audio(EAudio);
+        const audio = new Audio(J);
         audio.play();
     };
 
@@ -114,7 +122,7 @@ const LiteraNLevel1: React.FC<RouteComponentProps> = ({ history }) => {
     return (
         <IonPage>
             <IonHeader>
-                <CustomToolbar title="Litera N Level 2" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
+                <CustomToolbar title="Litera J Level 1" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
             </IonHeader>
             <IonContent className="letter-page">
                 <div className="container">
@@ -142,15 +150,13 @@ const LiteraNLevel1: React.FC<RouteComponentProps> = ({ history }) => {
                 </div>
 
                 <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                    <IonFabButton onClick={() => history.push('/LiteraNLevel2')} disabled={isNextLevelDisabled}>
-                        <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title="Litera N Level 2" aria-label="Next level" onMouseEnter={playHoverSoundAvanseaza} />
+                    <IonFabButton onClick={() => history.push('/LiteraJLevel2')} disabled={isNextLevelDisabled}>
+                        <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title="Litera J Level 2" aria-label="Next level" onMouseEnter={playHoverSoundAvanseaza} />
                     </IonFabButton>
                 </IonFab>
-
-
             </IonContent>
         </IonPage>
     );
 };
 
-export default LiteraNLevel1;
+export default LiteraJLevel1;
