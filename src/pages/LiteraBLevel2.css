@@ -1,0 +1,110 @@
+:root {
+    --letter-size: calc((100vh - 160px) / 13);
+    --word-container-width: 88%;
+}
+
+.literaBLevel2-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.literaBLevel2-letters-line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.literaBLevel2-letter {
+    font-size: var(--letter-size);
+    font-weight: bold;
+    background-color: transparent;
+    padding: 0.5em 0.7em;
+    margin: 8px;
+    border: 2px solid rgba(0, 0, 255, 0.5);
+    color: darkblue;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.literaBLevel2-letter:hover {
+    transform: scale(1.1);
+    border-color: rgba(0, 0, 255, 0.8);
+}
+
+.literaBLevel2-letter.used {
+    background-color: rgba(0, 0, 255, 0.1);
+    color: rgba(0, 0, 255, 0.6);
+    border: 2px dashed rgba(0, 0, 255, 0.3);
+    cursor: not-allowed;
+    transform: none;
+}
+
+.literaBLevel2-words-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    flex-grow: 1;
+}
+
+.literaBLevel2-word-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    width: var(--word-container-width);
+    max-width: 580px;
+    position: relative;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.literaBLevel2-word-image {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(var(--letter-size) * 2.2);
+    object-fit: contain;
+    margin-left: 8px;
+}
+
+.literaBevel2-word-image {
+    width: calc(var(--letter-size) * 2);
+    height: calc(var(--letter-size) * 2);
+    object-fit: contain;
+    margin-left: 8px;
+}
+
+.literaBLevel2-word {
+    font-size: calc(var(--letter-size) * 0.75);
+    font-weight: bold;
+    margin-right: 8px;
+    margin-left: 15px;
+    flex-grow: 1;
+}
+
+.literaBLevel2-word .letter {
+    color: darkblue;
+    font-size: calc(var(--letter-size) * 0.7);
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.literaBLevel2-word.red {
+    color: red;
+}
