@@ -23,6 +23,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import { colorFill, home } from 'ionicons/icons';
+import LiteraA from './pages/LiteraA';
 import LiteraE from './pages/LiteraE';
 import LiteraI from './pages/LiteraI';
 import LiteraO from './pages/LiteraO';
@@ -31,28 +32,35 @@ import LiteraU from './pages/LiteraU';
 
 import Introduction from './pages/Introduction';
 import InapoiAudio from './assets/sounds/InapoiLaHarta.mp3';
+
 import LiteraALevel1 from './pages/LiteraALevel1';
-import LiteraA from './pages/LiteraA';
 import LiteraALevel2 from './pages/LiteraALevel2';
+
 import MapSelection from './pages/MapSelection';
 import Map1 from './pages/Map1';
 import Map2 from './pages/Map2';
 import Map3 from './pages/Map3';
+
 import LiteraELevel1 from './pages/LiteraELevel1';
-import LiteraILevel1 from './pages/LiteraILevel1';
-import LiteraOLevel1 from './pages/LiteraOLevel1';
-import LiteraULevel1 from './pages/LiteraULevel1';
 import LiteraELevel2 from './pages/LiteraELevel2';
-import LiteraULevel2 from './pages/LiteraULevel1';
+
+import LiteraILevel1 from './pages/LiteraILevel1';
 import LiteraILevel2 from './pages/LiteraILevel2';
+
+import LiteraOLevel1 from './pages/LiteraOLevel1';
 import LiteraOLevel2 from './pages/LiteraOLevel2';
+
+import LiteraULevel1 from './pages/LiteraULevel1';
+import LiteraULevel2 from './pages/LiteraULevel2';
+
 import LiteraB from "./pages/LiteraB";
 import LiteraBLevel1 from "./pages/LiteraBLevel1";
 import LiteraBLevel2 from "./pages/LiteraBLevel2";
+
 import LiteraT from "./pages/LiteraT";
 import LiteraTLevel1 from "./pages/LiteraTLevel1";
 import LiteraTLevel2 from "./pages/LiteraTLevel2";
-// import LiteraELevel1 from './pages/LiteraELevel2';
+
 
 
 const playHoverSound = () => {
@@ -95,7 +103,7 @@ const App: React.FC = () => (
 
           <Route path="/literaU" component={LiteraU} exact={true} />
           <Route path="/LiteraULevel1" component={LiteraULevel1} exact={true} />
-          {/* <Route path="/LiteraULevel2" component={LiteraULevel2} exact={true} />    */}
+          <Route path="/LiteraULevel2" component={LiteraULevel2} exact={true} />   
 
           <Route path="/literaB" component={LiteraB} exact={true} />
           <Route path="/LiteraBLevel1" component={LiteraBLevel1} exact={true} />
