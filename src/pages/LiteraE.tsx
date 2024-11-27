@@ -31,7 +31,7 @@ import { increaseScore } from './Home'
 import { RouteComponentProps } from 'react-router';
 import { useGameSettings } from './Home';
 import CustomToolbar from '../components/CustomToolbar';
-import Bravo from '../assets/sounds/BravoFinalJoc.mp3';
+import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import { arrowForwardOutline } from 'ionicons/icons';

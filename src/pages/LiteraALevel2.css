@@ -28,7 +28,7 @@
     cursor: pointer;
     text-align: center;
     transition: transform 0.2s ease; /* Smooth hover animation */
-}
+  }
 
  
 .literaALevel2-letter:hover {
@@ -71,6 +71,7 @@
     height: 140px;
     object-fit: contain;
     margin-left: 10px; /* Spațiu între cuvânt și imagine */
+  
   }
   
   /* Stil pentru textul cuvântului */

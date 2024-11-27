@@ -14,7 +14,7 @@ import { arrowForwardOutline } from "ionicons/icons";
 import "./LiteraELevel2.css";
 import "./Home.css";
 import CustomToolbar from "../components/CustomToolbar";
-import Bravo from "../assets/sounds/BravoFinalJoc.mp3";
+import Bravo from "../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3";
 import Avanseaza from "../assets/sounds/nivelul-urmator!.mp3";
 import erou from "../assets/images/erou.png";
 import elefant from "../assets/images/elefant.png";
@@ -112,13 +112,13 @@ const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
           <IonFabButton
-            onClick={() => history.push("/LiteraELevel3")} // Use the correct next level path
+            onClick={() => history.push("/LiteraI")} // Use the correct next level path
             disabled={isNextLevelDisabled}
           >
             <IonIcon
               icon={arrowForwardOutline}
               className="black-icon big-arrow"
-              title="Litera E Level 3"
+              title="Litera I"
               aria-label="Next level"
               onMouseEnter={playHoverSoundAvanseaza}
             />

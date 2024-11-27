@@ -15,7 +15,7 @@ import suc from '../assets/images/suc.png';
 
 import { increaseScore, useGameSettings } from './Home'
 import { RouteComponentProps } from 'react-router';
-import Bravo from '../assets/sounds/BravoFinalJoc.mp3';
+import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import CustomToolbar from '../components/CustomToolbar';
 import U from '../assets/sounds/U!.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';

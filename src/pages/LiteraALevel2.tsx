@@ -7,7 +7,7 @@ import { arrowForwardOutline } from 'ionicons/icons';
 import sacImg from '../assets/images/sac.png'; 
 import acImg from '../assets/images/ac.png';     
 import arcImg from '../assets/images/arc.png';   
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/trage-litera-A.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { increaseScore, getScore } from './Home';
 const LiteraALevel2: React.FC<RouteComponentProps> = ({ history }) => {
