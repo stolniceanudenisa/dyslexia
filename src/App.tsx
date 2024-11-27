@@ -28,11 +28,14 @@ import LiteraE from './pages/LiteraE';
 import LiteraI from './pages/LiteraI';
 import LiteraO from './pages/LiteraO';
 import LiteraU from './pages/LiteraU';
-
+import LiteraP from './pages/LiteraP';
+import LiteraR from './pages/LiteraR';
+import LiteraS from './pages/LiteraS';
+import LiteraZ from './pages/LiteraZ';
 
 import Introduction from './pages/Introduction';
 import InapoiAudio from './assets/sounds/InapoiLaHarta.mp3';
-
+ 
 import MapSelection from './pages/MapSelection';
 import Map1 from './pages/Map1';
 import Map2 from './pages/Map2';
@@ -51,6 +54,16 @@ import LiteraILevel2 from './pages/LiteraILevel2';
 
 import LiteraOLevel1 from './pages/LiteraOLevel1';
 import LiteraOLevel2 from './pages/LiteraOLevel2';
+ 
+import LiteraPLevel1 from './pages/LiteraPLevel1';
+import LiteraPLevel2 from './pages/LiteraPLevel2';
+import LiteraRLevel1 from './pages/LiteraRLevel1';
+import LiteraRLevel2 from './pages/LiteraRLevel2';
+import LiteraSLevel1 from './pages/LiteraSLevel1';
+import LiteraSLevel2 from './pages/LiteraSLevel2';
+import LiteraZLevel1 from './pages/LiteraZLevel1';
+import LiteraZLevel2 from './pages/LiteraZLevel2';
+  
 
 import LiteraULevel1 from './pages/LiteraULevel1';
 import LiteraULevel2 from './pages/LiteraULevel2';
@@ -85,6 +98,7 @@ import LiteraMLevel2 from './pages/LiteraMLevel2';
 import LiteraN from './pages/LiteraN';
 import LiteraNLevel1 from './pages/LiteraNLevel1';
 import LiteraNLevel2 from './pages/LiteraNLevel2';
+ 
  
  
 
@@ -122,14 +136,38 @@ const App: React.FC = () => (
           <Route path="/LiteraILevel2" component={LiteraILevel2} exact={true} />
 
           <Route path="/literaO" component={LiteraO} exact={true} />
+
+          <Route path="/LiteraOLevel1" component={LiteraOLevel1} exact={true}  /> 
+          <Route path="/LiteraOLevel2" component={LiteraOLevel2} exact={true} /> 
+
+          <Route path="/literaP" component={LiteraP} exact={true} />
+          <Route path="/LiteraPLevel1" component={LiteraPLevel1} exact={true} />
+          <Route path="/LiteraPLevel2" component={LiteraPLevel2} exact={true} /> 
+
           <Route path="/LiteraOLevel1" component={LiteraOLevel1} exact={true}  />
           <Route path="/LiteraOLevel2" component={LiteraOLevel2} exact={true} />
+
 
 
           <Route path="/literaU" component={LiteraU} exact={true} />
           <Route path="/LiteraULevel1" component={LiteraULevel1} exact={true} />
           <Route path="/LiteraULevel2" component={LiteraULevel2} exact={true} />   
 
+
+          <Route path="/literaR" component={LiteraR} exact={true} />
+          <Route path="/LiteraRLevel1" component={LiteraRLevel1} exact={true} />
+          <Route path="/LiteraRLevel2" component={LiteraRLevel2} exact={true} /> 
+
+          <Route path="/literaS" component={LiteraS} exact={true} />
+          <Route path="/LiteraSLevel1" component={LiteraSLevel1} exact={true} />
+          <Route path="/LiteraSLevel2" component={LiteraSLevel2} exact={true} /> 
+
+          <Route path="/literaZ" component={LiteraZ} exact={true} />
+          <Route path="/LiteraZLevel1" component={LiteraZLevel1} exact={true} />
+          <Route path="/LiteraZLevel2" component={LiteraZLevel2} exact={true} /> 
+
+          {/*
+=======
           <Route path="/literaB" component={LiteraB} exact={true} />
           <Route path="/LiteraBLevel1" component={LiteraBLevel1} exact={true} />
           <Route path="/LiteraBLevel2" component={LiteraBLevel2} exact={true} />
@@ -146,6 +184,7 @@ const App: React.FC = () => (
           <Route path="/literaT" component={LiteraT} exact={true} />
           <Route path="/LiteraTLevel1" component={LiteraTLevel1} exact={true} />
           <Route path="/LiteraTLevel2" component={LiteraTLevel2} exact={true} />
+>>>>>>> 33bd48e699e8443bfb200d1b57e2d0f8f049e647
 
           <Route path="/literaM" component={LiteraM} exact={true} />
           <Route path="/LiteraMLevel1" component={LiteraMLevel1} exact={true} />
@@ -160,12 +199,22 @@ const App: React.FC = () => (
           <Route path="/LiteraPLevel1" component={LiteraPLevel1} exact={true} />
           <Route path="/LiteraPLevel2" component={LiteraPLevel2} exact={true} />
 
+ 
+          
+
+          <Route path="/literaB" component={LiteraM} exact={true} />
+          <Route path="/LiteraBLevel1" component={LiteraBLevel1} exact={true} />
+          <Route path="/LiteraBLevel2" component={LiteraBLevel2} exact={true} />
+
+          <Route path="/literaT" component={LiteraN} exact={true} />
+=======
           <Route path="/literaR" component={LiteraR} exact={true} />
           <Route path="/LiteraRLevel1" component={LiteraRLevel1} exact={true} />
           <Route path="/LiteraRLevel2" component={LiteraRLevel2} exact={true} />  */}
 
 
           <Route path="/literaT" component={LiteraT} exact={true} />
+ 
           <Route path="/LiteraTLevel1" component={LiteraTLevel1} exact={true} />
       
           <Route path="/LiteraTLevel2" component={LiteraTLevel2} exact={true} />  
