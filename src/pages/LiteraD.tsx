@@ -14,7 +14,7 @@ import DinozaurAudio from '../assets/sounds/dinozaur.mp3';
 import PodAudio from '../assets/sounds/pod.mp3';
 import DesertAudio from '../assets/sounds/desert.mp3';
 import CadouAudio from '../assets/sounds/cadou.mp3';
-import PadureAudio from '../assets/sounds/padure.mp3';
+import PadureAudio from '../assets/sounds/cadou.mp3';
 import DrumAudio from '../assets/sounds/drum.mp3';
 import DinteAudio from '../assets/sounds/dinte.mp3';
 import DoiAudio from '../assets/sounds/doi.mp3';

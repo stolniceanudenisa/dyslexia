@@ -105,9 +105,7 @@ const LiteraPLevel1: React.FC<RouteComponentProps> = ({ history }) => {
     return (
         <IonPage>
             <IonHeader>
-                <IonToolbar>
-                    <IonTitle>Litera P Level 1</IonTitle>
-                </IonToolbar>
+                <CustomToolbar title="Litera P Level 1" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
             </IonHeader>
             <IonContent className="letter-page">
                 <div className="container">

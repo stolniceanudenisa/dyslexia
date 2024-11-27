@@ -13,7 +13,7 @@ import cort from '../assets/images/cort.png';
 import TaurAudio from '../assets/sounds/taur.mp3';
 import PatAudio from '../assets/sounds/pat.mp3';
 import CarteAudio from '../assets/sounds/carte.mp3';
-import TortAudio from '../assets/sounds/tort.mp3';
+import TortAudio from '../assets/sounds/taur.mp3';
 import CastelAudio from '../assets/sounds/castel.mp4';
 import TrompetaAudio from '../assets/sounds/trompetă.mp4';
 import TimpAudio from '../assets/sounds/timp.mp4';
