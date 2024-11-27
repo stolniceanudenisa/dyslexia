@@ -68,6 +68,12 @@ import LiteraHLevel2 from "./pages/LiteraHLevel2";
 import LiteraJ from "./pages/LiteraJ";
 import LiteraJLevel1 from "./pages/LiteraJLevel1";
 import LiteraJLevel2 from "./pages/LiteraJLevel2";
+import LiteraM from './pages/LiteraM';
+import LiteraMLevel1 from './pages/LiteraMLevel1';
+import LiteraMLevel2 from './pages/LiteraMLevel2';
+import LiteraN from './pages/LiteraN';
+import LiteraNLevel1 from './pages/LiteraNLevel1';
+import LiteraNLevel2 from './pages/LiteraNLevel2';
 // import LiteraELevel1 from './pages/LiteraELevel2';
 
 
@@ -130,11 +136,6 @@ const App: React.FC = () => (
           <Route path="/LiteraTLevel1" component={LiteraTLevel1} exact={true} />
           <Route path="/LiteraTLevel2" component={LiteraTLevel2} exact={true} />
 
-
-          {/*
-          
-
-          
           <Route path="/literaM" component={LiteraM} exact={true} />
           <Route path="/LiteraMLevel1" component={LiteraMLevel1} exact={true} />
           <Route path="/LiteraMLevel2" component={LiteraMLevel2} exact={true} />
@@ -142,6 +143,15 @@ const App: React.FC = () => (
           <Route path="/literaN" component={LiteraN} exact={true} />
           <Route path="/LiteraNLevel1" component={LiteraNLevel1} exact={true} />
           <Route path="/LiteraNLevel2" component={LiteraNLevel2} exact={true} />
+
+
+          
+
+          {/*
+          
+
+          
+         
 
           <Route path="/literaP" component={LiteraP} exact={true} />
           <Route path="/LiteraPLevel1" component={LiteraPLevel1} exact={true} />
