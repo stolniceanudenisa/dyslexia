@@ -1,0 +1,127 @@
+/* General container styling */
+.literaVLevel2-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+    height: 100%;
+}
+
+/* Content area with the serpent and words */
+.literaVLevel2-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 90%;
+    margin: 20px auto;
+}
+
+/* Serpent container (left side) */
+.literaVLevel2-serpent {
+    display: flex;
+    margin-top: 90px;
+    margin-left: 90px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom, #fff5e6, #ffe0b3);
+    border: 2px solid #ff9a3d;
+    border-radius: 15px;
+    padding: 15px;
+    width: 120px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.literaVLevel2-letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff704d;
+    background-color: #fff;
+    border: 2px solid #ff704d;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    margin: 10px 0;
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.literaVLevel2-letter.used {
+    background-color: #d9d9d9;
+    color: #a6a6a6;
+    border: 2px solid #a6a6a6;
+    cursor: not-allowed;
+}
+
+.literaVLevel2-letter:active {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Words container (right side) */
+.literaVLevel2-words {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 190px;
+    margin-right: 70px;
+    width: 70%;
+    gap: 20px;
+}
+
+/* Word container */
+.literaVLevel2-word-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 260px;
+    height: 160px;
+
+    background-color: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.literaVLevel2-word-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Word text */
+.literaVLevel2-word {
+    font-size: 35px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Word images */
+.literaVLevel2-word-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+
+}
+
+/* Next level button styles */
+.black-icon.big-arrow {
+    font-size: 28px;
+    color: #333;
+}
+
+.black-icon.big-arrow:hover {
+    color: #ff704d;
+}
