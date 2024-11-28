@@ -1,30 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonButton, IonFab, IonFabButton, IonIcon } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonButton, IonFab, IonFabButton, IonIcon, IonToolbar } from '@ionic/react';
 import { arrowForwardOutline } from 'ionicons/icons';
 import { increaseScore, useGameSettings } from './Home';
 import { RouteComponentProps } from 'react-router';
-
-///AICI SUNETUL PENTRU CSI D ESTE AL LUI D PT CA NU LE GASESTE!!!!!!!!!!
-import F from '../assets/sounds/F!.mp3';
-import C from '../assets/sounds/C!.mp3'
-import D from '../assets/sounds/D!.mp3';
-
-
+// import Bravo from '../assets/sounds/FelicitariFinalJoc.mp3';
+import G from '../assets/sounds/G!.mp3';
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
 
-type ButtonText = "F" | "C" | "D" | "★";
+type ButtonText = "G" | "★" | "F" | "D";
 
-const LiteraOLevel1: React.FC<RouteComponentProps> = ({ history }) => {
+const LiteraGLevel1: React.FC<RouteComponentProps> = ({ history }) => {
     const [counter, setCounter] = useState(0);
     const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
 
     const totalButtons = 20; // 4x5 matrix
-    const percentageOfF = 30; // 30% O
-    const percentageOfC = 10; // 10% E
-    const percentageOfD = 10; // 10% I
-    const traps = totalButtons - (totalButtons * (percentageOfF + percentageOfC + percentageOfD) / 100); // Remaining are traps
+    const percentageOfG = 30; // 30% U
+    const percentageOfF = 10; // 10% I
+    const percentageOfD = 10; // 10% O
+    const traps = totalButtons - (totalButtons * (percentageOfG + percentageOfF + percentageOfD) / 100); // Remaining are traps
 
     const [buttonTextList, setButtonTextList] = useState<ButtonText[]>([]);
     const [clickedButtons, setClickedButtons] = useState<number[]>([]);
@@ -33,13 +28,13 @@ const LiteraOLevel1: React.FC<RouteComponentProps> = ({ history }) => {
     useEffect(() => {
         const generateButtonTextList = () => {
             let initialList: ButtonText[] = [];
-            // Add percentages of O, E, I, and traps
+            // Add percentages of U, I, O, and traps
             for (let i = 0; i < totalButtons; i++) {
-                if (i < totalButtons * percentageOfF / 100) {
+                if (i < totalButtons * percentageOfG / 100) {
+                    initialList.push("G");
+                } else if (i < totalButtons * (percentageOfG + percentageOfF) / 100) {
                     initialList.push("F");
-                } else if (i < totalButtons * (percentageOfF + percentageOfC) / 100) {
-                    initialList.push("C");
-                } else if (i < totalButtons * (percentageOfF + percentageOfC + percentageOfD) / 100) {
+                } else if (i < totalButtons * (percentageOfG + percentageOfF + percentageOfD) / 100) {
                     initialList.push("D");
                 } else {
                     initialList.push("★");
@@ -58,41 +53,30 @@ const LiteraOLevel1: React.FC<RouteComponentProps> = ({ history }) => {
             setClickedButtons(prevState => [...prevState, buttonIndex]);
 
             const buttonType = buttonTextList[buttonIndex];
-            if (buttonType === "F") {
+            if (buttonType === "G") {
                 setCounter(prevCounter => {
                     const newCounter = prevCounter + 1;
-                    if (newCounter === totalButtons * percentageOfF / 100) {
+                    if (newCounter === totalButtons * percentageOfG / 100) {
                         if (audioPlayer) {
                             // audioPlayer.src = Bravo;
                             audioPlayer.playbackRate = 0.85;
                             audioPlayer.play();
                         }
-                        useGameSettings('O');
+                        useGameSettings('G');
                         setIsNextLevelDisabled(false); // Enable next level
                     }
                     return newCounter;
                 });
                 increaseScore();
-                if (audioPlayer) {
-                    audioPlayer.src = F;
-                    audioPlayer.playbackRate = 1.0;
-                    audioPlayer.play();
-                }
-            } else if (buttonType === "C") {
-                if (audioPlayer) {
-                    audioPlayer.src = C;
-                    audioPlayer.playbackRate = 1.0;
-                    audioPlayer.play();
-                }
-            } else if (buttonType === "D") {
-                if (audioPlayer) {
-                    audioPlayer.src = D;
-                    audioPlayer.playbackRate = 1.0;
-                    audioPlayer.play();
-                }
             } else if (buttonType === "★") {
                 if (audioPlayer) {
                     // Handle trap sound
+                    audioPlayer.playbackRate = 1.0;
+                    audioPlayer.play();
+                }
+            } else {
+                if (audioPlayer) {
+                    // Handle wrong answer sounds
                     audioPlayer.playbackRate = 1.0;
                     audioPlayer.play();
                 }
@@ -101,14 +85,12 @@ const LiteraOLevel1: React.FC<RouteComponentProps> = ({ history }) => {
     };
 
     const isCorrect = (buttonText: string) => {
-        if (buttonText === "F") return "success";
-        if (buttonText === "C") return "tertiary";
-        if (buttonText === "D") return "tertiary";
+        if (buttonText === "G") return "success";
         return "danger"; // Trap
     };
 
     const playHoverSound = () => {
-        const audio = new Audio(F);
+        const audio = new Audio(G);
         audio.play();
     };
 
@@ -121,11 +103,10 @@ const LiteraOLevel1: React.FC<RouteComponentProps> = ({ history }) => {
         const audio = new Audio(Avanseaza);
         audio.play();
     };
-
     return (
         <IonPage>
             <IonHeader>
-                <CustomToolbar title="Litera F Level 1" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
+                <CustomToolbar title="Litera G Level 2" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
             </IonHeader>
             <IonContent className="letter-page">
                 <div className="container">
@@ -152,9 +133,17 @@ const LiteraOLevel1: React.FC<RouteComponentProps> = ({ history }) => {
                     </div>
                 </div>
 
+
+
                 <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                    <IonFabButton onClick={() => history.push('/LiteraFLevel2')} disabled={isNextLevelDisabled}>
-                        <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title="Litera F Level 2" aria-label="Next level" onMouseEnter={playHoverSoundAvanseaza} />
+                    <IonFabButton onClick={() => history.push('/LiteraGLevel2')}>
+                        <IonIcon
+                            icon={arrowForwardOutline}
+                            className="black-icon big-arrow"
+                            title="Litera G Level 2"
+                            aria-label="Next level"
+                            onMouseEnter={playHoverSoundAvanseaza}
+                        />
                     </IonFabButton>
                 </IonFab>
             </IonContent>
@@ -163,4 +152,4 @@ const LiteraOLevel1: React.FC<RouteComponentProps> = ({ history }) => {
 };
 
 
-export default LiteraOLevel1;
+export default LiteraGLevel1;

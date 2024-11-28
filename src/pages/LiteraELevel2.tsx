@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import {
   IonContent,
@@ -45,7 +46,7 @@ const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
     if (updatedFlippedCards.length === 2) {
       const [firstCard, secondCard] = updatedFlippedCards.map((id) =>
-        cards.find((card) => card.id === id)
+          cards.find((card) => card.id === id)
       );
 
       if (firstCard && secondCard && firstCard.text === secondCard.text) {
@@ -66,7 +67,7 @@ const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
   };
 
   const isRevealed = (cardId: number) =>
-    flippedCards.includes(cardId) || matchedCards.includes(cardId);
+      flippedCards.includes(cardId) || matchedCards.includes(cardId);
 
   const playHoverSoundAvanseaza = () => {
     const audio = new Audio(Avanseaza);
@@ -79,53 +80,53 @@ const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
   };
 
   return (
-    <IonPage>
-      <IonHeader>
-        <CustomToolbar
-          title="Litera E Level 2 - Memory Game"
-          onBackClick={handleBackClick} // Use handleBackClick instead of history.goBack directly
-        />
-      </IonHeader>
-      <IonContent className="memory-game-content">
-        <IonGrid>
-          <IonRow>
-            {cards.map((card) => (
-              <IonCol size="6" key={card.id} className="card-container">
-                <div
-                  className={`memory-card ${isRevealed(card.id) ? "revealed" : ""}`}
-                  onClick={() => handleCardClick(card.id)}
-                >
-                  {isRevealed(card.id) ? (
-                    <div className="card-content">
-                      <strong className="highlight">E</strong>
-                      {card.text.slice(1)}
-                      <img src={card.img} alt={card.text} className="card-image" />
+      <IonPage>
+        <IonHeader>
+          <CustomToolbar
+              title="Litera E Level 2 - Memory Game"
+              onBackClick={handleBackClick} // Use handleBackClick instead of history.goBack directly
+          />
+        </IonHeader>
+        <IonContent className="memory-game-content">
+          <IonGrid>
+            <IonRow>
+              {cards.map((card) => (
+                  <IonCol size="6" key={card.id} className="card-container">
+                    <div
+                        className={`memory-card ${isRevealed(card.id) ? "revealed" : ""}`}
+                        onClick={() => handleCardClick(card.id)}
+                    >
+                      {isRevealed(card.id) ? (
+                          <div className="card-content">
+                            <strong className="highlight">E</strong>
+                            {card.text.slice(1)}
+                            <img src={card.img} alt={card.text} className="card-image" />
+                          </div>
+                      ) : (
+                          <div className="card-back">?</div>
+                      )}
                     </div>
-                  ) : (
-                    <div className="card-back">?</div>
-                  )}
-                </div>
-              </IonCol>
-            ))}
-          </IonRow>
-        </IonGrid>
+                  </IonCol>
+              ))}
+            </IonRow>
+          </IonGrid>
 
-        <IonFab vertical="bottom" horizontal="end" slot="fixed">
-          <IonFabButton
-            onClick={() => history.push("/LiteraELevel3")} // Use the correct next level path
-            disabled={isNextLevelDisabled}
-          >
-            <IonIcon
-              icon={arrowForwardOutline}
-              className="black-icon big-arrow"
-              title="Litera E Level 3"
-              aria-label="Next level"
-              onMouseEnter={playHoverSoundAvanseaza}
-            />
-          </IonFabButton>
-        </IonFab>
-      </IonContent>
-    </IonPage>
+          <IonFab vertical="bottom" horizontal="end" slot="fixed">
+            <IonFabButton
+                onClick={() => history.push("/LiteraELevel3")} // Use the correct next level path
+                disabled={isNextLevelDisabled}
+            >
+              <IonIcon
+                  icon={arrowForwardOutline}
+                  className="black-icon big-arrow"
+                  title="Litera E Level 3"
+                  aria-label="Next level"
+                  onMouseEnter={playHoverSoundAvanseaza}
+              />
+            </IonFabButton>
+          </IonFab>
+        </IonContent>
+      </IonPage>
   );
 };
 

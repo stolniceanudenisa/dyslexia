@@ -48,6 +48,10 @@ import LiteraILevel2 from './pages/LiteraILevel2';
 import LiteraOLevel2 from './pages/LiteraOLevel2';
 import LiteraF from "./pages/LiteraF";
 import LiteraFLevel1 from "./pages/LiteraFLevel1";
+import LiteraFLevel2 from "./pages/LiteraFLevel2";
+import LiteraG from "./pages/LiteraG";
+import LiteraGLevel1 from "./pages/LiteraGLevel1";
+import LiteraGLevel2 from "./pages/LiteraGLevel2";
 // import LiteraELevel1 from './pages/LiteraELevel2';
 
 
@@ -59,44 +63,49 @@ const playHoverSound = () => {
 setupIonicReact();
 
 const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Redirect exact path="/" to="/intro" />
-          <Route path="/intro" component={Introduction} exact={true} />
-          <Route path="/home" component={Home} exact={true} /> 
+    <IonApp>
+      <IonReactRouter>
+        <IonTabs>
+          <IonRouterOutlet>
+            <Redirect exact path="/" to="/intro"/>
+            <Route path="/intro" component={Introduction} exact={true}/>
+            <Route path="/home" component={Home} exact={true}/>
 
-          <Route path="/maps" component={MapSelection} exact={true} />
-          <Route path="/map1" component={Map1} exact={true} />
-          <Route path="/map2" component={Map2} exact={true} />
-          <Route path="/map3" component={Map3} exact={true} />
-          
-          <Route path="/literaA" component={LiteraA} exact={true} />
-          <Route path="/LiteraALevel1" component={LiteraALevel1} exact={true} />
-          <Route path="/LiteraALevel2" component={LiteraALevel2} exact={true} />
-         
-          <Route path="/literaE" component={LiteraE} exact={true} />
-          <Route path="/LiteraELevel1" component={LiteraELevel1} exact={true} />
-          <Route path="/LiteraELevel2" component={LiteraELevel2} exact={true} />
+            <Route path="/maps" component={MapSelection} exact={true}/>
+            <Route path="/map1" component={Map1} exact={true}/>
+            <Route path="/map2" component={Map2} exact={true}/>
+            <Route path="/map3" component={Map3} exact={true}/>
 
-          <Route path="/literaI" component={LiteraI} exact={true} />
-          <Route path="/LiteraILevel1" component={LiteraILevel1} exact={true} />
-          <Route path="/LiteraILevel2" component={LiteraILevel2} exact={true} />  
+            <Route path="/literaA" component={LiteraA} exact={true}/>
+            <Route path="/LiteraALevel1" component={LiteraALevel1} exact={true}/>
+            <Route path="/LiteraALevel2" component={LiteraALevel2} exact={true}/>
 
-          <Route path="/literaO" component={LiteraO} exact={true} />
-          <Route path="/LiteraOLevel1" component={LiteraOLevel1} exact={true}  /> 
-          <Route path="/LiteraOLevel2" component={LiteraOLevel2} exact={true} />  
+            <Route path="/literaE" component={LiteraE} exact={true}/>
+            <Route path="/LiteraELevel1" component={LiteraELevel1} exact={true}/>
+            <Route path="/LiteraELevel2" component={LiteraELevel2} exact={true}/>
+
+            <Route path="/literaI" component={LiteraI} exact={true}/>
+            <Route path="/LiteraILevel1" component={LiteraILevel1} exact={true}/>
+            <Route path="/LiteraILevel2" component={LiteraILevel2} exact={true}/>
+
+            <Route path="/literaO" component={LiteraO} exact={true}/>
+            <Route path="/LiteraOLevel1" component={LiteraOLevel1} exact={true}/>
+            <Route path="/LiteraOLevel2" component={LiteraOLevel2} exact={true}/>
 
 
-          <Route path="/literaU" component={LiteraU} exact={true} />
-          <Route path="/LiteraULevel1" component={LiteraULevel1} exact={true} />
-          {/* <Route path="/LiteraULevel2" component={LiteraULevel2} exact={true} />    */}
+            <Route path="/literaU" component={LiteraU} exact={true}/>
+            <Route path="/LiteraULevel1" component={LiteraULevel1} exact={true}/>
+            {/* <Route path="/LiteraULevel2" component={LiteraULevel2} exact={true} />    */}
 
-          <Route path="/literaF" component={LiteraF} exact={true} />
-          <Route path="/LiteraFLevel1" component={LiteraFLevel1} exact={true}  />
+            <Route path="/literaF" component={LiteraF} exact={true}/>
+            <Route path="/LiteraFLevel1" component={LiteraFLevel1} exact={true}/>
+            <Route path="/LiteraFLevel2" component={LiteraFLevel2} exact={true}/>
 
-          {/*
+            <Route path="/literaG" component={LiteraG} exact={true} />
+            <Route path="/LiteraGLevel1" component={LiteraGLevel1} exact={true}  />
+            <Route path="/LiteraGLevel2" component={LiteraGLevel2} exact={true}  />
+
+            {/*
 
           !!!!!!<Route path="/LiteraFLevel2" component={LiteraFLevel2} exact={true} />
 
@@ -184,12 +193,10 @@ const App: React.FC = () => (
           */}
 
 
+          </IonRouterOutlet>
 
 
-        </IonRouterOutlet>
-
-
-        {/* <IonTabBar slot="bottom">
+          {/* <IonTabBar slot="bottom">
           <IonTabButton tab="home" href="/home">
             <IonIcon icon={home} />
             <IonLabel onMouseEnter={playHoverSound}>Home</IonLabel>
@@ -197,10 +204,9 @@ const App: React.FC = () => (
         </IonTabBar> */}
 
 
-
-      </IonTabs>
-    </IonReactRouter>
-  </IonApp>
+        </IonTabs>
+      </IonReactRouter>
+    </IonApp>
 );
 
 export default App;
