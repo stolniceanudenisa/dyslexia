@@ -25,14 +25,12 @@ import { RouteComponentProps } from "react-router";
 const LiteraSLevel2: React.FC<RouteComponentProps> = ({ history }) => {
   // Adăugăm perechi de carduri pentru a fi plasate pe laturi opuse
   const initialCards = [
-    { id: 1, text: "STILOU", img: stilou, revealed: false },
-    { id: 2, text: "STEA", img: stea, revealed: false },
-    { id: 3, text: "SALATA", img: salata, revealed: false },
-    { id: 4, text: "SARE", img: sare, revealed: false },
-    { id: 5, text: "STILOU", img: stilou, revealed: false },
-    { id: 6, text: "STEA", img: stea, revealed: false },
-    { id: 7, text: "SALATA", img: salata, revealed: false },
-    { id: 8, text: "SARE", img: sare, revealed: false },
+    { id: 1, text: "STEA", img: stea, revealed: false },
+    { id: 2, text: "SALATA", img: salata, revealed: false },
+    { id: 3, text: "SARE", img: sare, revealed: false },
+    { id: 4, text: "STEA", img: stea, revealed: false },
+    { id: 5, text: "SALATA", img: salata, revealed: false },
+    { id: 6, text: "SARE", img: sare, revealed: false },
   ];
 
   // Funcție pentru amestecarea cardurilor
