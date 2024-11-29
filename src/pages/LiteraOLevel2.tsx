@@ -12,6 +12,8 @@ import oglindaImg from '../assets/images/oglinda.png';
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { increaseScore, getScore } from './Home';
+import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
+
 
 const LiteraOLevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
@@ -23,12 +25,9 @@ const LiteraOLevel2: React.FC<RouteComponentProps> = ({ history }) => {
     OGLINDA: false,
   });
 
-  // Starea pentru literele "O" din linia de sus
   const [lettersUsed, setLettersUsed] = useState([false, false, false, false]);
 
   const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
-
-  const [audioPlayer, setAudioPlayer] = useState<HTMLAudioElement | null>(null);
 
   const playClickAudio = () => {
     const audio = new Audio(Repeta);
@@ -48,11 +47,14 @@ const LiteraOLevel2: React.FC<RouteComponentProps> = ({ history }) => {
       // Verificăm fiecare cuvânt
       if (word === "OAIE" && !completedWords.OAIE) {
         setCompletedWords((prev) => ({ ...prev, OAIE: true }));
+        increaseScore();  // Increase score when a word is completed
       } else if (word === "OU" && !completedWords.OU) {
         setCompletedWords((prev) => ({ ...prev, OU: true }));
+        increaseScore();  // Increase score when a word is completed
       } else if (word === "OGLINDA" && !completedWords.OGLINDA) {
         setCompletedWords((prev) => ({ ...prev, OGLINDA: true }));
-      } 
+        increaseScore();  // Increase score when a word is completed
+      }
     }
   };
 
@@ -71,6 +73,13 @@ const LiteraOLevel2: React.FC<RouteComponentProps> = ({ history }) => {
   // Folosim `useEffect` pentru a verifica starea la fiecare schimbare
   useEffect(() => {
     checkCompletion();
+
+    // Play Bravo sound when all words are completed
+    const allCompleted = Object.values(completedWords).every((wordCompleted) => wordCompleted);
+    if (allCompleted) {
+      const bravoAudio = new Audio(Bravo);
+      bravoAudio.play();
+    }
   }, [completedWords]);
 
   // Handler pentru schimbarea stării când un "O" este folosit
@@ -134,8 +143,6 @@ const LiteraOLevel2: React.FC<RouteComponentProps> = ({ history }) => {
             <span className="literaOLevel2-word">{completedWords.OGLINDA ? "OGLINDA" : "_GLINDA"}</span>
             <img src={oglindaImg} alt="Oglinda" className="literaOLevel2-word-image" />
           </div>
-
-     
         </div>
       </IonContent>
 

@@ -1,6 +1,6 @@
  
 ion-content.background3 {
-    --background: url('../theme/theme-harta3-pestera.jpg') no-repeat center center / cover; 
+    --background: url('../theme/pestera-piratilor.jpg') no-repeat center center / cover; 
     position: relative;  
     height: 100vh;  
     width: 100vw;  
@@ -99,48 +99,48 @@ ion-content.background3 {
 
  
 .button-container .f {
-  top: 10%;  
-  left: 25%;  
+  top: 25%;  
+  left: 35%;  
 }
 
  
 .button-container .g {
-  top: 20%;  
+  top: 39%;  
   left: 45%;  
 }
 
  
 .button-container .h {
-  top: 30%;   
-  left: 10%;  
+  top: 46%;   
+  left: 30%;  
 }
 
  
 .button-container .j {
-  top: 40%;  
-  left: 65%;  
+  top: 62%;  
+  left: 20%;  
 }
 
  
 .button-container .l {
-  top: 55%; 
-  left: 30%;  
+  top: 70%; 
+  left: 36%;  
 }
 
  
 .button-container .s {
   top: 60%; 
-  left: 75%;  
+  left: 49%;  
 }
 
  
 .button-container .v {
-  top: 70%; 
-  left: 20%;  
+  top: 66%; 
+  left: 64%;  
 }
 
  
 .button-container .z {
-  top: 80%; 
-  left: 50%;  
+  top: 34%; 
+  left: 70%;  
 }

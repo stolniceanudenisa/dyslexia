@@ -3,7 +3,7 @@ import { IonContent, IonHeader, IonPage, IonButton, IonFab, IonFabButton, IonIco
 import { arrowForwardOutline } from 'ionicons/icons';
 import { increaseScore, useGameSettings } from './Home';
 import { RouteComponentProps } from 'react-router';
- 
+import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import O from '../assets/sounds/O!.mp3';
 import E from '../assets/sounds/E!.mp3';
 import I from '../assets/sounds/I!.mp3';
@@ -50,49 +50,35 @@ const LiteraOLevel1: React.FC<RouteComponentProps> = ({ history }) => {
     }, []);
 
     const handleButtonClick = (buttonIndex: number) => {
-        // Check if this button has already been clicked
         if (!clickedButtons.includes(buttonIndex)) {
-            setClickedButtons(prevState => [...prevState, buttonIndex]);
-
+            setClickedButtons(prev => [...prev, buttonIndex]);
+    
             const buttonType = buttonTextList[buttonIndex];
             if (buttonType === "O") {
                 setCounter(prevCounter => {
                     const newCounter = prevCounter + 1;
                     if (newCounter === totalButtons * percentageOfO / 100) {
-                        if (audioPlayer) {
-                            // audioPlayer.src = Bravo;
-                            audioPlayer.playbackRate = 0.85;
-                            audioPlayer.play();
-                        }
-                        useGameSettings('O');
-                        setIsNextLevelDisabled(false); // Enable next level
+                        // Redare sunet "Bravo" la completarea literei "O"
+                        const bravoAudio = new Audio(Bravo);
+                        bravoAudio.play();
+    
+                        // Activare săgeată pentru nivelul următor
+                        setIsNextLevelDisabled(false);
                     }
                     return newCounter;
                 });
+                // Creștere scor
                 increaseScore();
-                if (audioPlayer) {
-                    audioPlayer.src = O;
-                    audioPlayer.playbackRate = 1.0;
-                    audioPlayer.play();
-                }
+    
+                // // Redare sunet pentru litera "O"
+                // const oAudio = new Audio(O);
+                // oAudio.play();
             } else if (buttonType === "E") {
-                if (audioPlayer) {
-                    audioPlayer.src = E;
-                    audioPlayer.playbackRate = 1.0;
-                    audioPlayer.play();
-                }
+                // const eAudio = new Audio(E);
+                // eAudio.play();
             } else if (buttonType === "I") {
-                if (audioPlayer) {
-                    audioPlayer.src = I;
-                    audioPlayer.playbackRate = 1.0;
-                    audioPlayer.play();
-                }
-            } else if (buttonType === "★") {
-                if (audioPlayer) {
-                    // Handle trap sound
-                    audioPlayer.playbackRate = 1.0;
-                    audioPlayer.play();
-                }
+                // const iAudio = new Audio(I);
+                // iAudio.play();
             }
         }
     };
@@ -105,7 +91,7 @@ const LiteraOLevel1: React.FC<RouteComponentProps> = ({ history }) => {
     };
 
     const playHoverSound = () => {
-        const audio = new Audio(O);
+        const audio = new Audio(Avanseaza);
         audio.play();
     };
 

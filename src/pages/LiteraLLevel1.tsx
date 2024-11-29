@@ -5,7 +5,7 @@ import { increaseScore, useGameSettings } from './Home';
 import { RouteComponentProps } from 'react-router';
 
 import L from '../assets/sounds/L.mp3';
-import J from '../assets/sounds/A!.mp3'; // de modificat aici
+import J from '../assets/sounds/A!.mp3'; 
 import I from '../assets/sounds/I!.mp3';
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';

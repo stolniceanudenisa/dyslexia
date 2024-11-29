@@ -2,10 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonButton, IonIcon, IonFab, IonFabButton } from '@ionic/react';
 import { arrowForward } from 'ionicons/icons';
 import './Litere.css';
-// import erou from '../assets/images/erou.svg';
-// import elefant from '../assets/images/elefant.svg';
-// import evantai from '../assets/images/evantai.svg';
-// import esarfa from '../assets/images/esarfa.svg';
 
 import erou from '../assets/images/erou1.png';
 import elefant from '../assets/images/elefant1.png';

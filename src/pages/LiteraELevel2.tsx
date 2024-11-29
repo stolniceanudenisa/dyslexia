@@ -20,6 +20,8 @@ import erou from "../assets/images/erou.png";
 import elefant from "../assets/images/elefant.png";
 import evantai from "../assets/images/evantai.png";
 import { RouteComponentProps } from "react-router";
+import { increaseScore } from "./Home";
+
 
 const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
   const [cards, setCards] = useState([
@@ -49,13 +51,16 @@ const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
       );
 
       if (firstCard && secondCard && firstCard.text === secondCard.text) {
-        const audio = new Audio(Bravo);
-        audio.play();
+        // Pereche corectă
         setMatchedCards((prev) => [...prev, firstCard.id, secondCard.id]);
+        increaseScore(); // Adăugare monede după fiecare pereche
 
-        // Check if all cards are matched
+        // Verificare completare joc
         if (matchedCards.length + 2 === cards.length) {
-          setIsNextLevelDisabled(false); // Enable the next level button
+          const audio = new Audio(Bravo);
+          audio.play();
+
+          setIsNextLevelDisabled(false); // Activare buton pentru următorul nivel
         }
       }
 
@@ -74,8 +79,7 @@ const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
   };
 
   const handleBackClick = () => {
-    // Navigate back to the previous page or a valid route
-    history.goBack(); // Ensure the goBack() works correctly with your app structure
+    history.goBack();
   };
 
   return (
@@ -83,7 +87,7 @@ const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
       <IonHeader>
         <CustomToolbar
           title="Litera E Level 2 - Memory Game"
-          onBackClick={handleBackClick} // Use handleBackClick instead of history.goBack directly
+          onBackClick={handleBackClick}
         />
       </IonHeader>
       <IonContent className="memory-game-content">
@@ -112,7 +116,7 @@ const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
           <IonFabButton
-            onClick={() => history.push("/LiteraI")}  
+            onClick={() => history.push("/LiteraI")}
             disabled={isNextLevelDisabled}
           >
             <IonIcon

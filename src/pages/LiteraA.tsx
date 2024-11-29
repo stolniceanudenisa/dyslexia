@@ -17,7 +17,7 @@ import AlbinaAudio from '../assets/sounds/albina!.mp3';
 import CasaAudio from '../assets/sounds/casa!.mp3';
 import SacAudio from '../assets/sounds/sac!.mp3';
 import MacAudio from '../assets/sounds/sac!.mp3';
-import MasaAudio from '../assets/sounds/casa!.mp3';
+import MasaAudio from '../assets/sounds/masa!.mp3';
 
 
 import A from '../assets/sounds/A!.mp3';

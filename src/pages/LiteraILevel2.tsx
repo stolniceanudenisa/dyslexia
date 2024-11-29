@@ -13,6 +13,8 @@ import baiatImg from '../assets/images/baiat.png';
 
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
+import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
+import { increaseScore, useGameSettings } from './Home'
 
 const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
   const [completedWords, setCompletedWords] = useState({
@@ -25,6 +27,7 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
   const [lettersUsed, setLettersUsed] = useState([false, false, false, false, false, false]); // "I" letters
   const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
+  const [coins, setCoins] = useState(0); // Track coins
 
   const playClickAudio = () => {
     const audio = new Audio(Repeta);
@@ -36,13 +39,21 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
     audio.play();
   };
 
-  const handleDrop = (event: React.DragEvent, word: string) => {
+  const handleDrop = (event: React.DragEvent, word: keyof typeof completedWords) => {
     const letter = event.dataTransfer.getData('letter');
     if (letter === 'I') {
-      setCompletedWords((prev) => ({
-        ...prev,
-        [word]: true,
-      }));
+      // Check if the word is already completed, if not, complete it and add coins
+      if (!completedWords[word]) {
+        setCompletedWords((prev) => ({
+          ...prev,
+          [word]: true,
+        }));
+        // Award a coin for completing the word
+        setCoins((prevCoins) => prevCoins + 1); // Increase local coin count
+  
+        // Call increaseScore() if it's meant to update a global state or score
+        increaseScore();
+      }
     }
   };
 
@@ -53,6 +64,10 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
   const checkCompletion = () => {
     const allCompleted = Object.values(completedWords).every((wordCompleted) => wordCompleted);
     setIsNextLevelDisabled(!allCompleted); // Enable the next level button if all words are completed
+    if (allCompleted) {
+      const bravoAudio = new Audio(Bravo);
+      bravoAudio.play(); // Play Bravo sound when all words are completed
+    }
   };
 
   useEffect(() => {
@@ -108,7 +123,7 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
               <img src={cartiImg} alt="Carti" className="literaILevel2-word-image" />
             </div>
 
-            {/* INIMA */}
+            {/* MIERE */}
             <div className="literaILevel2-word-container" onDrop={(e) => handleDrop(e, 'MIERE')} onDragOver={allowDrop}>
               <span className="literaILevel2-word">{completedWords.MIERE ? 'MIERE' : 'M_ERE'}</span>
               <img src={miereImg} alt="Miere" className="literaILevel2-word-image" />
@@ -143,5 +158,6 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
     </IonPage>
   );
 };
+
 
 export default LiteraILevel2;

@@ -10,71 +10,65 @@ import arcImg from '../assets/images/arc.png';
 import Repeta from '../assets/sounds/trage-litera-A.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { increaseScore, getScore } from './Home';
+import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
+
 const LiteraALevel2: React.FC<RouteComponentProps> = ({ history }) => {
-
-    
-const [score, setScore] = useState(getScore());
-
+  const [score, setScore] = useState(getScore());
   const [completedWords, setCompletedWords] = useState({
     SAC: false,
     AC: false,
     ARC: false,
   });
 
-  // Starea pentru literele "A" din linia de sus
   const [lettersUsed, setLettersUsed] = useState([false, false, false]);
-
   const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
 
-  const [audioPlayer, setAudioPlayer] = useState<HTMLAudioElement | null>(null);
-
- 
-
-const playClickAudio = () => {
+  const playClickAudio = () => {
     const audio = new Audio(Repeta);
     audio.play();
-};
+  };
 
-const playHoverSoundAvanseaza = () => {
+  const playHoverSoundAvanseaza = () => {
     const audio = new Audio(Avanseaza);
     audio.play();
-};
+  };
 
-
-  // Handler pentru drop-ul unei litere in cuvânt
+  // Funcție pentru gestionarea plasării literei
   const handleDrop = (event: React.DragEvent, word: string) => {
     const letter = event.dataTransfer.getData("letter");
 
     if (letter === "A") {
-      // Verificăm fiecare cuvânt
+      // Adăugare punctaj și actualizare starea cuvântului completat
       if (word === "SAC" && !completedWords.SAC) {
         setCompletedWords((prev) => ({ ...prev, SAC: true }));
+        increaseScore();
       } else if (word === "AC" && !completedWords.AC) {
         setCompletedWords((prev) => ({ ...prev, AC: true }));
+        increaseScore();
       } else if (word === "ARC" && !completedWords.ARC) {
         setCompletedWords((prev) => ({ ...prev, ARC: true }));
+        increaseScore();
       }
     }
   };
 
-  // Permite drop-ul unei litere
+  // Permite drop-ul literei
   const allowDrop = (event: React.DragEvent) => {
-    event.preventDefault(); // Permite plasarea
+    event.preventDefault();
   };
 
-  // Verifică dacă toate cuvintele sunt completate
-  const checkCompletion = () => {
-    const allCompleted =
-      Object.values(completedWords).every((wordCompleted) => wordCompleted);
-    setIsNextLevelDisabled(!allCompleted); // Activează butonul doar dacă toate cuvintele sunt completate
-  };
-
-  // Folosim `useEffect` pentru a verifica starea la fiecare schimbare
+  // Verificare completare cuvinte și redare sunet "Bravo"
   useEffect(() => {
-    checkCompletion();
+    const allCompleted = Object.values(completedWords).every((wordCompleted) => wordCompleted);
+
+    if (allCompleted) {
+      setIsNextLevelDisabled(false); // Activează butonul următor
+      const bravoAudio = new Audio(Bravo);
+      bravoAudio.play();
+    }
   }, [completedWords]);
 
-  // Handler pentru schimbarea stării când un "A" este folosit
+  // Gestionarea folosirii literelor "A"
   const handleLetterUse = (index: number) => {
     const newLettersUsed = [...lettersUsed];
     newLettersUsed[index] = true;
@@ -84,7 +78,12 @@ const playHoverSoundAvanseaza = () => {
   return (
     <IonPage>
       <IonHeader>
-        <CustomToolbar title="Litera A Nivel 2" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()}  />
+        <CustomToolbar
+          title="Litera A Nivel 2"
+          titleStyle="title"
+          onPlayClick={playClickAudio}
+          onBackClick={() => history.goBack()}
+        />
       </IonHeader>
       <IonContent className="literaALevel2-container">
         {/* Linia cu literele */}
@@ -140,7 +139,13 @@ const playHoverSoundAvanseaza = () => {
 
       <IonFab vertical="bottom" horizontal="end" slot="fixed">
         <IonFabButton onClick={() => history.push('/LiteraE')} disabled={isNextLevelDisabled}>
-          <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title='Litera A Level 2' aria-label='Next level' onMouseEnter={playHoverSoundAvanseaza}  />
+          <IonIcon
+            icon={arrowForwardOutline}
+            className="black-icon big-arrow"
+            title="Litera A Level 2"
+            aria-label="Next level"
+            onMouseEnter={playHoverSoundAvanseaza}
+          />
         </IonFabButton>
       </IonFab>
     </IonPage>

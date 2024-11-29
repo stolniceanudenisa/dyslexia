@@ -8,7 +8,7 @@ import U from '../assets/sounds/U!.mp3';
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
-
+import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 type ButtonText = "U" | "★" | "I" | "O";
 
 const LiteraULevel1: React.FC<RouteComponentProps> = ({ history }) => {
@@ -48,41 +48,29 @@ const LiteraULevel1: React.FC<RouteComponentProps> = ({ history }) => {
     }, []);
 
     const handleButtonClick = (buttonIndex: number) => {
-        // Check if this button has already been clicked
         if (!clickedButtons.includes(buttonIndex)) {
-            setClickedButtons(prevState => [...prevState, buttonIndex]);
-
+            setClickedButtons(prev => [...prev, buttonIndex]);
+    
             const buttonType = buttonTextList[buttonIndex];
             if (buttonType === "U") {
                 setCounter(prevCounter => {
                     const newCounter = prevCounter + 1;
                     if (newCounter === totalButtons * percentageOfU / 100) {
-                        if (audioPlayer) {
-                            // audioPlayer.src = Bravo;
-                            audioPlayer.playbackRate = 0.85;
-                            audioPlayer.play();
-                        }
-                        useGameSettings('U');
-                        setIsNextLevelDisabled(false); // Enable next level
+                        // Redare sunet "Bravo" la completarea literei "U"
+                        const bravoAudio = new Audio(Bravo);
+                        bravoAudio.play();
+    
+                        // Activare săgeată pentru nivelul următor
+                        setIsNextLevelDisabled(false);
                     }
                     return newCounter;
                 });
+                // Creștere scor
                 increaseScore();
-            } else if (buttonType === "★") {
-                if (audioPlayer) {
-                    // Handle trap sound
-                    audioPlayer.playbackRate = 1.0;
-                    audioPlayer.play();
-                }
-            } else {
-                if (audioPlayer) {
-                    // Handle wrong answer sounds
-                    audioPlayer.playbackRate = 1.0;
-                    audioPlayer.play();
-                }
             }
         }
     };
+    
 
     const isCorrect = (buttonText: string) => {
         if (buttonText === "U") return "success";

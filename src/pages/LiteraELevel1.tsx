@@ -21,113 +21,94 @@ type ButtonText = "E" | "A" | "★";
 const LiteraELevel1: React.FC<RouteComponentProps> = ({ history }) => {
     const [counter, setCounter] = useState(0);
     const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
-
-    const totalButtons = 20; // Larger matrix (4x5)
-    const percentageOfE = 30; // 30% E
-    const percentageOfA = 10; // 10% A
-    const traps = totalButtons - (totalButtons * (percentageOfE + percentageOfA) / 100); // Remaining are traps
-
-    const [buttonTextList, setButtonTextList] = useState<ButtonText[]>([]);
     const [clickedButtons, setClickedButtons] = useState<number[]>([]);
+    const [buttonTextList, setButtonTextList] = useState<ButtonText[]>([]);
 
-    const [audioPlayer, setAudioPlayer] = useState<HTMLAudioElement | null>(null);
+    const totalButtons = 20; // Matrice 4x5
+    const percentageOfE = 30; // 30% butoane E
+    const percentageOfA = 10; // 10% butoane A
+    const traps = totalButtons - (totalButtons * (percentageOfE + percentageOfA) / 100); // Restul sunt capcane
 
+    // Generare text pentru buline
     useEffect(() => {
         const generateButtonTextList = () => {
-            let initialList: ButtonText[] = [];
-            // Add percentages of E, A, and traps
+            let list: ButtonText[] = [];
             for (let i = 0; i < totalButtons; i++) {
-                if (i < totalButtons * percentageOfE / 100) {
-                    initialList.push("E");
-                } else if (i < totalButtons * (percentageOfE + percentageOfA) / 100) {
-                    initialList.push("A");
-                } else {
-                    initialList.push("★");
-                }
+                if (i < totalButtons * percentageOfE / 100) list.push("E");
+                else if (i < totalButtons * (percentageOfE + percentageOfA) / 100) list.push("A");
+                else list.push("★");
             }
-            // Shuffle the list
-            initialList.sort(() => Math.random() - 0.5);
-            return initialList;
+            return list.sort(() => Math.random() - 0.5);
         };
         setButtonTextList(generateButtonTextList());
     }, []);
 
+    // Gestionare click pe butoane
     const handleButtonClick = (buttonIndex: number) => {
-        // Check if this button has already been clicked
-        if (!clickedButtons.includes(buttonIndex)) {
-            setClickedButtons(prevState => [...prevState, buttonIndex]);
+        if (clickedButtons.includes(buttonIndex)) return;
 
-            // Determine the behavior based on the button type
-            const buttonType = buttonTextList[buttonIndex];
-            if (buttonType === "E") {
-                setCounter(prevCounter => {
-                    const newCounter = prevCounter + 1;
-                    if (newCounter === totalButtons * percentageOfE / 100) {
-                        if (audioPlayer) {
-                            audioPlayer.src = Bravo;
-                            audioPlayer.playbackRate = 0.85;
-                            audioPlayer.play();
-                        }
-                        useGameSettings('E');
-                        setIsNextLevelDisabled(false); // Enable next level
-                    }
-                    return newCounter;
-                });
-                increaseScore();
-            } else if (buttonType === "A") {
-                if (audioPlayer) {
-                    audioPlayer.src = AAudio;
-                    audioPlayer.playbackRate = 1.0;
-                    audioPlayer.play();
+        setClickedButtons((prev) => [...prev, buttonIndex]);
+        const buttonType = buttonTextList[buttonIndex];
+
+        if (buttonType === "E") {
+            setCounter((prev) => {
+                const newCounter = prev + 1;
+                if (newCounter === totalButtons * percentageOfE / 100) {
+                    new Audio(Bravo).play(); // Sunet Bravo
+                    setIsNextLevelDisabled(false); // Activează nivelul următor
                 }
-            } else if (buttonType === "★") {
-                if (audioPlayer) {
-                    // audioPlayer.src = TrapAudio;
-                    audioPlayer.playbackRate = 1.0;
-                    audioPlayer.play();
-                }
-            }
+                return newCounter;
+            });
+            increaseScore();
+        } else if (buttonType === "A") {
+            new Audio(AAudio).play();
+        } else if (buttonType === "★") {
+            // Sunet pentru capcană (dacă e disponibil)
         }
     };
 
-    const isCorrect = (buttonText: String) => {
+    // Determinare stil buton
+    const getButtonColor = (buttonText: ButtonText): string => {
         if (buttonText === "E") return "success";
         if (buttonText === "A") return "tertiary";
-        return "danger"; // Trap
+        return "danger";
     };
 
     const playHoverSound = () => {
-        const audio = new Audio(EAudio);
-        audio.play();
+        new Audio(EAudio).play();
     };
 
     const playClickAudio = () => {
-        const audio = new Audio(Repeta);
-        audio.play();
+        new Audio(Repeta).play();
     };
 
     const playHoverSoundAvanseaza = () => {
-        const audio = new Audio(Avanseaza);
-        audio.play();
+        new Audio(Avanseaza).play();
     };
 
     return (
         <IonPage>
             <IonHeader>
-                <CustomToolbar title="Litera E Level 2" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
+                <CustomToolbar
+                    title="Litera E - Nivel 1"
+                    titleStyle="title"
+                    onPlayClick={playClickAudio}
+                    onBackClick={() => history.goBack()}
+                />
             </IonHeader>
             <IonContent className="letter-page">
                 <div className="container">
+                    {/* Matrice de butoane */}
                     <div className="button-matrix">
                         {[...Array(4)].map((_, rowIndex) => (
                             <div key={rowIndex} className="button-row">
                                 {[...Array(5)].map((_, colIndex) => {
-                                    const buttonIndex = rowIndex * 5 + colIndex; // Index for 4x5 grid
+                                    const buttonIndex = rowIndex * 5 + colIndex;
                                     const isClicked = clickedButtons.includes(buttonIndex);
                                     return (
                                         <IonButton
                                             key={colIndex}
-                                            color={isClicked ? isCorrect(buttonTextList[buttonIndex]) : 'primary'}
+                                            color={isClicked ? getButtonColor(buttonTextList[buttonIndex]) : "primary"}
                                             shape="round"
                                             onClick={() => handleButtonClick(buttonIndex)}
                                             className="custom-button"
@@ -140,17 +121,23 @@ const LiteraELevel1: React.FC<RouteComponentProps> = ({ history }) => {
                         ))}
                     </div>
                 </div>
-
+                {/* Buton Nivelul următor */}
                 <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                    <IonFabButton onClick={() => history.push('/LiteraELevel2')} disabled={isNextLevelDisabled}>
-                        <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title="Litera E Level 2" aria-label="Next level" onMouseEnter={playHoverSoundAvanseaza} />
+                    <IonFabButton
+                        onClick={() => history.push('/LiteraELevel2')}
+                        disabled={isNextLevelDisabled}
+                    >
+                        <IonIcon
+                            icon={arrowForwardOutline}
+                            onMouseEnter={playHoverSoundAvanseaza}
+                            className="black-icon big-arrow"
+                        />
                     </IonFabButton>
                 </IonFab>
-
-                
             </IonContent>
         </IonPage>
     );
 };
+
 
 export default LiteraELevel1;

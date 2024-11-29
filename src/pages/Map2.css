@@ -1,6 +1,6 @@
 
 ion-content.background2 {
-  --background: url('../theme/theme-harta2-subacvatic.jpg') no-repeat center center / cover; 
+  --background: url('../theme/subacvatic.jpg') no-repeat center center / cover; 
   position: relative;  
   height: 100vh;  
   width: 100vw;  

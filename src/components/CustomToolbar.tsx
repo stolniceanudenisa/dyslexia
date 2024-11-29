@@ -2,8 +2,8 @@ import React from 'react';
 import { IonToolbar, IonTitle, IonImg,IonIcon,IonButton } from '@ionic/react';
 import { getScore } from '../pages/Home';
 import coins from '../assets/images/coins.png';
-
-import { arrowBack, play, playCircle, playCircleOutline } from 'ionicons/icons';
+import { useLocation, useHistory } from 'react-router-dom';
+import { arrowBack, play, playCircle, playCircleOutline, mapOutline} from 'ionicons/icons';
 
 interface CustomToolbarProps {
     title: string;
@@ -14,7 +14,11 @@ interface CustomToolbarProps {
 }
 
 const CustomToolbar: React.FC<CustomToolbarProps> = ({ title, titleStyle, onPlayClick, onBackClick }) => {
-    const toolbarStyle: React.CSSProperties = {
+  const location = useLocation(); // Get the current route location
+  const history = useHistory(); // To navigate to the maps
+  
+  
+  const toolbarStyle: React.CSSProperties = {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
@@ -36,6 +40,8 @@ const CustomToolbar: React.FC<CustomToolbarProps> = ({ title, titleStyle, onPlay
       justifyContent: 'center',
       flex: 1,
     };
+
+    
   
     const iconStyle: React.CSSProperties = {
       fontSize: '50px',
@@ -48,12 +54,25 @@ const CustomToolbar: React.FC<CustomToolbarProps> = ({ title, titleStyle, onPlay
     };
   
     const rightSectionStyle: React.CSSProperties = {
-      flex: 1,
+      flex: 0.5,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-end',
-      visibility: 'hidden', // Optional: Keeps spacing consistent for right-aligned items
+       
     };
+
+    const handleMapNavigation = () => {
+      // Verifică ruta curentă și navighează la ruta dorită
+      if (location.pathname === '/map1') {
+        history.push('/map1'); // Navighează la map1
+      } else if (location.pathname === '/map2') {
+        history.push('/map2'); // Navighează la map2
+      } else if (location.pathname === '/map3') {
+        history.push('/map3'); // Navighează la map3
+      }
+    };
+    
+
   
     return (
       <IonToolbar>
@@ -80,6 +99,15 @@ const CustomToolbar: React.FC<CustomToolbarProps> = ({ title, titleStyle, onPlay
   
           {/* Right Section (Empty, Placeholder for Consistent Layout) */}
           <div style={rightSectionStyle}></div>
+       
+       {/* Right Section: Map Icon */}
+       <div style={rightSectionStyle}>
+          <IonButton fill="clear" onClick={handleMapNavigation}>
+            <IonIcon icon={mapOutline} style={iconStyle} />
+          </IonButton>
+        </div>
+       
+       
         </div>
       </IonToolbar>
     );

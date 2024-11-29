@@ -46,18 +46,21 @@ const LiteraULevel2: React.FC<RouteComponentProps> = ({ history }) => {
       );
 
       if (firstCard && secondCard && firstCard.text === secondCard.text) {
-        const audio = new Audio(Bravo);
-        audio.play();
         setMatchedCards((prev) => [...prev, firstCard.id, secondCard.id]);
+        increaseScore(); // Creștere scor după fiecare pereche corectă
 
-        // Check if all cards are matched
+        // Verificare dacă toate perechile sunt corect asociate
         if (matchedCards.length + 2 === cards.length) {
-          setIsNextLevelDisabled(false); // Enable the next level button
+          // Redare sunet "Bravo" la completarea jocului
+          const bravoAudio = new Audio(Bravo);
+          bravoAudio.play();
+
+          setIsNextLevelDisabled(false); // Activare buton pentru următorul nivel
         }
       }
 
       setTimeout(() => {
-        setFlippedCards([]);
+        setFlippedCards([]); // Resetează cărțile răsucite după un mic delay
       }, 1000);
     }
   };
@@ -71,7 +74,7 @@ const LiteraULevel2: React.FC<RouteComponentProps> = ({ history }) => {
   };
 
   const handleBackClick = () => {
-    history.goBack(); // Navigate back to the previous page
+    history.goBack(); // Navighează înapoi la pagina anterioară
   };
 
   return (
@@ -108,7 +111,7 @@ const LiteraULevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
           <IonFabButton
-            onClick={() => history.push("/maps")}
+            onClick={() => history.push("/maps")} // Navighează către următorul nivel (sau hartă)
             disabled={isNextLevelDisabled}
           >
             <IonIcon
@@ -116,7 +119,7 @@ const LiteraULevel2: React.FC<RouteComponentProps> = ({ history }) => {
               className="black-icon big-arrow"
               title="maps"
               aria-label="Next level"
-              onMouseEnter={playHoverSoundAvanseaza}
+              onMouseEnter={playHoverSoundAvanseaza} // Sunet la hover
             />
           </IonFabButton>
         </IonFab>
@@ -124,5 +127,6 @@ const LiteraULevel2: React.FC<RouteComponentProps> = ({ history }) => {
     </IonPage>
   );
 };
+
 
 export default LiteraULevel2;

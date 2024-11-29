@@ -83,21 +83,4 @@ const Map3: React.FC<RouteComponentProps> = ({ history }) => {
 
 export default Map3;
 
-// <IonContent>
-// <div className="container">
-//   {/* Button grid for consonants */}
-//   {[FImage, GImage, HImage, JImage, LImage, SImage, VImage, ZImage].map((image, index) => (
-//     <IonButton key={index} onClick={() => playAudio([FAudio, GAudio, HAudio, JAudio, LAudio, SAudio, VAudio, ZAudio][index])}>
-//       <img src={image} alt={`Letter ${String.fromCharCode(70 + index)}`} />
-//     </IonButton>
-//   ))}
-// </div>
-
-// <IonFab vertical="bottom" horizontal="end" slot="fixed">
-//   <IonFabButton onClick={() => history.push('/Home')}>
-//     <IonIcon icon={arrowForward} />
-//   </IonFabButton>
-// </IonFab>
-
-
-// </IonContent>
+ 
