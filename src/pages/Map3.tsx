@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonButton, IonFab, IonFabButton, IonIcon } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { useHistory } from 'react-router-dom';
@@ -7,12 +7,27 @@ import { increaseScore } from './Home';
 import './Map3.css';   
 import Harta3Intro from "../assets/sounds/harta3-intro.mp3";
 import Inapoi from "../assets/sounds/inapoi-la-harti.mp3";
-
+ 
 
 const Map3: React.FC<RouteComponentProps> = ({ history }) => {
   const [audioPlayer, setAudioPlayer] = useState<HTMLAudioElement | null>(null);
 
 
+  useEffect(() => {
+    const audioTimeout = setTimeout(() => {
+      const audioPlayer = new Audio(Harta3Intro);
+      audioPlayer.play();
+      return () => {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+      };
+    }, 1000);
+
+    return () => clearTimeout(audioTimeout);
+  }, []);
+
+
+  
   const playNarrationSound = () => {
     const audio = new Audio(Harta3Intro);
     audio.play();

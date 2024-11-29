@@ -124,14 +124,14 @@ const LiteraZLevel2: React.FC<RouteComponentProps> = ({ history }) => {
             onDrop={(e) => handleDrop(e, "VARZA")}
             onDragOver={allowDrop}
           >
-            <span className="literaZLevel2-word">{completedWords.VARZA ? "VARZĂ" : "VAR_Ă"}</span>
-            <img src={varzaImg} alt="Varză" className="literaZLevel2-word-image" />
+            <span className="literaZLevel2-word">{completedWords.VARZA ? "VARZA" : "VAR_A"}</span>
+            <img src={varzaImg} alt="Varza" className="literaZLevel2-word-image" />
           </div>
         </div>
       </IonContent>
 
       <IonFab vertical="bottom" horizontal="end" slot="fixed">
-        <IonFabButton onClick={() => history.push('/literaU')} disabled={isNextLevelDisabled}>
+        <IonFabButton onClick={() => history.push('/maps')} disabled={isNextLevelDisabled}>
           <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title='Next level' aria-label='Next level' onMouseEnter={playHoverSoundAvanseaza} />
         </IonFabButton>
       </IonFab>

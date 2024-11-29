@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { IonContent, IonPage, IonButton } from '@ionic/react';
 import { IonIcon } from '@ionic/react';
 import { volumeHighOutline, arrowBack } from 'ionicons/icons';
 import { useHistory } from 'react-router-dom';
 import './Map1.css';   
- 
 import Harta1Intro from "../assets/sounds/harta1-intro.mp3";
 import Inapoi from "../assets/sounds/inapoi-la-harti.mp3";
 
 
 const Map1: React.FC = () => {
   const history = useHistory();
+
+  useEffect(() => {
+    const audioTimeout = setTimeout(() => {
+      const audioPlayer = new Audio(Harta1Intro);
+      audioPlayer.play();
+      return () => {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+      };
+    }, 1000);
+
+    return () => clearTimeout(audioTimeout);
+  }, []);
+
 
   const playNarrationSound = () => {
     const audio = new Audio(Harta1Intro);

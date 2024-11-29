@@ -107,6 +107,15 @@ import LiteraGLevel1 from "./pages/LiteraGLevel1";
 import LiteraGLevel2 from "./pages/LiteraGLevel2";
  
 
+import LiteraL from "./pages/LiteraL";
+import LiteraLLevel2 from "./pages/LiteraLLevel2";
+import LiteraLLevel1 from "./pages/LiteraLLevel1";
+import LiteraV from "./pages/LiteraV";
+import LiteraVLevel1 from "./pages/LiteraVLevel1";
+import LiteraVLevel2 from "./pages/LiteraVLevel2";
+
+
+
 const playHoverSound = () => {
   const audio = new Audio(InapoiAudio);
   audio.play();
@@ -202,7 +211,7 @@ const App: React.FC = () => (
           <Route path="/LiteraDLevel2" component={LiteraDLevel2} exact={true} /> 
 
 
-  	  <Route path="/literaF" component={LiteraF} exact={true}/>
+  	      <Route path="/literaF" component={LiteraF} exact={true}/>
           <Route path="/LiteraFLevel1" component={LiteraFLevel1} exact={true}/>
           <Route path="/LiteraFLevel2" component={LiteraFLevel2} exact={true}/>
 
@@ -210,7 +219,13 @@ const App: React.FC = () => (
           <Route path="/LiteraGLevel1" component={LiteraGLevel1} exact={true}  />
           <Route path="/LiteraGLevel2" component={LiteraGLevel2} exact={true}  />
  
+          <Route path="/literaL" component={LiteraL} exact={true} />
+          <Route path="/LiteraLLevel1" component={LiteraLLevel1} exact={true} />
+          <Route path="/LiteraLLevel2" component={LiteraLLevel2} exact={true} />
 
+          <Route path="/literaV" component={LiteraV} exact={true} />
+          <Route path="/LiteraVLevel1" component={LiteraVLevel1} exact={true} />
+          <Route path="/LiteraVLevel2" component={LiteraVLevel2} exact={true} />
 
 
 

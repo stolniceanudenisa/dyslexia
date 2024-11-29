@@ -15,7 +15,7 @@ import zână from '../assets/images/zana.png';
 import zambila from '../assets/images/zambila.png';
 
 // Fișiere audio asociate cu cuvintele literei Z
-import VazaAudio from '../assets/sounds/Vaza.mp3';
+import VazaAudio from '../assets/sounds/vaza.mp3';
 import ZmeuAudio from '../assets/sounds/Zmeu.mp3';
 import ZaharAudio from '../assets/sounds/Zahar.mp3';
 import RozAudio from '../assets/sounds/Roz.mp3';
@@ -40,8 +40,8 @@ const LiteraZ: React.FC<RouteComponentProps> = ({ history }) => {
         VazaAudio, ZmeuAudio, ZaharAudio, RozAudio,
         ZmeuraAudio, MazareAudio, ZanaAudio, ZambilaAudio
     ];
-    const words1 = ['VAZĂ', 'ZMEU', 'ZAHĂR', 'ROZ'];
-    const words2 = ['ZMEURĂ', 'MAZĂRE', 'ZÂNĂ', 'ZAMBILĂ']; // Zmeură în loc de Zar
+    const words1 = ['VAZA', 'ZMEU', 'ZAHAR', 'ROZ'];
+    const words2 = ['ZMEURA', 'MAZARE', 'ZANA', 'ZAMBILA']; // Zmeură în loc de Zar
 
     const playAudio = (index: number) => {
         const audio = new Audio(audios[index]);
