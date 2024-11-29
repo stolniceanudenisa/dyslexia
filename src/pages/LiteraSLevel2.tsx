@@ -14,7 +14,7 @@ import { arrowForwardOutline } from "ionicons/icons";
 import "./LiteraSLevel2.css"; // Schimbă stilul pentru Litera S
 import "./Home.css";
 import CustomToolbar from "../components/CustomToolbar";
-import Bravo from "../assets/sounds/BravoFinalJoc.mp3";
+import Bravo from "../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3";
 import Avanseaza from "../assets/sounds/nivelul-urmator!.mp3";
 import stilou from "../assets/images/stilou.png"; // Imaginile trebuie actualizate corespunzător
 import stea from "../assets/images/stea.png";
@@ -25,14 +25,12 @@ import { RouteComponentProps } from "react-router";
 const LiteraSLevel2: React.FC<RouteComponentProps> = ({ history }) => {
   // Adăugăm perechi de carduri pentru a fi plasate pe laturi opuse
   const initialCards = [
-    { id: 1, text: "STILOU", img: stilou, revealed: false },
-    { id: 2, text: "STEA", img: stea, revealed: false },
-    { id: 3, text: "SALATA", img: salata, revealed: false },
-    { id: 4, text: "SARE", img: sare, revealed: false },
-    { id: 5, text: "STILOU", img: stilou, revealed: false },
-    { id: 6, text: "STEA", img: stea, revealed: false },
-    { id: 7, text: "SALATA", img: salata, revealed: false },
-    { id: 8, text: "SARE", img: sare, revealed: false },
+    { id: 1, text: "STEA", img: stea, revealed: false },
+    { id: 2, text: "SALATA", img: salata, revealed: false },
+    { id: 3, text: "SARE", img: sare, revealed: false },
+    { id: 4, text: "STEA", img: stea, revealed: false },
+    { id: 5, text: "SALATA", img: salata, revealed: false },
+    { id: 6, text: "SARE", img: sare, revealed: false },
   ];
 
   // Funcție pentru amestecarea cardurilor
@@ -138,7 +136,7 @@ const LiteraSLevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
           <IonFabButton
-            onClick={() => history.push("/LiteraSLevel3")}
+            onClick={() => history.push("/LiteraV")}
             disabled={isNextLevelDisabled}
           >
             <IonIcon
@@ -154,5 +152,4 @@ const LiteraSLevel2: React.FC<RouteComponentProps> = ({ history }) => {
     </IonPage>
   );
 };
-
 export default LiteraSLevel2;
