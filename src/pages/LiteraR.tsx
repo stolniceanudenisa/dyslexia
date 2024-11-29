@@ -20,7 +20,7 @@ import SoareAudio from '../assets/sounds/Soare.mp3';
 
 import RamuraAudio from '../assets/sounds/Ramură.mp3';
 import SoareceAudioFile from '../assets/sounds/Șoarece.mp3';
-import TortAudio from '../assets/sounds/Tort.mp3';
+import TortAudio from '../assets/sounds/Zar.mp3';
 import ZarAudio from '../assets/sounds/Zar.mp3';
 
 import R from '../assets/sounds/R.mp3';
