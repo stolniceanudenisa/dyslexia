@@ -1,0 +1,93 @@
+.literaRLevel2-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    height: 100%; /* Asigură că se umple complet înălțimea */
+}
+
+.literaRLevel2-letters-line {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.literaRLevel2-letter {
+    font-size: 50px; /* Mai mare pentru a fi mai vizibile */
+    font-weight: bold;
+    background-color: transparent;
+    padding: 15px 30px; /* Mai mult spațiu pentru a face drag-and-drop mai ușor */
+    margin: 15px; /* Creștem spațierea între litere */
+    border: 3px solid rgba(108, 14, 163, 0.5); /* Linie mai groasă pentru litere */
+    color: darkred;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease; /* Animare mai lină */
+}
+
+.literaRLevel2-letter:hover {
+    transform: scale(1.2); /* Creștem ușor dimensiunea la hover */
+    border-color: rgba(255, 0, 0, 0.8); /* Border mai închis la hover */
+}
+
+.literaRLevel2-letter.used {
+    background-color: rgba(255, 0, 0, 0.1); /* Background deschis pentru litere folosite */
+    color: rgba(255, 0, 0, 0.6);
+    border: 2px dashed rgba(255, 0, 0, 0.3);
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Linia cu cuvintele */
+.literaRLevel2-words-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Container pentru fiecare cuvânt */
+.literaRLevel2-word-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    border: 2px solid #ccc;
+    padding: 20px;
+    width: 420px; /* Lățimea containerului mărită pentru mai mult spațiu */
+    border-radius: 12px; /* Colțuri rotunjite */
+    position: relative;
+    background-color: #fafafa; /* Fundal deschis pentru cuvinte */
+}
+
+/* Imagini pentru cuvinte */
+.literaRLevel2-word-image {
+    width: 120px;  /* Ajustăm dimensiunea pentru a fi vizibile dar nu prea mari */
+    height: 120px;
+    object-fit: contain;
+    margin-left: 15px; /* Distanță între imagine și text */
+}
+
+/* Stil pentru textul cuvântului */
+.literaRLevel2-word {
+    font-size: 36px; /* Dimensiune text mai mare */
+    font-weight: bold;
+    margin-right: 15px;
+    margin-left: 25px; /* Mai mult spațiu pe stânga pentru a alinia mai bine */
+    color: #333; /* Culoare text mai închisă */
+}
+
+.literaRLevel2-word .letter {
+    color: darkblue; /* Culoare roșu închis pentru litera R */
+    font-size: 48px;  
+    font-weight: bold;
+    transition: color 0.3s ease;  
+}
+
+.literaRLevel2-word.red {
+    color: blue; /* Dacă este necesar să fie roșu */
+}

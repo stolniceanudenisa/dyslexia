@@ -1,12 +1,14 @@
 // MapSelection.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { IonContent, IonPage, IonButton, IonImg, IonIcon  } from '@ionic/react';
 import { volumeHigh } from 'ionicons/icons'; 
 import map1Image from '../assets/images/harta1-padure.jpg';
 import map2Image from '../assets/images/harta2-subacvatic.jpg';
 import map3Image from '../assets/images/harta3-pestera.jpg';
- 
-import SoundButtonClick from "../assets/sounds/sa-inceapa-aventura.mp3"; 
+import Bineaivenit from '../assets/sounds/bine-ai-venit-intro-maps.mp3';
+import SoundButtonClick1 from "../assets/sounds/prima-harta-padurea.mp3"; 
+import SoundButtonClick2 from "../assets/sounds/a-doua-harta-subacvatic.mp3"; 
+import SoundButtonClick3 from "../assets/sounds/a-treia-harta-pestera-piratilor.mp3"; 
 
 
 import { useHistory } from 'react-router-dom';
@@ -16,10 +18,41 @@ const MapSelection: React.FC = () => {
   const history = useHistory();
   const progress = localStorage.getItem("progress") || "1"; // Default to first map unlocked
   
-  const playSound = () => {
-    const audio = new Audio(SoundButtonClick);
+
+  useEffect(() => {
+    const audioTimeout = setTimeout(() => {
+      const audioPlayer = new Audio(Bineaivenit);
+      audioPlayer.play();
+      return () => {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+      };
+    }, 1000);
+
+    return () => clearTimeout(audioTimeout);
+  }, []);
+
+
+
+
+  const playSound1 = () => {
+    const audio = new Audio(SoundButtonClick1);
     audio.play();
   };
+
+
+  const playSound2 = () => {
+    const audio = new Audio(SoundButtonClick2);
+    audio.play();
+  };
+
+
+
+  const playSound3 = () => {
+    const audio = new Audio(SoundButtonClick3);
+    audio.play();
+  };
+
 
   
   return (
@@ -28,19 +61,19 @@ const MapSelection: React.FC = () => {
         
       <div className="sound-buttons-row">
   <div className="sound-button-container1">
-    <IonButton className="sound-button1" onClick={playSound}>
+    <IonButton className="sound-button1" onClick={playSound1}>
       🔊
     </IonButton>
   </div>
 
   <div className="sound-button-container2">
-    <IonButton className="sound-button2" onClick={playSound}>
+    <IonButton className="sound-button2" onClick={playSound2}>
       🔊
     </IonButton>
   </div>
 
   <div className="sound-button-container3">
-    <IonButton className="sound-button3" onClick={playSound}>
+    <IonButton className="sound-button3" onClick={playSound3}>
       🔊
     </IonButton>
   </div>
