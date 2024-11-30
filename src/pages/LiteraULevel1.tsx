@@ -5,7 +5,7 @@ import { increaseScore, useGameSettings } from './Home';
 import { RouteComponentProps } from 'react-router';
 // import Bravo from '../assets/sounds/FelicitariFinalJoc.mp3';
 import U from '../assets/sounds/U!.mp3';
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/alege-buline-litera-U.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
 import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';

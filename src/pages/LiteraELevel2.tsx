@@ -21,7 +21,7 @@ import elefant from "../assets/images/elefant.png";
 import evantai from "../assets/images/evantai.png";
 import { RouteComponentProps } from "react-router";
 import { increaseScore } from "./Home";
-
+import Repeta from '../assets/sounds/intoarce-cartonase-E.mp3';
 
 const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
   const [cards, setCards] = useState([
@@ -78,6 +78,11 @@ const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
     audio.play();
   };
 
+  const playClickAudio = () => {
+    const audio = new Audio(Repeta);
+    audio.play();
+  };
+
   const handleBackClick = () => {
     history.goBack();
   };
@@ -87,6 +92,7 @@ const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
       <IonHeader>
         <CustomToolbar
           title="Litera E Level 2 - Memory Game"
+          onPlayClick={playClickAudio}
           onBackClick={handleBackClick}
         />
       </IonHeader>

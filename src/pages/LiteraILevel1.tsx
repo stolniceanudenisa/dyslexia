@@ -16,7 +16,7 @@ import { RouteComponentProps } from 'react-router';
 import CustomToolbar from '../components/CustomToolbar';
 import I from '../assets/sounds/I!.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/alege-buline-litera-I.mp3';
 
 type ButtonText = "A" | "E" | "I" | "★"; // Updated to include "E"
 

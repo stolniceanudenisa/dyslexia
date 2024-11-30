@@ -18,7 +18,7 @@ import { RouteComponentProps } from 'react-router';
 import { arrowForward } from 'ionicons/icons';
 import { useGameSettings } from './Home';
 import M from '../assets/sounds/M.mp3';
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/alege-buline-litera-M.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { arrowForwardOutline } from 'ionicons/icons';
 

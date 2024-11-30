@@ -7,7 +7,7 @@ import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import O from '../assets/sounds/O!.mp3';
 import E from '../assets/sounds/E!.mp3';
 import I from '../assets/sounds/I!.mp3';
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/alege-buline-litera-O.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
 

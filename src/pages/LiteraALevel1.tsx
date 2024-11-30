@@ -6,8 +6,6 @@ import apa from '../assets/images/apa.svg';
 import arici from '../assets/images/arici.svg';
 import avion from '../assets/images/avion.svg';
 import albina from '../assets/images/albina.svg';
-//import apaAudio from '../assets/Apa.mp3';
-import { increaseScore } from './Home'
 import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import ApaAudio from '../assets/sounds/Apa2.mp3';
 import AriciAudio from '../assets/sounds/Arici.mp3';
@@ -17,6 +15,7 @@ import CustomToolbar from '../components/CustomToolbar';
 import { RouteComponentProps } from 'react-router';
 import { arrowForward } from 'ionicons/icons';
 import { useGameSettings } from './Home';
+import { increaseScore } from './Home';
 import A from '../assets/sounds/A!.mp3';
 import Repeta from '../assets/sounds/alege-buline-litera-A.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
@@ -54,7 +53,7 @@ const LiteraALevel1: React.FC<RouteComponentProps> = ({ history }) => {
         // Avoid clicking the same button twice
         if (!clickedButtons.includes(buttonIndex)) {
             setClickedButtons(prevState => [...prevState, buttonIndex]);
-
+    
             // If clicked button is "A", increase counter
             if (buttonTextList[buttonIndex] === "A") {
                 setCounter(prevCounter => {
@@ -67,9 +66,11 @@ const LiteraALevel1: React.FC<RouteComponentProps> = ({ history }) => {
                     }
                     return newCounter;
                 });
+                increaseScore(); // Adăugat aici
             }
         }
     };
+    
 
     const playBravoSound = () => {
         const audio = new Audio(Bravo);

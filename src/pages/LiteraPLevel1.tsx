@@ -7,7 +7,7 @@ import { RouteComponentProps } from 'react-router';
 import CustomToolbar from '../components/CustomToolbar';
 import PAudio from '../assets/sounds/P.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/alege-buline-litera-P.mp3';
 
 type ButtonText = "P" | "M" | "N" | "★";
 

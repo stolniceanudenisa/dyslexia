@@ -8,7 +8,7 @@ import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import EAudio from '../assets/sounds/E!.mp3';
 import AAudio from '../assets/sounds/A!.mp3';
 
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/alege-buline-litera-N.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
 import { RouteComponentProps } from 'react-router';
