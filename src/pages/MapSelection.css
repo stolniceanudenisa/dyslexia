@@ -10,7 +10,7 @@ body, html {
     display: flex;                    
     justify-content: center;          
     align-items: center;              
-    gap: 180%;                        
+    gap: 170%;                        
     position: absolute;              
     top: 35px;                     
     left: 50%;                        

@@ -22,6 +22,11 @@ import evantai from "../assets/images/evantai.png";
 import { RouteComponentProps } from "react-router";
 import { increaseScore } from "./Home";
 import Repeta from '../assets/sounds/intoarce-cartonase-E.mp3';
+import erouAudio from '../assets/sounds/Erou.mp3';
+import elefantAudio from '../assets/sounds/Elefant.mp3';
+import evantaiAudio from '../assets/sounds/Evantai.mp3';
+
+
 
 const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
   const [cards, setCards] = useState([
@@ -41,6 +46,28 @@ const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
     if (flippedCards.length === 2 || matchedCards.includes(cardId)) {
       return;
     }
+
+    const card = cards.find((card) => card.id === cardId);
+    if (card) {
+        let audio;
+        switch (card.text) {
+            case "EROU":
+                audio = new Audio(erouAudio);
+                break;
+            case "ELEFANT":
+                audio = new Audio(elefantAudio);
+                break;
+            case "EVANTAI":
+                audio = new Audio(evantaiAudio);
+                break;
+            default:
+                break;
+        }
+        if (audio) {
+            audio.play();
+        }
+    }
+    
 
     const updatedFlippedCards = [...flippedCards, cardId];
     setFlippedCards(updatedFlippedCards);

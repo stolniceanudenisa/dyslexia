@@ -37,8 +37,8 @@ const LiteraR: React.FC<RouteComponentProps> = ({ history }) => {
         CireseAudio, RochieAudio, RobotAudio, SoareAudio,
         RamuraAudio, SoareceAudioFile, TortAudio, ZarAudio
     ];
-    const words1 = ['CIREȘE', 'ROCHIE', 'ROBOT', 'SOARE'];
-    const words2 = ['RAMURĂ', 'ȘOARECE', 'TORT', 'ZAR'];
+    const words1 = ['CIRESE', 'ROCHIE', 'ROBOT', 'SOARE'];
+    const words2 = ['RAMURA', 'SOARECE', 'TORT', 'ZAR'];
 
     const playAudio = (index: number) => {
         const audio = new Audio(audios[index]);
