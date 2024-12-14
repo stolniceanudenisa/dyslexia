@@ -11,6 +11,9 @@ import Repeta from '../assets/sounds/trage-litera-A.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { increaseScore, getScore } from './Home';
 import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
+import SacAudio from '../assets/sounds/sac!.mp3';
+
+
 
 const LiteraALevel2: React.FC<RouteComponentProps> = ({ history }) => {
   const [score, setScore] = useState(getScore());
