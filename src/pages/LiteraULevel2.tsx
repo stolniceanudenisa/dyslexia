@@ -15,7 +15,8 @@ import { RouteComponentProps } from 'react-router';
 import unt from "../assets/images/unt.png";
 import unicorn from "../assets/images/unicorn.png";
 import umbrela from "../assets/images/umbrela.png";
- 
+import LitUL2 from "../assets/sounds/intoarce-cartonase-E.mp3";
+
 
 
 const LiteraULevel2: React.FC<RouteComponentProps> = ({ history }) => {
@@ -31,6 +32,21 @@ const LiteraULevel2: React.FC<RouteComponentProps> = ({ history }) => {
   const [flippedCards, setFlippedCards] = useState<number[]>([]);
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
   const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
+
+  useEffect(() => {
+    const audioTimeout = setTimeout(() => {
+      const audioPlayer = new Audio(LitUL2);
+      audioPlayer.play();
+      return () => {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+      };
+    }, 1000);
+
+    return () => clearTimeout(audioTimeout);
+  }, []);
+
+
 
   const handleCardClick = (cardId: number) => {
     if (flippedCards.length === 2 || matchedCards.includes(cardId)) {
@@ -111,7 +127,7 @@ const LiteraULevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
           <IonFabButton
-            onClick={() => history.push("/maps")} // Navighează către următorul nivel (sau hartă)
+            onClick={() => history.push("/map2")} // Navighează către următorul nivel (sau hartă)
             disabled={isNextLevelDisabled}
           >
             <IonIcon

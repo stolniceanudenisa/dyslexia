@@ -10,14 +10,14 @@ import veverita from '../assets/images/veverita.png';
 import vioara from '../assets/images/vioara.png';
 import vulcan from '../assets/images/vulcan.png';
 
-import VacaAudio from '../assets/sounds/vaca.mp3';
+import VacaAudio from '../assets/sounds/vapor.mp3';
 import ValAudio from '../assets/sounds/val.mp3';
 import VaporAudio from '../assets/sounds/vapor.mp3';
-import VazaAudio from '../assets/sounds/vaza.mp3';
-import VestaAudio from '../assets/sounds/vesta.mp3';
-import VeveritaAudio from '../assets/sounds/veverita.mp3';
-import VioaraAudio from '../assets/sounds/vioara.mp3';
-import VulcanAudio from '../assets/sounds/vulcan.mp3';
+import VazaAudio from '../assets/sounds/vapor.mp3';
+import VestaAudio from '../assets/sounds/vapor.mp3';
+import VeveritaAudio from '../assets/sounds/vapor.mp3';
+import VioaraAudio from '../assets/sounds/vapor.mp3';
+import VulcanAudio from '../assets/sounds/vapor.mp3';
 
 
 import V from '../assets/sounds/V.mp3';

@@ -15,9 +15,9 @@ import zână from '../assets/images/zana.png';
 import zambila from '../assets/images/zambila.png';
 
 // Fișiere audio asociate cu cuvintele literei Z
-import VazaAudio from '../assets/sounds/vaza.mp3';
-import ZmeuAudio from '../assets/sounds/Zmeu.mp3';
-import ZaharAudio from '../assets/sounds/Zahar.mp3';
+import VazaAudio from '../assets/sounds/vapor.mp3';
+import ZmeuAudio from '../assets/sounds/vapor.mp3';
+import ZaharAudio from '../assets/sounds/vapor.mp3';
 import RozAudio from '../assets/sounds/Roz.mp3';
 
 import ZmeuraAudio from '../assets/sounds/Zmeura.mp3'; // Audio nou pentru Zmeură

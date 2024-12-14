@@ -20,6 +20,8 @@ import A from '../assets/sounds/A!.mp3';
 import Repeta from '../assets/sounds/alege-buline-litera-A.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { arrowForwardOutline } from 'ionicons/icons';
+import LitAL1 from "../assets/sounds/alege-buline-litera-A.mp3";
+
 
 type ButtonText = "A" | "*" | "★";
 
@@ -31,6 +33,23 @@ const LiteraALevel1: React.FC<RouteComponentProps> = ({ history }) => {
 
     const [buttonTextList, setButtonTextList] = useState<ButtonText[]>([]);
     const [clickedButtons, setClickedButtons] = useState<number[]>([]);
+
+
+    useEffect(() => {
+        const audioTimeout = setTimeout(() => {
+          const audioPlayer = new Audio(LitAL1);
+          audioPlayer.play();
+          return () => {
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+          };
+        }, 1000);
+    
+        return () => clearTimeout(audioTimeout);
+      }, []);
+    
+
+
 
     useEffect(() => {
         const generateButtonTextList = () => {

@@ -10,6 +10,7 @@ import I from '../assets/sounds/I!.mp3';
 import Repeta from '../assets/sounds/alege-buline-litera-O.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
+import LitOL1 from "../assets/sounds/alege-buline-litera-O.mp3";
 
 type ButtonText = "O" | "E" | "I" | "★";
 
@@ -26,6 +27,23 @@ const LiteraOLevel1: React.FC<RouteComponentProps> = ({ history }) => {
     const [buttonTextList, setButtonTextList] = useState<ButtonText[]>([]);
     const [clickedButtons, setClickedButtons] = useState<number[]>([]);
     const [audioPlayer, setAudioPlayer] = useState<HTMLAudioElement | null>(null);
+
+
+    
+    useEffect(() => {
+        const audioTimeout = setTimeout(() => {
+          const audioPlayer = new Audio(LitOL1);
+          audioPlayer.play();
+          return () => {
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+          };
+        }, 1000);
+    
+        return () => clearTimeout(audioTimeout);
+      }, []);
+    
+
 
     useEffect(() => {
         const generateButtonTextList = () => {

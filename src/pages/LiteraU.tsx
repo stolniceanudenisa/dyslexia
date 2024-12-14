@@ -31,6 +31,7 @@ import usaAudio from '../assets/sounds/Usa.mp3'
 import unicornAudio from '../assets/sounds/Unicorn.mp3'
 import umbrelaAudio from '../assets/sounds/Umbrela.mp3'
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import LitU from "../assets/sounds/RepetaDupaMine.mp3";
 
 const LiteraU: React.FC<RouteComponentProps> = ({ history }) => {
     const images1 = [urs, usa, unt, fluture];
@@ -42,6 +43,20 @@ const LiteraU: React.FC<RouteComponentProps> = ({ history }) => {
     const words1 = ['URS', 'USA', 'UNT', 'FLUTURE'];
     const words2 = ['UMBRELA', 'UNICORN', 'OU', 'SUC'];
   
+
+    useEffect(() => {
+      const audioTimeout = setTimeout(() => {
+        const audioPlayer = new Audio(LitU);
+        audioPlayer.play();
+        return () => {
+          audioPlayer.pause();
+          audioPlayer.currentTime = 0;
+        };
+      }, 1000);
+  
+      return () => clearTimeout(audioTimeout);
+    }, []);
+
     const playAudio = (index: number) => {
       const audio = new Audio(audios[index]);
       audio.playbackRate = 0.8;

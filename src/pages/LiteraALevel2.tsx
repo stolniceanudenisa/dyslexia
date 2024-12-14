@@ -8,11 +8,13 @@ import sacImg from '../assets/images/sac.png';
 import acImg from '../assets/images/ac.png';     
 import arcImg from '../assets/images/arc.png';   
 import Repeta from '../assets/sounds/trage-litera-A.mp3';
+import LitAL2 from "../assets/sounds/trage-litera-A.mp3";
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { increaseScore, getScore } from './Home';
 import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import SacAudio from '../assets/sounds/sac!.mp3';
-
+import AcAudio from '../assets/sounds/ac.mp3';   
+import ArcAudio from '../assets/sounds/arc.mp3';  
 
 
 const LiteraALevel2: React.FC<RouteComponentProps> = ({ history }) => {
@@ -25,6 +27,24 @@ const LiteraALevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
   const [lettersUsed, setLettersUsed] = useState([false, false, false]);
   const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
+  const [draggingLetter, setDraggingLetter] = useState<number | null>(null);
+
+
+
+  useEffect(() => {
+    const audioTimeout = setTimeout(() => {
+      const audioPlayer = new Audio(LitAL2);
+      audioPlayer.play();
+      return () => {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+      };
+    }, 1000);
+
+    return () => clearTimeout(audioTimeout);
+  }, []);
+
+
 
   const playClickAudio = () => {
     const audio = new Audio(Repeta);
@@ -36,23 +56,48 @@ const LiteraALevel2: React.FC<RouteComponentProps> = ({ history }) => {
     audio.play();
   };
 
+
+// Function to play the word sound after successful placement
+const playWordSound = (word: string) => {
+  let audio = null;
+  switch (word) {
+    case "SAC":
+      audio = new Audio(SacAudio);
+      break;
+    case "AC":
+      audio = new Audio(AcAudio);
+      break;
+    case "ARC":
+      audio = new Audio(ArcAudio);
+      break;
+    default:
+      return;
+  }
+  audio.play();
+};
+
+
   // Funcție pentru gestionarea plasării literei
   const handleDrop = (event: React.DragEvent, word: string) => {
     const letter = event.dataTransfer.getData("letter");
 
     if (letter === "A") {
-      // Adăugare punctaj și actualizare starea cuvântului completat
       if (word === "SAC" && !completedWords.SAC) {
         setCompletedWords((prev) => ({ ...prev, SAC: true }));
+        playWordSound("SAC");
         increaseScore();
       } else if (word === "AC" && !completedWords.AC) {
         setCompletedWords((prev) => ({ ...prev, AC: true }));
+        playWordSound("AC");
         increaseScore();
       } else if (word === "ARC" && !completedWords.ARC) {
         setCompletedWords((prev) => ({ ...prev, ARC: true }));
+        playWordSound("ARC");
         increaseScore();
       }
+      setLettersUsed((prev) => prev.map((used, idx) => idx === draggingLetter ? true : used));
     }
+    setDraggingLetter(null);  // Reset dragging state after drop
   };
 
   // Permite drop-ul literei
@@ -60,14 +105,29 @@ const LiteraALevel2: React.FC<RouteComponentProps> = ({ history }) => {
     event.preventDefault();
   };
 
+  // Reset the letter to the original position if dropped incorrectly
+  const handleDragEnd = () => {
+    if (draggingLetter !== null) {
+      const newLettersUsed = [...lettersUsed];
+      newLettersUsed[draggingLetter] = false;  // Mark the letter as unused again
+      setLettersUsed(newLettersUsed);
+    }
+    setDraggingLetter(null);  // Reset dragging state
+  };
+
   // Verificare completare cuvinte și redare sunet "Bravo"
   useEffect(() => {
     const allCompleted = Object.values(completedWords).every((wordCompleted) => wordCompleted);
 
     if (allCompleted) {
-      setIsNextLevelDisabled(false); // Activează butonul următor
-      const bravoAudio = new Audio(Bravo);
-      bravoAudio.play();
+      setIsNextLevelDisabled(false);
+    localStorage.setItem('level2Completed', 'true');
+    console.log('Level 2 completed!');  // Confirm this is being called
+
+      setTimeout(() => {
+        const bravoAudio = new Audio(Bravo);
+        bravoAudio.play();
+      }, 1000);
     }
   }, [completedWords]);
 
@@ -76,6 +136,7 @@ const LiteraALevel2: React.FC<RouteComponentProps> = ({ history }) => {
     const newLettersUsed = [...lettersUsed];
     newLettersUsed[index] = true;
     setLettersUsed(newLettersUsed);
+    setDraggingLetter(index);  // Set the current letter being dragged
   };
 
   return (
@@ -100,6 +161,7 @@ const LiteraALevel2: React.FC<RouteComponentProps> = ({ history }) => {
                 e.dataTransfer.setData("letter", "A");
                 handleLetterUse(index);
               }}
+              onDragEnd={handleDragEnd}  // Handle drag end to reset if needed
             >
               A
             </div>
@@ -141,7 +203,7 @@ const LiteraALevel2: React.FC<RouteComponentProps> = ({ history }) => {
       </IonContent>
 
       <IonFab vertical="bottom" horizontal="end" slot="fixed">
-        <IonFabButton onClick={() => history.push('/LiteraE')} disabled={isNextLevelDisabled}>
+        <IonFabButton onClick={() => history.push('/literaE')} disabled={isNextLevelDisabled}>
           <IonIcon
             icon={arrowForwardOutline}
             className="black-icon big-arrow"

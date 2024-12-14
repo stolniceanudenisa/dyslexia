@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonFab, IonFabButton, IonIcon } from '@ionic/react';
 import './Litere.css';
 import apa from '../assets/images/apa.png';
@@ -27,6 +27,7 @@ import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
 import { RouteComponentProps } from 'react-router';
 import { arrowForwardOutline } from 'ionicons/icons';
+import LitA from "../assets/sounds/RepetaDupaMine.mp3";
 
 const LiteraA: React.FC<RouteComponentProps> = ({ history }) => {
   const images1 = [apa, avion, casa, masa]; // Adăugăm masa la primul rând
@@ -34,6 +35,22 @@ const LiteraA: React.FC<RouteComponentProps> = ({ history }) => {
   const audios = [ApaAudio, AvionAudio, CasaAudio, MasaAudio, AlbinaAudio, AriciAudio, SacAudio, MacAudio];
   const words1 = ['APA', 'AVION', 'CASA', 'MASA']; // Text pentru primul rând
   const words2 = ['ALBINA', 'ARICI', 'SAC', 'MAC']; // Text pentru al doilea rând
+
+
+
+  useEffect(() => {
+    const audioTimeout = setTimeout(() => {
+      const audioPlayer = new Audio(LitA);
+      audioPlayer.play();
+      return () => {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+      };
+    }, 1000);
+
+    return () => clearTimeout(audioTimeout);
+  }, []);
+
 
   const playAudio = (index: number) => {
     const audio = new Audio(audios[index]);

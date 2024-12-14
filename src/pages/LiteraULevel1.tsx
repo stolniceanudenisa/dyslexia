@@ -10,6 +10,9 @@ import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
 import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 type ButtonText = "U" | "★" | "I" | "O";
+import LitUL1 from "../assets/sounds/alege-buline-litera-U.mp3";
+
+
 
 const LiteraULevel1: React.FC<RouteComponentProps> = ({ history }) => {
     const [counter, setCounter] = useState(0);
@@ -24,6 +27,21 @@ const LiteraULevel1: React.FC<RouteComponentProps> = ({ history }) => {
     const [buttonTextList, setButtonTextList] = useState<ButtonText[]>([]);
     const [clickedButtons, setClickedButtons] = useState<number[]>([]);
     const [audioPlayer, setAudioPlayer] = useState<HTMLAudioElement | null>(null);
+
+    useEffect(() => {
+        const audioTimeout = setTimeout(() => {
+          const audioPlayer = new Audio(LitUL1);
+          audioPlayer.play();
+          return () => {
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+          };
+        }, 1000);
+    
+        return () => clearTimeout(audioTimeout);
+      }, []);
+    
+
 
     useEffect(() => {
         const generateButtonTextList = () => {

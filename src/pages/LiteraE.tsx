@@ -13,10 +13,10 @@ import pere from '../assets/images/pere.png';
 import mere from '../assets/images/mere.png';
 import banane from '../assets/images/banane.png';
 
-import ArdeiAudio from '../assets/sounds/Elefant.mp3';
-import PereAudio from '../assets/sounds/Elefant.mp3';
-import MereAudio from '../assets/sounds/Elefant.mp3';
-import BananeAudio from '../assets/sounds/Elefant.mp3';
+import ArdeiAudio from '../assets/sounds/ardei.mp3';
+import PereAudio from '../assets/sounds/pere.mp3';
+import MereAudio from '../assets/sounds/mere.mp3';
+import BananeAudio from '../assets/sounds/banane.mp3';
 
 import erouAudio from '../assets/sounds/Erou.mp3';
 import elefantAudio from '../assets/sounds/Elefant.mp3';
@@ -31,7 +31,7 @@ import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import { arrowForwardOutline } from 'ionicons/icons';
-
+import LitE from "../assets/sounds/RepetaDupaMine.mp3";
 
 
 type ButtonText = "A" | "E" | "*" | "★";
@@ -51,6 +51,20 @@ const LiteraE: React.FC<RouteComponentProps> = ({ history }) => {
   ];
   const words1 = ['EROU', 'ELEFANT', 'ARDEI', 'MERE'];
   const words2 = ['EVANTAI', 'ESARFA', 'PERE', 'BANANE'];
+
+
+  useEffect(() => {
+    const audioTimeout = setTimeout(() => {
+      const audioPlayer = new Audio(LitE);
+      audioPlayer.play();
+      return () => {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+      };
+    }, 1000);
+
+    return () => clearTimeout(audioTimeout);
+  }, []);
 
   const playAudio = (index: number) => {
     const audio = new Audio(audios[index]);

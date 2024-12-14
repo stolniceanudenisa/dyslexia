@@ -13,7 +13,7 @@ import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { increaseScore, getScore } from './Home';
 import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
-
+import LitOL2 from "../assets/sounds/trage-litera-A.mp3";
 
 const LiteraOLevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
@@ -28,6 +28,21 @@ const LiteraOLevel2: React.FC<RouteComponentProps> = ({ history }) => {
   const [lettersUsed, setLettersUsed] = useState([false, false, false, false]);
 
   const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
+
+
+  useEffect(() => {
+    const audioTimeout = setTimeout(() => {
+      const audioPlayer = new Audio(LitOL2);
+      audioPlayer.play();
+      return () => {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+      };
+    }, 1000);
+
+    return () => clearTimeout(audioTimeout);
+  }, []);
+
 
   const playClickAudio = () => {
     const audio = new Audio(Repeta);

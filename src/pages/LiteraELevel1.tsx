@@ -14,6 +14,8 @@ import CustomToolbar from '../components/CustomToolbar';
 import { RouteComponentProps } from 'react-router';
 import { useGameSettings } from './Home';
  
+import LitEL1 from "../assets/sounds/alege-buline-litera-E.mp3";
+
 
 
 type ButtonText = "E" | "A" | "★";
@@ -28,6 +30,22 @@ const LiteraELevel1: React.FC<RouteComponentProps> = ({ history }) => {
     const percentageOfE = 30; // 30% butoane E
     const percentageOfA = 10; // 10% butoane A
     const traps = totalButtons - (totalButtons * (percentageOfE + percentageOfA) / 100); // Restul sunt capcane
+
+
+    useEffect(() => {
+        const audioTimeout = setTimeout(() => {
+          const audioPlayer = new Audio(LitEL1);
+          audioPlayer.play();
+          return () => {
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+          };
+        }, 1000);
+    
+        return () => clearTimeout(audioTimeout);
+      }, []);
+    
+
 
     // Generare text pentru buline
     useEffect(() => {
@@ -61,7 +79,7 @@ const LiteraELevel1: React.FC<RouteComponentProps> = ({ history }) => {
             });
             increaseScore();
         } else if (buttonType === "A") {
-            new Audio(AAudio).play();
+            
         } else if (buttonType === "★") {
             // Sunet pentru capcană (dacă e disponibil)
         }

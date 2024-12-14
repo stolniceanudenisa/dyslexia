@@ -18,9 +18,9 @@ import InsulaAudio from '../assets/sounds/Insula.mp3';
 import IepureAudio from '../assets/sounds/Iepure.mp3';
 import InimaAudio from '../assets/sounds/Inima.mp3';
 
-import CapsuniiAudio from '../assets/sounds/Inel.mp3';
-import GainaAudio from '../assets/sounds/Inel.mp3';
-import PisicaAudio from '../assets/sounds/Inel.mp3';
+import CapsuniiAudio from '../assets/sounds/capsuni.mp3';
+import GainaAudio from '../assets/sounds/gaina.mp3';
+import PisicaAudio from '../assets/sounds/pisica.mp3';
 import PestiAudio from '../assets/sounds/Inel.mp3';
 
  
@@ -29,7 +29,7 @@ import CustomToolbar from '../components/CustomToolbar';
 import I from '../assets/sounds/I!.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
-
+import LitI from "../assets/sounds/RepetaDupaMine.mp3";
 
 
 const LiteraI: React.FC<RouteComponentProps> = ({ history }) => {
@@ -41,6 +41,21 @@ const LiteraI: React.FC<RouteComponentProps> = ({ history }) => {
     ];
     const words1 = ['INEL', 'INSULA', 'CAPSUNI', 'GAINA'];
     const words2 = ['IEPURE', 'INIMA', 'PISICA', 'PESTI'];
+  
+  
+    useEffect(() => {
+      const audioTimeout = setTimeout(() => {
+        const audioPlayer = new Audio(LitI);
+        audioPlayer.play();
+        return () => {
+          audioPlayer.pause();
+          audioPlayer.currentTime = 0;
+        };
+      }, 1000);
+  
+      return () => clearTimeout(audioTimeout);
+    }, []);
+  
   
     const playAudio = (index: number) => {
       const audio = new Audio(audios[index]);

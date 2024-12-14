@@ -110,3 +110,56 @@ ion-content.background1 {
     left: 62%;
 }
    
+
+
+.letter-button {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    position: absolute;
+  }
+  
+  .letter-button.a {
+    top: 10%;
+    left: 47%;
+  }
+  
+  .letter-button.e {
+    top: 24%;
+    left: 37%;
+  }
+  
+  .letter-button.i {
+    top: 53%;
+    left: 35%;
+  }
+  
+  .letter-button.o {
+    top: 43%;
+    left: 47%;
+  }
+  
+  .letter-button.u {
+    top: 49%;
+    left: 62%;
+  }
+  
+  .letter-button.unlocked {
+    font-size: 80px;
+  }
+  
+  .letter-button.locked {
+    font-size: 50px;
+    opacity: 0.8; /* Increased opacity to make locked letters more visible */
+    background-color: rgba(255, 0, 0, 0.6); /* Example of adding a background color (red with some transparency) */
+  }
+  
+  /* .complete-level-button {
+    position: absolute;
+    bottom: 20%;
+    width: 100%;
+    text-align: center;
+  }  
+   */

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   IonContent,
   IonHeader,
@@ -26,7 +26,7 @@ import erouAudio from '../assets/sounds/Erou.mp3';
 import elefantAudio from '../assets/sounds/Elefant.mp3';
 import evantaiAudio from '../assets/sounds/Evantai.mp3';
 
-
+import LitEL2 from "../assets/sounds/intoarce-cartonase-E.mp3";
 
 const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
   const [cards, setCards] = useState([
@@ -41,6 +41,23 @@ const LiteraELevel2: React.FC<RouteComponentProps> = ({ history }) => {
   const [flippedCards, setFlippedCards] = useState<number[]>([]);
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
   const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
+
+
+
+  useEffect(() => {
+    const audioTimeout = setTimeout(() => {
+      const audioPlayer = new Audio(LitEL2);
+      audioPlayer.play();
+      return () => {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+      };
+    }, 1000);
+
+    return () => clearTimeout(audioTimeout);
+  }, []);
+
+
 
   const handleCardClick = (cardId: number) => {
     if (flippedCards.length === 2 || matchedCards.includes(cardId)) {

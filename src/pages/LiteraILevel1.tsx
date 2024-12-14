@@ -17,6 +17,8 @@ import CustomToolbar from '../components/CustomToolbar';
 import I from '../assets/sounds/I!.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import Repeta from '../assets/sounds/alege-buline-litera-I.mp3';
+import LitIL1 from "../assets/sounds/alege-buline-litera-I.mp3";
+
 
 type ButtonText = "A" | "E" | "I" | "★"; // Updated to include "E"
 
@@ -31,6 +33,21 @@ const LiteraILevel1: React.FC<{ history: any }> = ({ history }) => {
 
     const [buttonTextList, setButtonTextList] = useState<ButtonText[]>([]);
     const [clickedButtons, setClickedButtons] = useState<number[]>([]);
+
+
+    useEffect(() => {
+        const audioTimeout = setTimeout(() => {
+          const audioPlayer = new Audio(LitIL1);
+          audioPlayer.play();
+          return () => {
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+          };
+        }, 1000);
+    
+        return () => clearTimeout(audioTimeout);
+      }, []);
+    
 
     useEffect(() => {
         const generateButtonTextList = () => {

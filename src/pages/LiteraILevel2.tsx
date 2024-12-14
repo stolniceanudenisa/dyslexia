@@ -10,7 +10,7 @@ import cartiImg from '../assets/images/carti.png';
 import miereImg from '../assets/images/miere.png';
 import diamantImg from '../assets/images/diamant.png';
 import baiatImg from '../assets/images/baiat.png';
-
+import LitIL2 from "../assets/sounds/trage-litera-A.mp3";
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
@@ -28,6 +28,19 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
   const [lettersUsed, setLettersUsed] = useState([false, false, false, false, false, false]); // "I" letters
   const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
   const [coins, setCoins] = useState(0); // Track coins
+
+  useEffect(() => {
+    const audioTimeout = setTimeout(() => {
+      const audioPlayer = new Audio(LitIL2);
+      audioPlayer.play();
+      return () => {
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+      };
+    }, 1000);
+
+    return () => clearTimeout(audioTimeout);
+  }, []);
 
   const playClickAudio = () => {
     const audio = new Audio(Repeta);
@@ -50,7 +63,7 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
         }));
         // Award a coin for completing the word
         setCoins((prevCoins) => prevCoins + 1); // Increase local coin count
-  
+
         // Call increaseScore() if it's meant to update a global state or score
         increaseScore();
       }
@@ -80,6 +93,12 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
     setLettersUsed(newLettersUsed);
   };
 
+  const handleLetterReset = (index: number) => {
+    const newLettersUsed = [...lettersUsed];
+    newLettersUsed[index] = false; // Reset the letter so it can be reused
+    setLettersUsed(newLettersUsed);
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -102,6 +121,12 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
                 onDragStart={(e) => {
                   e.dataTransfer.setData('letter', 'I');
                   handleLetterUse(index);
+                }}
+                onDragEnd={(e) => {
+                  // Reset letter if it's not dropped in a valid place
+                  if (!completedWords.INEL && !completedWords.CARTI && !completedWords.MIERE && !completedWords.DIAMANT && !completedWords.BAIAT) {
+                    handleLetterReset(index); // Reset the letter back to its original position
+                  }
                 }}
               >
                 I
@@ -158,6 +183,5 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
     </IonPage>
   );
 };
-
 
 export default LiteraILevel2;

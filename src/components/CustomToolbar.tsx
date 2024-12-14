@@ -62,14 +62,18 @@ const CustomToolbar: React.FC<CustomToolbarProps> = ({ title, titleStyle, onPlay
     };
 
     const handleMapNavigation = () => {
+      history.push('/map1');
+      
       // Verifică ruta curentă și navighează la ruta dorită
-      if (location.pathname === '/map1') {
-        history.push('/map1'); // Navighează la map1
-      } else if (location.pathname === '/map2') {
-        history.push('/map2'); // Navighează la map2
-      } else if (location.pathname === '/map3') {
-        history.push('/map3'); // Navighează la map3
-      }
+      // if (location.pathname === '/map1') {
+      //   history.push('/map1'); // Navighează la map1
+      // } else if (location.pathname === '/map2') {
+      //   history.push('/map2'); // Navighează la map2
+      // } else if (location.pathname === '/map3') {
+      //   history.push('/map3'); // Navighează la map3
+      // }
+
+
     };
     
 

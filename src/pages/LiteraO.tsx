@@ -26,6 +26,8 @@ import omidaAudio from '../assets/sounds/Omida.mp3';
 import oglindaAudio from '../assets/sounds/Oglinda.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import LitO from "../assets/sounds/RepetaDupaMine.mp3";
+
 
 
 
@@ -44,6 +46,20 @@ const LiteraO: React.FC<RouteComponentProps> = ({ history }) => {
     const words1 = ['OGLINDA', 'OAIE', 'CARTOF', 'FASOLE'];
     const words2 = ['OU', 'OALA', 'MORCOV', 'AUTOBUZ'];
   
+    useEffect(() => {
+      const audioTimeout = setTimeout(() => {
+        const audioPlayer = new Audio(LitO);
+        audioPlayer.play();
+        return () => {
+          audioPlayer.pause();
+          audioPlayer.currentTime = 0;
+        };
+      }, 1000);
+  
+      return () => clearTimeout(audioTimeout);
+    }, []);
+  
+
     const playAudio = (index: number) => {
       const audio = new Audio(audios[index]);
       audio.playbackRate = 0.8;
