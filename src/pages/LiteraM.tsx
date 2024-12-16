@@ -13,7 +13,7 @@ import munte from '../assets/images/munte.png';
 
 import CamilaAudio from '../assets/sounds/Camila.mp3';
 import MoaraAudio from '../assets/sounds/Moara.mp3';
-import MorcovAudio from '../assets/sounds/morcov.mp3';
+import MorcovAudio from '../assets/sounds/Morcov.mp3';
 import MingeAudio from '../assets/sounds/Minge.mp3';
 import UmbrelaAudio from '../assets/sounds/Umbrela.mp3';
 import MarAudio from '../assets/sounds/Mar.mp3';

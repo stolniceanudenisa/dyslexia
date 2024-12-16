@@ -28,12 +28,9 @@ import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import LitO from "../assets/sounds/RepetaDupaMine.mp3";
 
-
-
-
 import cartofAudio from '../assets/sounds/cartof.mp3';
 import fasoleAudio from '../assets/sounds/fasole .mp3';
-import morcovAudio from '../assets/sounds/morcov.mp3';
+import morcovAudio from '../assets/sounds/Morcov.mp3';
 import autobuzAudio from '../assets/sounds/autobuz.mp3';
 
 const LiteraO: React.FC<RouteComponentProps> = ({ history }) => {
