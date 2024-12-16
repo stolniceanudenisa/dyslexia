@@ -21,7 +21,7 @@ import CustomToolbar from '../components/CustomToolbar';
 import O from '../assets/sounds/O!.mp3';
 import oaieAudio from '../assets/sounds/Oaie.mp3';
 import oalaAudio from '../assets/sounds/Oala.mp3';
-import ouAudio from '../assets/sounds/Oala.mp3';
+import ouAudio from '../assets/sounds/ou.mp3';
 import omidaAudio from '../assets/sounds/Omida.mp3';
 import oglindaAudio from '../assets/sounds/Oglinda.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
@@ -31,10 +31,10 @@ import LitO from "../assets/sounds/RepetaDupaMine.mp3";
 
 
 
-import cartofAudio from '../assets/sounds/Oaie.mp3';
-import fasoleAudio from '../assets/sounds/Oaie.mp3';
-import morcovAudio from '../assets/sounds/Oaie.mp3';
-import autobuzAudio from '../assets/sounds/Oaie.mp3';
+import cartofAudio from '../assets/sounds/cartof.mp3';
+import fasoleAudio from '../assets/sounds/fasole .mp3';
+import morcovAudio from '../assets/sounds/morcov.mp3';
+import autobuzAudio from '../assets/sounds/autobuz.mp3';
 
 const LiteraO: React.FC<RouteComponentProps> = ({ history }) => {
     const images1 = [oglinda, oaie, cartof, fasole];
@@ -46,18 +46,18 @@ const LiteraO: React.FC<RouteComponentProps> = ({ history }) => {
     const words1 = ['OGLINDA', 'OAIE', 'CARTOF', 'FASOLE'];
     const words2 = ['OU', 'OALA', 'MORCOV', 'AUTOBUZ'];
   
-    useEffect(() => {
-      const audioTimeout = setTimeout(() => {
-        const audioPlayer = new Audio(LitO);
-        audioPlayer.play();
-        return () => {
-          audioPlayer.pause();
-          audioPlayer.currentTime = 0;
-        };
-      }, 1000);
+    // useEffect(() => {
+    //   const audioTimeout = setTimeout(() => {
+    //     const audioPlayer = new Audio(LitO);
+    //     audioPlayer.play();
+    //     return () => {
+    //       audioPlayer.pause();
+    //       audioPlayer.currentTime = 0;
+    //     };
+    //   }, 1000);
   
-      return () => clearTimeout(audioTimeout);
-    }, []);
+    //   return () => clearTimeout(audioTimeout);
+    // }, []);
   
 
     const playAudio = (index: number) => {

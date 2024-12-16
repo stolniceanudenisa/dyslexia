@@ -115,21 +115,53 @@ const playWordSound = (word: string) => {
     setDraggingLetter(null);  // Reset dragging state
   };
 
-  // Verificare completare cuvinte și redare sunet "Bravo"
+  // // Verificare completare cuvinte și redare sunet "Bravo"
+  // useEffect(() => {
+  //   const allCompleted = Object.values(completedWords).every((wordCompleted) => wordCompleted);
+
+  //   if (allCompleted) {
+  //     setIsNextLevelDisabled(false);
+  //   localStorage.setItem('level2Completed', 'true');
+  //   console.log('Level 2 completed!');  // Confirm this is being called
+
+  //     setTimeout(() => {
+  //       const bravoAudio = new Audio(Bravo);
+  //       bravoAudio.play();
+  //     }, 1000);
+  //   }
+  // }, [completedWords]);
+
+
+  // Verifică dacă toate cuvintele sunt completate
+  const checkCompletion = () => {
+    const allCompleted =
+      Object.values(completedWords).every((wordCompleted) => wordCompleted);
+    setIsNextLevelDisabled(!allCompleted); // Activează butonul doar dacă toate cuvintele sunt completate
+  };
+
+ 
+
+
+  // Folosim `useEffect` pentru a verifica starea la fiecare schimbare
   useEffect(() => {
+    checkCompletion();
+
+    // Play Bravo sound when all words are completed
     const allCompleted = Object.values(completedWords).every((wordCompleted) => wordCompleted);
-
     if (allCompleted) {
-      setIsNextLevelDisabled(false);
-    localStorage.setItem('level2Completed', 'true');
-    console.log('Level 2 completed!');  // Confirm this is being called
-
+      const bravoAudio = new Audio(Bravo);
       setTimeout(() => {
         const bravoAudio = new Audio(Bravo);
         bravoAudio.play();
       }, 1000);
     }
   }, [completedWords]);
+
+
+
+
+
+
 
   // Gestionarea folosirii literelor "A"
   const handleLetterUse = (index: number) => {

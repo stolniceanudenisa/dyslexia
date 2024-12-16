@@ -92,6 +92,8 @@ const LiteraULevel1: React.FC<RouteComponentProps> = ({ history }) => {
 
     const isCorrect = (buttonText: string) => {
         if (buttonText === "U") return "success";
+        if (buttonText === "O") return "warning";
+        if (buttonText === "I") return "warning";
         return "danger"; // Trap
     };
 

@@ -21,10 +21,10 @@ import U from '../assets/sounds/U!.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 
 
-import untAudio from '../assets/sounds/Urs.mp3';
-import flutureAudio from '../assets/sounds/Urs.mp3';
-import ouAudio from '../assets/sounds/Urs.mp3';
-import sucAudio from '../assets/sounds/Urs.mp3';
+import untAudio from '../assets/sounds/unt.mp3';
+import flutureAudio from '../assets/sounds/fluture.mp3';
+import ouAudio from '../assets/sounds/ou.mp3';
+import sucAudio from '../assets/sounds/suc.mp3';
 
 import ursAudio from '../assets/sounds/Urs.mp3'
 import usaAudio from '../assets/sounds/Usa.mp3'
@@ -44,18 +44,18 @@ const LiteraU: React.FC<RouteComponentProps> = ({ history }) => {
     const words2 = ['UMBRELA', 'UNICORN', 'OU', 'SUC'];
   
 
-    useEffect(() => {
-      const audioTimeout = setTimeout(() => {
-        const audioPlayer = new Audio(LitU);
-        audioPlayer.play();
-        return () => {
-          audioPlayer.pause();
-          audioPlayer.currentTime = 0;
-        };
-      }, 1000);
+    // useEffect(() => {
+    //   const audioTimeout = setTimeout(() => {
+    //     const audioPlayer = new Audio(LitU);
+    //     audioPlayer.play();
+    //     return () => {
+    //       audioPlayer.pause();
+    //       audioPlayer.currentTime = 0;
+    //     };
+    //   }, 1000);
   
-      return () => clearTimeout(audioTimeout);
-    }, []);
+    //   return () => clearTimeout(audioTimeout);
+    // }, []);
 
     const playAudio = (index: number) => {
       const audio = new Audio(audios[index]);

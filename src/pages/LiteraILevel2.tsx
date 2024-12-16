@@ -10,11 +10,18 @@ import cartiImg from '../assets/images/carti.png';
 import miereImg from '../assets/images/miere.png';
 import diamantImg from '../assets/images/diamant.png';
 import baiatImg from '../assets/images/baiat.png';
-import LitIL2 from "../assets/sounds/trage-litera-A.mp3";
+import LitIL2 from "../assets/sounds/trage-litera-I.mp3";
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import Bravo from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import { increaseScore, useGameSettings } from './Home'
+
+import inelAudio from '../assets/sounds/Inel.mp3';
+import cartiAudio from '../assets/sounds/carti.mp3';
+import miereAudio from '../assets/sounds/miere.mp3';
+import diamantAudio from '../assets/sounds/diamant.mp3';
+import baiatAudio from '../assets/sounds/baiat.mp3';
+
 
 const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
   const [completedWords, setCompletedWords] = useState({
@@ -25,9 +32,8 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
     BAIAT: false,
   });
 
-  const [lettersUsed, setLettersUsed] = useState([false, false, false, false, false, false]); // "I" letters
+  const [lettersUsed, setLettersUsed] = useState([false, false, false, false, false]); // "I" letters
   const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
-  const [coins, setCoins] = useState(0); // Track coins
 
   useEffect(() => {
     const audioTimeout = setTimeout(() => {
@@ -42,6 +48,14 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
     return () => clearTimeout(audioTimeout);
   }, []);
 
+  const wordAudioMap = {
+    INEL: inelAudio,
+    CARTI: cartiAudio,
+    MIERE: miereAudio,
+    DIAMANT: diamantAudio,
+    BAIAT: baiatAudio,
+  };
+
   const playClickAudio = () => {
     const audio = new Audio(Repeta);
     audio.play();
@@ -55,31 +69,37 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
   const handleDrop = (event: React.DragEvent, word: keyof typeof completedWords) => {
     const letter = event.dataTransfer.getData('letter');
     if (letter === 'I') {
-      // Check if the word is already completed, if not, complete it and add coins
       if (!completedWords[word]) {
         setCompletedWords((prev) => ({
           ...prev,
           [word]: true,
         }));
-        // Award a coin for completing the word
-        setCoins((prevCoins) => prevCoins + 1); // Increase local coin count
 
-        // Call increaseScore() if it's meant to update a global state or score
+        // Play the specific audio for the word with a 1-second delay
+        setTimeout(() => {
+          const audio = new Audio(wordAudioMap[word]);
+          audio.play();
+        }, 300);
+
+        // Update score
         increaseScore();
       }
     }
   };
 
   const allowDrop = (event: React.DragEvent) => {
-    event.preventDefault(); // Allow the drop
+    event.preventDefault();
   };
 
   const checkCompletion = () => {
     const allCompleted = Object.values(completedWords).every((wordCompleted) => wordCompleted);
-    setIsNextLevelDisabled(!allCompleted); // Enable the next level button if all words are completed
+    setIsNextLevelDisabled(!allCompleted);
+
     if (allCompleted) {
-      const bravoAudio = new Audio(Bravo);
-      bravoAudio.play(); // Play Bravo sound when all words are completed
+      setTimeout(() => {
+        const bravoAudio = new Audio(Bravo);
+        bravoAudio.play();
+      }, 1300); // Delay the "Bravo" sound by 1 second
     }
   };
 
@@ -95,7 +115,7 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
   const handleLetterReset = (index: number) => {
     const newLettersUsed = [...lettersUsed];
-    newLettersUsed[index] = false; // Reset the letter so it can be reused
+    newLettersUsed[index] = false;
     setLettersUsed(newLettersUsed);
   };
 
@@ -123,9 +143,14 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
                   handleLetterUse(index);
                 }}
                 onDragEnd={(e) => {
-                  // Reset letter if it's not dropped in a valid place
-                  if (!completedWords.INEL && !completedWords.CARTI && !completedWords.MIERE && !completedWords.DIAMANT && !completedWords.BAIAT) {
-                    handleLetterReset(index); // Reset the letter back to its original position
+                  if (
+                    !completedWords.INEL &&
+                    !completedWords.CARTI &&
+                    !completedWords.MIERE &&
+                    !completedWords.DIAMANT &&
+                    !completedWords.BAIAT
+                  ) {
+                    handleLetterReset(index); // Reset the letter if not dropped in a valid place
                   }
                 }}
               >
@@ -136,35 +161,33 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
           {/* Right Side - Words with blanks */}
           <div className="literaILevel2-words">
-            {/* INEL */}
-            <div className="literaILevel2-word-container" onDrop={(e) => handleDrop(e, 'INEL')} onDragOver={allowDrop}>
-              <span className="literaILevel2-word">{completedWords.INEL ? 'INEL' : '_NEL'}</span>
-              <img src={inelImg} alt="Inel" className="literaILevel2-word-image" />
-            </div>
-
-            {/* CARTI */}
-            <div className="literaILevel2-word-container" onDrop={(e) => handleDrop(e, 'CARTI')} onDragOver={allowDrop}>
-              <span className="literaILevel2-word">{completedWords.CARTI ? 'CARTI' : 'CART_'}</span>
-              <img src={cartiImg} alt="Carti" className="literaILevel2-word-image" />
-            </div>
-
-            {/* MIERE */}
-            <div className="literaILevel2-word-container" onDrop={(e) => handleDrop(e, 'MIERE')} onDragOver={allowDrop}>
-              <span className="literaILevel2-word">{completedWords.MIERE ? 'MIERE' : 'M_ERE'}</span>
-              <img src={miereImg} alt="Miere" className="literaILevel2-word-image" />
-            </div>
-
-            {/* DIAMANT */}
-            <div className="literaILevel2-word-container" onDrop={(e) => handleDrop(e, 'DIAMANT')} onDragOver={allowDrop}>
-              <span className="literaILevel2-word">{completedWords.DIAMANT ? 'DIAMANT' : 'D_AMANT'}</span>
-              <img src={diamantImg} alt="Diamant" className="literaILevel2-word-image" />
-            </div>
-
-            {/* BAIAT */}
-            <div className="literaILevel2-word-container" onDrop={(e) => handleDrop(e, 'BAIAT')} onDragOver={allowDrop}>
-              <span className="literaILevel2-word">{completedWords.BAIAT ? 'BAIAT' : 'BA_AT'}</span>
-              <img src={baiatImg} alt="Baiat" className="literaILevel2-word-image" />
-            </div>
+            {Object.keys(completedWords).map((word) => (
+              <div
+                key={word}
+                className="literaILevel2-word-container"
+                onDrop={(e) => handleDrop(e, word as keyof typeof completedWords)}
+                onDragOver={allowDrop}
+              >
+                <span className="literaILevel2-word">
+                  {completedWords[word as keyof typeof completedWords]
+                    ? word
+                    : word.replace('I', '_')}
+                </span>
+                <img
+                  src={
+                    {
+                      INEL: inelImg,
+                      CARTI: cartiImg,
+                      MIERE: miereImg,
+                      DIAMANT: diamantImg,
+                      BAIAT: baiatImg,
+                    }[word as keyof typeof completedWords]
+                  }
+                  alt={word}
+                  className="literaILevel2-word-image"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </IonContent>
@@ -183,5 +206,4 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
     </IonPage>
   );
 };
-
 export default LiteraILevel2;

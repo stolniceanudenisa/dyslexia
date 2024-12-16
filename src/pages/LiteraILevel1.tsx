@@ -91,7 +91,7 @@ const LiteraILevel1: React.FC<{ history: any }> = ({ history }) => {
 
     const isCorrect = (buttonText: string) => {
         if (buttonText === "I") return "success";
-        if (buttonText === "A" || buttonText === "E") return "tertiary";
+        if (buttonText === "A" || buttonText === "E") return "warning";
         return "danger";
     };
 

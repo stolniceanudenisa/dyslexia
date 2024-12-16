@@ -9,14 +9,16 @@ import UAudio from '../assets/sounds/U!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
-import { arrowForwardOutline } from 'ionicons/icons';
+import { arrowForwardOutline, umbrella } from 'ionicons/icons';
 import { RouteComponentProps } from 'react-router';
 
 import unt from "../assets/images/unt.png";
 import unicorn from "../assets/images/unicorn.png";
 import umbrela from "../assets/images/umbrela.png";
-import LitUL2 from "../assets/sounds/intoarce-cartonase-E.mp3";
-
+import LitUL2 from "../assets/sounds/intoarce-cartonase-U.mp3";
+import untAudio from '../assets/sounds/unt.mp3';
+import unicornAudio from '../assets/sounds/Unicorn.mp3';
+import umbrelaAudio from '../assets/sounds/Umbrela.mp3';
 
 
 const LiteraULevel2: React.FC<RouteComponentProps> = ({ history }) => {
@@ -53,6 +55,28 @@ const LiteraULevel2: React.FC<RouteComponentProps> = ({ history }) => {
       return;
     }
 
+    const card = cards.find((card) => card.id === cardId);
+    if (card) {
+        let audio;
+        switch (card.text) {
+            case "UNT":
+                audio = new Audio(untAudio);
+                break;
+            case "UNICORN":
+                audio = new Audio(unicornAudio);
+                break;
+            case "UMBRELA":
+                audio = new Audio(umbrelaAudio);
+                break;
+            default:
+                break;
+        }
+        if (audio) {
+            audio.play();
+        }
+    }
+
+
     const updatedFlippedCards = [...flippedCards, cardId];
     setFlippedCards(updatedFlippedCards);
 
@@ -68,8 +92,12 @@ const LiteraULevel2: React.FC<RouteComponentProps> = ({ history }) => {
         // Verificare dacă toate perechile sunt corect asociate
         if (matchedCards.length + 2 === cards.length) {
           // Redare sunet "Bravo" la completarea jocului
+
           const bravoAudio = new Audio(Bravo);
-          bravoAudio.play();
+        setTimeout(() => {
+        const bravoAudio = new Audio(Bravo);
+        bravoAudio.play();
+      }, 1000);
 
           setIsNextLevelDisabled(false); // Activare buton pentru următorul nivel
         }
@@ -127,7 +155,7 @@ const LiteraULevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
           <IonFabButton
-            onClick={() => history.push("/map2")} // Navighează către următorul nivel (sau hartă)
+            onClick={() => history.push("/bonus-ocean")} // Navighează către următorul nivel (sau hartă)
             disabled={isNextLevelDisabled}
           >
             <IonIcon

@@ -1,2 +1,15 @@
 /* For information on how to create your own theme, please see:
 http://ionicframework.com/docs/theming/ */
+/* Ensure the viewport scales correctly */
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  /* Allow the game to scroll horizontally if needed */
+  body {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: #fff;
+  }

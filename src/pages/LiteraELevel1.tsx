@@ -88,7 +88,7 @@ const LiteraELevel1: React.FC<RouteComponentProps> = ({ history }) => {
     // Determinare stil buton
     const getButtonColor = (buttonText: ButtonText): string => {
         if (buttonText === "E") return "success";
-        if (buttonText === "A") return "tertiary";
+        if (buttonText === "A") return "warning";
         return "danger";
     };
 

@@ -21,7 +21,7 @@ import InimaAudio from '../assets/sounds/Inima.mp3';
 import CapsuniiAudio from '../assets/sounds/capsuni.mp3';
 import GainaAudio from '../assets/sounds/gaina.mp3';
 import PisicaAudio from '../assets/sounds/pisica.mp3';
-import PestiAudio from '../assets/sounds/Inel.mp3';
+import PestiAudio from '../assets/sounds/pesti.mp3';
 
  
 import { RouteComponentProps } from 'react-router';
