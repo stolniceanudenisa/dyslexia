@@ -230,6 +230,8 @@ const App: React.FC = () => (
           <Route path="/LiteraVLevel1" component={LiteraVLevel1} exact={true} />
           <Route path="/LiteraVLevel2" component={LiteraVLevel2} exact={true} />  
             
+          <Redirect exact from="/" to="/intro" />
+
         </Switch>
 
 {/* 
