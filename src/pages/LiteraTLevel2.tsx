@@ -21,7 +21,7 @@ import timp from "../assets/images/timp.png";
 import tort from "../assets/images/tort.png";
 import taurAudio from "../assets/sounds/taur.mp3";
 import timpAudio from "../assets/sounds/timp.mp3";
-import tortAudio from "../assets/sounds/tort.mp3";
+import tortAudio from "../assets/sounds/tort!.mp3";
 import { RouteComponentProps } from "react-router";
 import { increaseScore } from "./Home";
 
