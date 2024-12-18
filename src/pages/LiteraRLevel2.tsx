@@ -111,7 +111,7 @@ const LiteraRLevel2: React.FC<RouteComponentProps> = ({ history }) => {
             onDrop={(e) => handleDrop(e, "CARACATITA")}
             onDragOver={allowDrop}
           >
-            <span className="literaRLevel2-word">{completedWords.CARACATITA ? "CARACATIȚĂ" : "CA_ACATIȚĂ"}</span>
+            <span className="literaRLevel2-word">{completedWords.CARACATITA ? "CARACATITA" : "CA_ACATITA"}</span>
             <img src={caracatitaImg} alt="Caracatita" className="literaRLevel2-word-image" />
           </div>
 
@@ -131,7 +131,7 @@ const LiteraRLevel2: React.FC<RouteComponentProps> = ({ history }) => {
             onDrop={(e) => handleDrop(e, "RATA")}
             onDragOver={allowDrop}
           >
-            <span className="literaRLevel2-word">{completedWords.RATA ? "RATĂ" : "_ATĂ"}</span>
+            <span className="literaRLevel2-word">{completedWords.RATA ? "RATA" : "_ATA"}</span>
             <img src={rataImg} alt="Rata" className="literaRLevel2-word-image" />
           </div>
         </div>

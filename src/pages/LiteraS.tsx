@@ -37,8 +37,8 @@ const LiteraS: React.FC<RouteComponentProps> = ({ history }) => {
         ScaunAudio, PasareAudio, MascaAudio, SanieAudio,
         CaisaAudio, SfoaraAudio, SticlaAudio, ScoicaAudio
     ];
-    const words1 = ['SCAUN', 'PASĂRE', 'MASCĂ', 'SANIE'];
-    const words2 = ['CAISĂ', 'SFOARĂ', 'STICLĂ', 'SCOICĂ'];
+    const words1 = ['SCAUN', 'PASARE', 'MASCA', 'SANIE'];
+    const words2 = ['CAISA', 'SFOARA', 'STICLA', 'SCOICA'];
 
     const playAudio = (index: number) => {
         const audio = new Audio(audios[index]);

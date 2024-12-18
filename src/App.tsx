@@ -117,6 +117,7 @@ import LiteraLLevel1 from "./pages/LiteraLLevel1";
 import LiteraVLevel1 from "./pages/LiteraVLevel1";
 import LiteraVLevel2 from "./pages/LiteraVLevel2";
 import BonusOceanPage from './pages/BonusOceanPage';
+import LiteraMLevel3 from './pages/LiteraMLevel3';
 
 
 
@@ -140,10 +141,12 @@ const App: React.FC = () => (
             <Route path="/map2" component={Map2} exact={true} />
             <Route path="/map3" component={Map3} exact={true} />
             <Route path="/maps" component={MapSelection} exact={true} />
+
             <Route path="/literaA" component={LiteraA} exact={true} />
             <Route path="/LiteraALevel1" component={LiteraALevel1} exact={true} />
             <Route path="/LiteraALevel2" component={LiteraALevel2} exact={true} />
-            <Route path="/literaE" component={LiteraE} exact={true} />
+
+          <Route path="/literaE" component={LiteraE} exact={true} />
           <Route path="/LiteraELevel1" component={LiteraELevel1} exact={true} />
           <Route path="/LiteraELevel2" component={LiteraELevel2} exact={true} />
 
@@ -169,6 +172,8 @@ const App: React.FC = () => (
           <Route path="/literaM" component={LiteraM} exact={true} />
           <Route path="/LiteraMLevel1" component={LiteraMLevel1} exact={true} />
           <Route path="/LiteraMLevel2" component={LiteraMLevel2} exact={true} />
+          <Route path="/LiteraMLevel3" component={LiteraMLevel3} exact={true} />
+
 
           <Route path="/literaN" component={LiteraN} exact={true} />
           <Route path="/LiteraNLevel1" component={LiteraNLevel1} exact={true} />
@@ -233,109 +238,7 @@ const App: React.FC = () => (
           <Redirect exact from="/" to="/intro" />
 
         </Switch>
-
-{/* 
-          <Redirect exact path="/" to="/intro" />
-          <Route path="/intro" component={Introduction} exact={true} />
-          <Route path="/home" component={Home} exact={true} />
-
-          <Route path="/maps" component={MapSelection} exact={true} />
-          <Route path="/map1" component={Map1} exact={true} />
-          <Route path="/map2" component={Map2} exact={true} />
-          <Route path="/map3" component={Map3} exact={true} />
-
-          <Route path="/literaA" component={LiteraA} exact={true} />
-          <Route path="/LiteraALevel1" component={LiteraALevel1} exact={true} />
-          <Route path="/LiteraALevel2" component={LiteraALevel2} exact={true} />
-
-          <Route path="/literaE" component={LiteraE} exact={true} />
-          <Route path="/LiteraELevel1" component={LiteraELevel1} exact={true} />
-          <Route path="/LiteraELevel2" component={LiteraELevel2} exact={true} />
-
-          <Route path="/literaI" component={LiteraI} exact={true} />
-          <Route path="/LiteraILevel1" component={LiteraILevel1} exact={true} />
-          <Route path="/LiteraILevel2" component={LiteraILevel2} exact={true} />
-
-          <Route path="/literaO" component={LiteraO} exact={true} />
-          <Route path="/LiteraOLevel1" component={LiteraOLevel1} exact={true}  /> 
-          <Route path="/LiteraOLevel2" component={LiteraOLevel2} exact={true} /> 
-
-          
-          <Route path="/literaU" component={LiteraU} exact={true} />
-          <Route path="/LiteraULevel1" component={LiteraULevel1} exact={true} />
-          <Route path="/LiteraULevel2" component={LiteraULevel2} exact={true} />   
-
-
-          <Route path="/literaP" component={LiteraP} exact={true} />
-          <Route path="/LiteraPLevel1" component={LiteraPLevel1} exact={true} />
-          <Route path="/LiteraPLevel2" component={LiteraPLevel2} exact={true} /> 
-
-          <Route path="/literaM" component={LiteraM} exact={true} />
-          <Route path="/LiteraMLevel1" component={LiteraMLevel1} exact={true} />
-          <Route path="/LiteraMLevel2" component={LiteraMLevel2} exact={true} />
-
-          <Route path="/literaN" component={LiteraN} exact={true} />
-          <Route path="/LiteraNLevel1" component={LiteraNLevel1} exact={true} />
-          <Route path="/LiteraNLevel2" component={LiteraNLevel2} exact={true} />
-
-          <Route path="/literaR" component={LiteraR} exact={true} />
-          <Route path="/LiteraRLevel1" component={LiteraRLevel1} exact={true} />
-          <Route path="/LiteraRLevel2" component={LiteraRLevel2} exact={true} /> 
-
-          <Route path="/literaS" component={LiteraS} exact={true} />
-          <Route path="/LiteraSLevel1" component={LiteraSLevel1} exact={true} />
-          <Route path="/LiteraSLevel2" component={LiteraSLevel2} exact={true} /> 
-
-          <Route path="/literaZ" component={LiteraZ} exact={true} />
-          <Route path="/LiteraZLevel1" component={LiteraZLevel1} exact={true} />
-          <Route path="/LiteraZLevel2" component={LiteraZLevel2} exact={true} /> 
  
-          <Route path="/literaB" component={LiteraB} exact={true} />
-          <Route path="/LiteraBLevel1" component={LiteraBLevel1} exact={true} />
-          <Route path="/LiteraBLevel2" component={LiteraBLevel2} exact={true} />
-
-          <Route path="/literaH" component={LiteraH} exact={true} />
-          <Route path="/LiteraHLevel1" component={LiteraHLevel1} exact={true} />
-          <Route path="/LiteraHLevel2" component={LiteraHLevel2} exact={true} />
-
-          <Route path="/literaJ" component={LiteraJ} exact={true} />
-          <Route path="/LiteraJLevel1" component={LiteraJLevel1} exact={true} />
-          <Route path="/LiteraJLevel2" component={LiteraJLevel2} exact={true} />
-
-
-          <Route path="/literaT" component={LiteraT} exact={true} />
-          <Route path="/LiteraTLevel1" component={LiteraTLevel1} exact={true} />
-          <Route path="/LiteraTLevel2" component={LiteraTLevel2} exact={true} />
- 
- 
-          <Route path="/literaC" component={LiteraC} exact={true} />
-          <Route path="/LiteraCLevel1" component={LiteraCLevel1} exact={true} />
-          <Route path="/LiteraCLevel2" component={LiteraCLevel2} exact={true} />
-          
-
-          <Route path="/literaD" component={LiteraD} exact={true} />
-          <Route path="/LiteraDLevel1" component={LiteraDLevel1} exact={true} />
-          <Route path="/LiteraDLevel2" component={LiteraDLevel2} exact={true} /> 
-
-
-  	      <Route path="/literaF" component={LiteraF} exact={true}/>
-          <Route path="/LiteraFLevel1" component={LiteraFLevel1} exact={true}/>
-          <Route path="/LiteraFLevel2" component={LiteraFLevel2} exact={true}/>
-
-          <Route path="/literaG" component={LiteraG} exact={true} />
-          <Route path="/LiteraGLevel1" component={LiteraGLevel1} exact={true}  />
-          <Route path="/LiteraGLevel2" component={LiteraGLevel2} exact={true}  />
- 
-          <Route path="/literaL" component={LiteraL} exact={true} />
-          <Route path="/LiteraLLevel1" component={LiteraLLevel1} exact={true} />
-          <Route path="/LiteraLLevel2" component={LiteraLLevel2} exact={true} />
-
-          <Route path="/literaV" component={LiteraV} exact={true} />
-          <Route path="/LiteraVLevel1" component={LiteraVLevel1} exact={true} />
-          <Route path="/LiteraVLevel2" component={LiteraVLevel2} exact={true} /> */}
-
-
-
         </IonRouterOutlet>
 
 

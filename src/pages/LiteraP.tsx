@@ -20,7 +20,7 @@ import SapunAudio from '../assets/sounds/Sapun.mp3';
 
 import PandaAudio from '../assets/sounds/Panda.mp3';
 import PrajituraAudio from '../assets/sounds/Prajitura.mp3';
-import LaptopAudio from '../assets/sounds/Laptop.mp3';
+import LaptopAudio from '../assets/sounds/laptop.mp3';
 import TrompetaAudio from '../assets/sounds/Trompeta.mp3';
 
 import P from '../assets/sounds/P.mp3';
@@ -31,14 +31,14 @@ import CustomToolbar from '../components/CustomToolbar';
 import { RouteComponentProps } from 'react-router';
 
 const LiteraP: React.FC<RouteComponentProps> = ({ history }) => {
-    const images1 = [papagal, palarie, vulpe, sapun];
-    const images2 = [panda, prajitura, laptop, trompeta];
+    const images1 = [papagal, palarie, vulpe, trompeta]; // Vulpe moved to first row
+    const images2 = [panda, prajitura, laptop, sapun]; // Prajitura moved to second row
     const audios = [
-        PapagalAudio, PalarieAudio, VulpeAudio, SapunAudio,
-        PandaAudio, PrajituraAudio, LaptopAudio, TrompetaAudio
+        PapagalAudio, PalarieAudio, VulpeAudio, TrompetaAudio, // Updated order
+        PandaAudio, PrajituraAudio, LaptopAudio, SapunAudio
     ];
-    const words1 = ['PAPAGAL', 'PĂLĂRIE', 'VULPE', 'SĂPUN'];
-    const words2 = ['PANDA', 'PRĂJITURĂ', 'LAPTOP', 'TROMPETĂ'];
+    const words1 = ['PAPAGAL', 'PALARIE', 'VULPE', 'TROMPETA']; // Updated order
+    const words2 = ['PANDA', 'PRAJITURA', 'LAPTOP', 'SAPUN']; // Updated order
 
     const playAudio = (index: number) => {
         const audio = new Audio(audios[index]);

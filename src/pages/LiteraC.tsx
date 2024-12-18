@@ -12,10 +12,10 @@ import cerc from '../assets/images/cerc.png';
 
 import CiocanAudio from '../assets/sounds/ciocanAudio.mp3';
 import BiscuiteAudio from '../assets/sounds/biscuite.mp3';
-import CasaAudio from '../assets/sounds/casaAudio.mp3';
+import CasaAudio from '../assets/sounds/casa!.mp3';
 import CaineAudio from '../assets/sounds/caineAudio.mp3';
 import PisicaAudio from '../assets/sounds/pisica.mp3';
-import VacaAudio from '../assets/sounds/vacaAudio.mp3';
+import VacaAudio from '../assets/sounds/vaca.mp3';
 import RacAudio from '../assets/sounds/racAudio.mp3';
 import CercAudio from '../assets/sounds/cercAudio.mp3';
 

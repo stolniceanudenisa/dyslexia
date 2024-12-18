@@ -63,13 +63,13 @@ const LiteraZLevel1: React.FC<RouteComponentProps> = ({ history }) => {
                     return newCounter;
                 });
                 increaseScore();
-                playAudio(ZAudio);
+               
             } else if (buttonType === "V") {
-                playAudio(VAudio);
+              
             } else if (buttonType === "S") {
-                playAudio(SAudio);
+               
             } else if (buttonType === "L") {
-                playAudio(LAudio);
+                
             }
         }
     };

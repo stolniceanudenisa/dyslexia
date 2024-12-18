@@ -40,11 +40,11 @@ const LiteraBLevel2: React.FC<RouteComponentProps> = ({ history }) => {
         console.log(`Dropped letter: ${letter}, Target word: ${word}`);
 
         if (letter === "B") {
-            if (word === "BROASCĂ" && !completedWords.BROASCĂ) {
+            if (word === "BROASCA" && !completedWords.BROASCĂ) {
                 setCompletedWords((prev) => ({ ...prev, BROASCĂ: true }));
             } else if (word === "CUB" && !completedWords.CUB) {
                 setCompletedWords((prev) => ({ ...prev, CUB: true }));
-            } else if (word === "ZEBRĂ" && !completedWords.ZEBRĂ) {
+            } else if (word === "ZEBRA" && !completedWords.ZEBRĂ) {
                 setCompletedWords((prev) => ({ ...prev, ZEBRĂ: true }));
             }
         }
@@ -98,11 +98,11 @@ const LiteraBLevel2: React.FC<RouteComponentProps> = ({ history }) => {
                     {/* BROASCĂ */}
                     <div
                         className="literaBLevel2-word-container"
-                        onDrop={(e) => handleDrop(e, "BROASCĂ")}
+                        onDrop={(e) => handleDrop(e, "BROASCA")}
                         onDragOver={allowDrop}
                     >
                         <span className="literaBLevel2-word">
-                            {completedWords.BROASCĂ ? "BROASCĂ" : "_ROASCĂ"}
+                            {completedWords.BROASCĂ ? "BROASCA" : "_ROASCA"}
                         </span>
                         <img src={broascăImg} alt="Broască" className="literaBLevel2-word-image" />
                     </div>
@@ -122,11 +122,11 @@ const LiteraBLevel2: React.FC<RouteComponentProps> = ({ history }) => {
                     {/* ZEBRĂ */}
                     <div
                         className="literaBLevel2-word-container"
-                        onDrop={(e) => handleDrop(e, "ZEBRĂ")}
+                        onDrop={(e) => handleDrop(e, "ZEBRA")}
                         onDragOver={allowDrop}
                     >
                         <span className="literaBLevel2-word">
-                            {completedWords.ZEBRĂ ? "ZEBRĂ" : "ZE_RĂ"}
+                            {completedWords.ZEBRĂ ? "ZEBRA" : "ZE_RA"}
                         </span>
                         <img src={zebrăImg} alt="Zebră" className="literaBLevel2-word-image" />
                     </div>

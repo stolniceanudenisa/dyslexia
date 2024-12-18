@@ -32,7 +32,7 @@ const LiteraB: React.FC<RouteComponentProps> = ({ history }) => {
     const images1 = [zebra,cerb , bani, sabie]; // Adăugăm masa la primul rând
     const images2 = [balon, cub, bol, bec]; // Adăugăm mac la al doilea rând
     const audios = [ZebraAudio, CerbAudio, BaniAudio, SabieAudio, BalonAudio, CubAudio, BolAudio, BecAudio];
-    const words1 = ['ZEBRĂ', 'CERB', 'BANI', 'SABIE']; // Text pentru primul rând
+    const words1 = ['ZEBRA', 'CERB', 'BANI', 'SABIE']; // Text pentru primul rând
     const words2 = ['BALON', 'CUB', 'BOL', 'BEC']; // Text pentru al doilea rând
 
     const playAudio = (index: number) => {

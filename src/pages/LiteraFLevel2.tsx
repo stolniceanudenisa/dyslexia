@@ -14,7 +14,7 @@ import { arrowForwardOutline } from "ionicons/icons";
 import "./LiteraFLevel2.css";
 import "./Home.css";
 import CustomToolbar from "../components/CustomToolbar";
-import Bravo from "../assets/sounds/BravoFinalJoc.mp3";
+import Bravo from "../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3";
 import Avanseaza from "../assets/sounds/nivelul-urmator!.mp3";
 
 import floare from "../assets/images/floare.png";
@@ -79,8 +79,7 @@ const LiteraFLevel2: React.FC<RouteComponentProps> = ({ history }) => {
     };
 
     const handleBackClick = () => {
-        // Navigate back to the previous page or a valid route
-        history.goBack(); // Ensure the goBack() works correctly with your app structure
+        history.goBack(); 
     };
 
     return (
@@ -88,7 +87,7 @@ const LiteraFLevel2: React.FC<RouteComponentProps> = ({ history }) => {
             <IonHeader>
                 <CustomToolbar
                     title="Litera F Level 2 - Memory Game"
-                    onBackClick={handleBackClick} // Use handleBackClick instead of history.goBack directly
+                    onBackClick={handleBackClick} 
                 />
             </IonHeader>
             <IonContent className="memory-game-content">
