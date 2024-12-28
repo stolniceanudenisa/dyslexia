@@ -15,15 +15,15 @@ import zână from '../assets/images/zana.png';
 import zambila from '../assets/images/zambila.png';
 
 // Fișiere audio asociate cu cuvintele literei Z
-import VazaAudio from '../assets/sounds/vapor.mp3';
-import ZmeuAudio from '../assets/sounds/vapor.mp3';
-import ZaharAudio from '../assets/sounds/vapor.mp3';
-import RozAudio from '../assets/sounds/Roz.mp3';
+import VazaAudio from '../assets/sounds/vaza.mp3';
+import ZmeuAudio from '../assets/sounds/zmeu.mp3';
+import ZaharAudio from '../assets/sounds/zahar.mp3';
+import RozAudio from '../assets/sounds/roz.mp3';
 
-import ZmeuraAudio from '../assets/sounds/Zmeura.mp3'; // Audio nou pentru Zmeură
-import MazareAudio from '../assets/sounds/Mazare.mp3';
-import ZanaAudio from '../assets/sounds/Zana.mp3';
-import ZambilaAudio from '../assets/sounds/Zambila.mp3';
+import ZmeuraAudio from '../assets/sounds/zmeura.mp3'; // Audio nou pentru Zmeură
+import MazareAudio from '../assets/sounds/mazare.mp3';
+import ZanaAudio from '../assets/sounds/zana.mp3';
+import ZambilaAudio from '../assets/sounds/zambila.mp3';
 
 // Alte fișiere audio
 import Z from '../assets/sounds/Z.mp3';
@@ -40,8 +40,8 @@ const LiteraZ: React.FC<RouteComponentProps> = ({ history }) => {
         VazaAudio, ZmeuAudio, ZaharAudio, RozAudio,
         ZmeuraAudio, MazareAudio, ZanaAudio, ZambilaAudio
     ];
-    const words1 = ['VAZA', 'ZMEU', 'ZAHAR', 'ROZ'];
-    const words2 = ['ZMEURA', 'MAZARE', 'ZANA', 'ZAMBILA']; // Zmeură în loc de Zar
+    const words1 = ['VAZĂ', 'ZMEU', 'ZAHĂR', 'ROZ'];
+    const words2 = ['ZMEURĂ', 'MAZĂRE', 'ZÂNĂ', 'ZAMBILĂ']; // Zmeură în loc de Zar
 
     const playAudio = (index: number) => {
         const audio = new Audio(audios[index]);
