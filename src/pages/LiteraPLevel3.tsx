@@ -106,7 +106,7 @@ const LiteraPLevel3: React.FC<RouteComponentProps> = ({ history }) => {
       </IonContent>
 
       <IonFab vertical="bottom" horizontal="end" slot="fixed">
-        <IonFabButton onClick={() => history.push('/LiteraQ')}>
+        <IonFabButton onClick={() => history.push('/LiteraR')}>
           <IonIcon
             icon={arrowForwardOutline}
             className="black-icon big-arrow"
