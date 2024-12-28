@@ -13,17 +13,17 @@ import sfoara from '../assets/images/sfoara.png';
 import sticla from '../assets/images/sticla.png';
 import scoica from '../assets/images/scoica.png';
 
-import ScaunAudio from '../assets/sounds/Inel.mp3';
-import PasareAudio from '../assets/sounds/Inel.mp3';
-import MascaAudio from '../assets/sounds/Inel.mp3';
-import SanieAudio from '../assets/sounds/Inel.mp3';
+import ScaunAudio from '../assets/sounds/scaun.mp3';
+import PasareAudio from '../assets/sounds/pasare.mp3';
+import MascaAudio from '../assets/sounds/masca.mp3';
+import SanieAudio from '../assets/sounds/sanie.mp3';
 
-import CaisaAudio from '../assets/sounds/Inel.mp3';
-import SfoaraAudio from '../assets/sounds/Inel.mp3';
-import SticlaAudio from '../assets/sounds/Inel.mp3';
-import ScoicaAudio from '../assets/sounds/Inel.mp3';
+import CaisaAudio from '../assets/sounds/caisa.mp3';
+import SfoaraAudio from '../assets/sounds/sfoara.mp3';
+import SticlaAudio from '../assets/sounds/sticla.mp3';
+import ScoicaAudio from '../assets/sounds/scoica.mp3';
 
-import S from '../assets/sounds/Inel.mp3';
+import S from '../assets/sounds/S.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 
@@ -37,8 +37,8 @@ const LiteraS: React.FC<RouteComponentProps> = ({ history }) => {
         ScaunAudio, PasareAudio, MascaAudio, SanieAudio,
         CaisaAudio, SfoaraAudio, SticlaAudio, ScoicaAudio
     ];
-    const words1 = ['SCAUN', 'PASARE', 'MASCA', 'SANIE'];
-    const words2 = ['CAISA', 'SFOARA', 'STICLA', 'SCOICA'];
+    const words1 = ['SCAUN', 'PASĂRE', 'MASCĂ', 'SANIE'];
+    const words2 = ['CAISĂ', 'SFOARĂ', 'STICLĂ', 'SCOICĂ'];
 
     const playAudio = (index: number) => {
         const audio = new Audio(audios[index]);

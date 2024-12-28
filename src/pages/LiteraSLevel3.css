@@ -1,0 +1,48 @@
+.literaSLevel3-container { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh; /* Full viewport height */
+    padding: 20px;
+    box-sizing: border-box; /* Ensures padding is included in total height */
+    background-color: #ffebf0; /* Light pink background */
+}
+
+.literaSLevel3-syllables {
+    display: flex;
+    justify-content: space-around; /* Space between columns */
+    align-items: center;
+    width: 100%;
+    max-width: 1000px; /* Restricts maximum layout width */
+    gap: -40px; /* Reduced space between columns */
+    margin-left: 350px;
+}
+
+.syllables-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between buttons */
+    margin-top: 80px; /* Centering adjustment */
+}
+
+.syllable-item {
+    font-size: 2rem; /* Adjusted font size */
+    font-weight: bold;
+    padding: 20px 30px; /* Button dimensions */
+    border: 3px solid #8940ff; /* Pink border */
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: #8b3f97; /* Light pink button background */
+    margin: 10px; /* Margin for consistent spacing */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap; /* Prevents text from breaking into multiple lines */
+    color: #220332; /* Pink text */
+}
+
+.syllable-item:hover {
+    background-color: #ff4081; /* Darker pink on hover */
+    color: white; /* White text on hover */
+    transform: scale(1.1); /* Slightly larger on hover */
+}

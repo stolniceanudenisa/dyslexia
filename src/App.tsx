@@ -68,15 +68,19 @@ import LiteraOLevel2 from './pages/LiteraOLevel2';
  
 import LiteraPLevel1 from './pages/LiteraPLevel1';
 import LiteraPLevel2 from './pages/LiteraPLevel2';
+import LiteraPLevel3 from './pages/LiteraPLevel3';
 
 import LiteraRLevel1 from './pages/LiteraRLevel1';
 import LiteraRLevel2 from './pages/LiteraRLevel2';
+import LiteraRLevel3 from './pages/LiteraRLevel3';
 
 import LiteraSLevel1 from './pages/LiteraSLevel1';
 import LiteraSLevel2 from './pages/LiteraSLevel2';
+import LiteraSLevel3 from './pages/LiteraSLevel3';
 
 import LiteraZLevel1 from './pages/LiteraZLevel1';
 import LiteraZLevel2 from './pages/LiteraZLevel2';
+import LiteraZLevel3 from './pages/LiteraZLevel3';
   
 import LiteraULevel1 from './pages/LiteraULevel1';
 import LiteraULevel2 from './pages/LiteraULevel2';
@@ -168,6 +172,7 @@ const App: React.FC = () => (
           <Route path="/literaP" component={LiteraP} exact={true} />
           <Route path="/LiteraPLevel1" component={LiteraPLevel1} exact={true} />
           <Route path="/LiteraPLevel2" component={LiteraPLevel2} exact={true} /> 
+          <Route path="/LiteraPLevel3" component={LiteraPLevel3} exact={true} />
 
           <Route path="/literaM" component={LiteraM} exact={true} />
           <Route path="/LiteraMLevel1" component={LiteraMLevel1} exact={true} />
@@ -182,14 +187,17 @@ const App: React.FC = () => (
           <Route path="/literaR" component={LiteraR} exact={true} />
           <Route path="/LiteraRLevel1" component={LiteraRLevel1} exact={true} />
           <Route path="/LiteraRLevel2" component={LiteraRLevel2} exact={true} /> 
+          <Route path="/LiteraRLevel3" component={LiteraRLevel3} exact={true} /> 
 
           <Route path="/literaS" component={LiteraS} exact={true} />
           <Route path="/LiteraSLevel1" component={LiteraSLevel1} exact={true} />
           <Route path="/LiteraSLevel2" component={LiteraSLevel2} exact={true} /> 
+          <Route path="/LiteraSLevel3" component={LiteraSLevel3} exact={true} />
 
           <Route path="/literaZ" component={LiteraZ} exact={true} />
           <Route path="/LiteraZLevel1" component={LiteraZLevel1} exact={true} />
           <Route path="/LiteraZLevel2" component={LiteraZLevel2} exact={true} /> 
+          <Route path="/LiteraZLevel3" component={LiteraZLevel3} exact={true} />
  
           <Route path="/literaB" component={LiteraB} exact={true} />
           <Route path="/LiteraBLevel1" component={LiteraBLevel1} exact={true} />

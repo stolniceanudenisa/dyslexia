@@ -20,7 +20,7 @@ import SapunAudio from '../assets/sounds/Sapun.mp3';
 
 import PandaAudio from '../assets/sounds/Panda.mp3';
 import PrajituraAudio from '../assets/sounds/Prajitura.mp3';
-import LaptopAudio from '../assets/sounds/laptop.mp3';
+import LaptopAudio from '../assets/sounds/Laptop.mp3';
 import TrompetaAudio from '../assets/sounds/Trompeta.mp3';
 
 import P from '../assets/sounds/P.mp3';
