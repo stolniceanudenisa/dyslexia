@@ -1,4 +1,4 @@
-.literaMLevel3-container {
+.literaHLevel3-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +10,7 @@
 
 }
 
-.literaMLevel3-syllables {
+.literaHLevel3-syllables {
   display: flex;
   justify-content: space-around; /* Space between columns */
   align-items: center;

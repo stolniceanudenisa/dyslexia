@@ -15,9 +15,9 @@ import PaharAudio from '../assets/sounds/pahar!.mp3';
 import HotelAudio from '../assets/sounds/hotel!.mp3';
 import HartieAudio from '../assets/sounds/hartie!.mp3';
 import ZaharAudio from '../assets/sounds/zahar!.mp3';
-import HamsterAudio from '../assets/sounds/hamster!.mp3';
+import HomarAudio from '../assets/sounds/homar!.mp3';
 import HainaAudio from '../assets/sounds/haina!.mp3';
-import HelicopterAudio from '../assets/sounds/helicopter!.mp3';
+import HarpaAudio from '../assets/sounds/harpa!.mp3';
 
 import H from '../assets/sounds/H!.mp3';
 
@@ -30,7 +30,7 @@ import { arrowForwardOutline } from 'ionicons/icons';
 const LiteraH: React.FC<RouteComponentProps> = ({ history }) => {
   const images1 = [harta, pahar, hotel, hartie]; // First row images
   const images2 = [zahar, hamster, haina, helicopter]; // Second row images
-  const audios = [HartaAudio, PaharAudio, HotelAudio, HartieAudio, ZaharAudio, HamsterAudio, HainaAudio, HelicopterAudio]; // Audio files
+  const audios = [HartaAudio, PaharAudio, HotelAudio, HartieAudio, ZaharAudio, HarpaAudio, HainaAudio, HomarAudio]; // Audio files
   const words1 = ['HARTA', 'PAHAR', 'HOTEL', 'HARTIE']; // First row words
   const words2 = ['ZAHAR', 'HARPA', 'HAINA', 'HOMAR']; // Second row words
 
