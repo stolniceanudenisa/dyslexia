@@ -29,21 +29,22 @@
   }
   
   .syllable-item {
-    font-size: 2rem; /* Reduced font size for smaller buttons */
+    font-size: 2rem; /* Font size for buttons */
     font-weight: bold;
-    padding: 20px 30px; /* Smaller button dimensions */
-    border: 3px solid #007bff; /* Slightly thinner border */
+    padding: 20px 30px; /* Button dimensions */
+    border: 3px solid #524996; /* Dark purple border */
     border-radius: 12px;
     cursor: pointer;
-    background-color: #f0f8ff;
-    margin: 10px; /* Smaller margin for consistent spacing */
+    background-color: #e6ccff; /* Light purple background */
+    color: #456dae; /* Darker purple text */
+    margin: 10px; /* Margin for consistent spacing */
     transition: background-color 0.3s ease, transform 0.2s ease;
     white-space: nowrap; /* Prevents text from breaking into multiple lines */
   }
   
   .syllable-item:hover {
-    background-color: #007bff;
-    color: white;
+    background-color: #ec60ec; /* Medium purple when hovered */
+    color: white; /* White text on hover */
     transform: scale(1.05); /* Subtle enlargement on hover */
   }
   

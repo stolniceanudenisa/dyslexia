@@ -1,0 +1,21 @@
+.bonus-ocean-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    height: 100%;
+  }
+  
+  .video-container {
+    width: 100%;
+    max-width: 900px;
+    height: calc(100vh - 150px); /* Rezervă spațiu pentru toolbar și buton */
+    margin: 0 auto;
+    margin-top: 40px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #000;
+  }
+  

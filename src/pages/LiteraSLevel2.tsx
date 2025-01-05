@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   IonContent,
   IonHeader,
@@ -22,8 +22,14 @@ import salata from "../assets/images/salata.png";
 import sare from "../assets/images/sare.png";  
 import { RouteComponentProps } from "react-router";
 
+import { increaseScore } from "./Home";
+import Repeta from '../assets/sounds/intoarce-cartonase-E.mp3';
+import SteaSound from "../assets/sounds/stea.mp3";
+import SalataSound from "../assets/sounds/salata.mp3";
+import SareSound from "../assets/sounds/sare.mp3";
+
+
 const LiteraSLevel2: React.FC<RouteComponentProps> = ({ history }) => {
- 
   const initialCards = [
     { id: 1, text: "STEA", img: stea, revealed: false },
     { id: 2, text: "SALATA", img: salata, revealed: false },
@@ -33,17 +39,15 @@ const LiteraSLevel2: React.FC<RouteComponentProps> = ({ history }) => {
     { id: 6, text: "SARE", img: sare, revealed: false },
   ];
 
-  // Funcție pentru amestecarea cardurilor
   const shuffleCards = (cards: any[]) => {
     const shuffled = [...cards];
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // Swap
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
   };
 
-  // Amestecăm cardurile pentru a le plasa aleatoriu pe laturi opuse
   const shuffledCards = shuffleCards(initialCards);
 
   const [cards, setCards] = useState(shuffledCards);
@@ -51,9 +55,39 @@ const LiteraSLevel2: React.FC<RouteComponentProps> = ({ history }) => {
   const [matchedCards, setMatchedCards] = useState<number[]>([]);
   const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
 
+  useEffect(() => {
+    const audioTimeout = setTimeout(() => {
+      const audio = new Audio(Repeta);
+      audio.play();
+    }, 1000);
+
+    return () => clearTimeout(audioTimeout);
+  }, []);
+
   const handleCardClick = (cardId: number) => {
     if (flippedCards.length === 2 || matchedCards.includes(cardId)) {
       return;
+    }
+
+    const card = cards.find((card) => card.id === cardId);
+    if (card) {
+      let audio;
+      switch (card.text) {
+        case "STEA":
+          audio = new Audio(SteaSound);
+          break;
+        case "SALATA":
+          audio = new Audio(SalataSound);
+          break;
+        case "SARE":
+          audio = new Audio(SareSound);
+          break;
+        default:
+          break;
+      }
+      if (audio) {
+        audio.play();
+      }
     }
 
     const updatedFlippedCards = [...flippedCards, cardId];
@@ -65,18 +99,20 @@ const LiteraSLevel2: React.FC<RouteComponentProps> = ({ history }) => {
       );
 
       if (firstCard && secondCard && firstCard.text === secondCard.text) {
-        const audio = new Audio(Bravo);
-        audio.play();
         setMatchedCards((prev) => [...prev, firstCard.id, secondCard.id]);
+        increaseScore(); // Creștere scor după fiecare pereche corectă
 
-        // Verifică dacă toate cardurile au fost potrivite
         if (matchedCards.length + 2 === cards.length) {
+          setTimeout(() => {
+            const audio = new Audio(Bravo);
+            audio.play();
+          }, 500); // Pauză scurtă înainte de sunetul "Bravo"
           setIsNextLevelDisabled(false); // Activează butonul pentru următorul nivel
         }
       }
 
       setTimeout(() => {
-        setFlippedCards([]); // Resetează cardurile după o scurtă întârziere
+        setFlippedCards([]);
       }, 1000);
     }
   };
@@ -89,8 +125,13 @@ const LiteraSLevel2: React.FC<RouteComponentProps> = ({ history }) => {
     audio.play();
   };
 
+  const playClickAudio = () => {
+    const audio = new Audio(Repeta);
+    audio.play();
+  };
+
   const handleBackClick = () => {
-    history.goBack(); // Asigură-te că funcția `goBack()` funcționează corect cu structura aplicației tale
+    history.goBack();
   };
 
   return (
@@ -98,39 +139,31 @@ const LiteraSLevel2: React.FC<RouteComponentProps> = ({ history }) => {
       <IonHeader>
         <CustomToolbar
           title="Litera S Level 2 - Memory Game"
+          onPlayClick={playClickAudio}
           onBackClick={handleBackClick}
         />
       </IonHeader>
       <IonContent className="memory-game-content">
         <IonGrid>
           <IonRow>
-            {/* Creăm 2 rânduri pentru a plasa cardurile pe laturi opuse */}
-            {cards.map((card, index) => {
-              // Încearcă să plasezi cardurile pe laturi opuse
-              const isLeftColumn = index % 2 === 0; // Cardurile pare (0, 2, 4) vor fi pe coloana din stânga
-              return (
-                <IonCol
-                  key={card.id}
-                  size="6"
-                  className={`card-container ${isLeftColumn ? "left-column" : "right-column"}`}
+            {cards.map((card) => (
+              <IonCol size="6" key={card.id} className="card-container">
+                <div
+                  className={`memory-card ${isRevealed(card.id) ? "revealed" : ""}`}
+                  onClick={() => handleCardClick(card.id)}
                 >
-                  <div
-                    className={`memory-card ${isRevealed(card.id) ? "revealed" : ""}`}
-                    onClick={() => handleCardClick(card.id)}
-                  >
-                    {isRevealed(card.id) ? (
-                      <div className="card-content">
-                        <strong className="highlight">S</strong>
-                        {card.text.slice(1)} {/* Display the text after 'S' */}
-                        <img src={card.img} alt={card.text} className="card-image" />
-                      </div>
-                    ) : (
-                      <div className="card-back">?</div>
-                    )}
-                  </div>
-                </IonCol>
-              );
-            })}
+                  {isRevealed(card.id) ? (
+                    <div className="card-content">
+                      <strong className="highlight">S</strong>
+                      {card.text.slice(1)}
+                      <img src={card.img} alt={card.text} className="card-image" />
+                    </div>
+                  ) : (
+                    <div className="card-back">?</div>
+                  )}
+                </div>
+              </IonCol>
+            ))}
           </IonRow>
         </IonGrid>
 

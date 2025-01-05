@@ -13,11 +13,18 @@ import lapteImg from '../assets/images/lapte.png';
 
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
+import PadureSound from '../assets/sounds/padure.mp3';
+import CupaSound from '../assets/sounds/Cupa.mp3';
+import CaprioaraSound from '../assets/sounds/Caprioara.mp3';
+import PiratSound from '../assets/sounds/Pirat.mp3';
+import LapteSound from '../assets/sounds/Lapte.mp3';
+import BravoAudio from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
+import { increaseScore } from './Home';
 
 const LiteraPLevel2: React.FC<RouteComponentProps> = ({ history }) => {
   const [completedWords, setCompletedWords] = useState({
     PADURE: false,
-    CUPĂ: false,
+    CUPA: false,
     CAPRIOARA: false,
     PIRAT: false,
     LAPTE: false,
@@ -36,13 +43,40 @@ const LiteraPLevel2: React.FC<RouteComponentProps> = ({ history }) => {
     audio.play();
   };
 
-  const handleDrop = (event: React.DragEvent, word: string) => {
+  const playWordSound = (word: keyof typeof completedWords) => {
+    let sound;
+    switch (word) {
+      case 'PADURE':
+        sound = PadureSound;
+        break;
+      case 'CUPA':
+        sound = CupaSound;
+        break;
+      case 'CAPRIOARA':
+        sound = CaprioaraSound;
+        break;
+      case 'PIRAT':
+        sound = PiratSound;
+        break;
+      case 'LAPTE':
+        sound = LapteSound;
+        break;
+      default:
+        return;
+    }
+    const audio = new Audio(sound);
+    audio.play();
+  };
+
+  const handleDrop = (event: React.DragEvent, word: keyof typeof completedWords) => {
     const letter = event.dataTransfer.getData('letter');
-    if (letter === 'P') {
+    if (letter === 'P' && !completedWords[word]) {
       setCompletedWords((prev) => ({
         ...prev,
         [word]: true,
       }));
+      playWordSound(word);
+      increaseScore(); // Creșterea scorului la completarea unui cuvânt
     }
   };
 
@@ -52,6 +86,12 @@ const LiteraPLevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
   const checkCompletion = () => {
     const allCompleted = Object.values(completedWords).every((wordCompleted) => wordCompleted);
+    if (allCompleted) {
+      setTimeout(() => {
+        const bravoAudio = new Audio(BravoAudio);
+        bravoAudio.play();
+      }, 1000);
+    }
     setIsNextLevelDisabled(!allCompleted); // Enable the next level button if all words are completed
   };
 
@@ -77,7 +117,6 @@ const LiteraPLevel2: React.FC<RouteComponentProps> = ({ history }) => {
       </IonHeader>
       <IonContent className="literaPLevel2-container">
         <div className="literaPLevel2-content">
-          {/* Left Side - Serpent */}
           <div className="literaPLevel2-serpent">
             {[...Array(5)].map((_, index) => (
               <div
@@ -94,36 +133,30 @@ const LiteraPLevel2: React.FC<RouteComponentProps> = ({ history }) => {
             ))}
           </div>
 
-          {/* Right Side - Words with blanks */}
           <div className="literaPLevel2-words">
-            {/* PĂDURE */}
             <div className="literaPLevel2-word-container" onDrop={(e) => handleDrop(e, 'PADURE')} onDragOver={allowDrop}>
-              <span className="literaPLevel2-word">{completedWords.PADURE ? 'PĂDURE' : '_ĂDURE'}</span>
+              <span className="literaPLevel2-word">{completedWords.PADURE ? 'PADURE' : '_ADURE'}</span>
               <img src={padureImg} alt="Pădure" className="literaPLevel2-word-image" />
             </div>
 
-            {/* PALAT */}
-            <div className="literaPLevel2-word-container" onDrop={(e) => handleDrop(e, 'CUPĂ')} onDragOver={allowDrop}>
-              <span className="literaPLevel2-word">{completedWords.CUPĂ ? 'CUPĂ' : 'CU_Ă'}</span>
+            <div className="literaPLevel2-word-container" onDrop={(e) => handleDrop(e, 'CUPA')} onDragOver={allowDrop}>
+              <span className="literaPLevel2-word">{completedWords.CUPA ? 'CUPA' : 'CU_A'}</span>
               <img src={cupaImg} alt="CUPĂ" className="literaPLevel2-word-image" />
             </div>
 
-            {/* PĂPĂDIE */}
             <div className="literaPLevel2-word-container" onDrop={(e) => handleDrop(e, 'CAPRIOARA')} onDragOver={allowDrop}>
-              <span className="literaPLevel2-word">{completedWords.CAPRIOARA ? 'CĂPRIOARĂ' : 'CĂ_RIOARĂ'}</span>
-              <img src={caprioaraImg} alt="CĂPRIOARĂ" className="literaPLevel2-word-image" />
+              <span className="literaPLevel2-word">{completedWords.CAPRIOARA ? 'CAPRIOARA' : 'CA_RIOARA'}</span>
+              <img src={caprioaraImg} alt="Căprioară" className="literaPLevel2-word-image" />
             </div>
 
-            {/* PIRAT */}
             <div className="literaPLevel2-word-container" onDrop={(e) => handleDrop(e, 'PIRAT')} onDragOver={allowDrop}>
               <span className="literaPLevel2-word">{completedWords.PIRAT ? 'PIRAT' : '_IRAT'}</span>
               <img src={piratImg} alt="Pirat" className="literaPLevel2-word-image" />
             </div>
 
-            {/* PORTOCALĂ */}
             <div className="literaPLevel2-word-container" onDrop={(e) => handleDrop(e, 'LAPTE')} onDragOver={allowDrop}>
               <span className="literaPLevel2-word">{completedWords.LAPTE ? 'LAPTE' : 'LA_TE'}</span>
-              <img src={lapteImg} alt="Portocală" className="literaPLevel2-word-image" />
+              <img src={lapteImg} alt="Lapte" className="literaPLevel2-word-image" />
             </div>
           </div>
         </div>
@@ -143,5 +176,6 @@ const LiteraPLevel2: React.FC<RouteComponentProps> = ({ history }) => {
     </IonPage>
   );
 };
+
 
 export default LiteraPLevel2;

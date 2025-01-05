@@ -1,81 +1,94 @@
 import React, { useState, useEffect } from 'react';
 import { IonContent, IonHeader, IonPage, IonFab, IonFabButton, IonIcon } from '@ionic/react';
-import './LiteraDLevel2.css';
+import './LiteraCLevel2.css';
 import CustomToolbar from '../components/CustomToolbar';
 import { RouteComponentProps } from 'react-router';
 import { arrowForwardOutline } from 'ionicons/icons';
+
 import PisicaImage from '../assets/images/pisica.png'; 
 import RacImage from '../assets/images/rac.png';     
 import CasaImage from '../assets/images/casa.png';   
+
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
-import { increaseScore, getScore } from './Home';
+import BravoAudio from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
+import PisicaSound from '../assets/sounds/pisica.mp3';
+import RacSound from '../assets/sounds/racAudio.mp3';
+import CasaSound from '../assets/sounds/casa!.mp3';
+
+import { increaseScore, getScore } from './Home'; // Import pentru gestionarea scorului
 
 const LiteraCLevel2: React.FC<RouteComponentProps> = ({ history }) => {
-
-    
-const [score, setScore] = useState(getScore());
-
   const [completedWords, setCompletedWords] = useState({
     PISICA: false,
     RAC: false,
     CASA: false,
   });
 
-  // Starea pentru literele "A" din linia de sus
   const [lettersUsed, setLettersUsed] = useState([false, false, false]);
-
   const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
 
-  const [audioPlayer, setAudioPlayer] = useState<HTMLAudioElement | null>(null);
-
- 
-
-const playClickAudio = () => {
+  const playClickAudio = () => {
     const audio = new Audio(Repeta);
     audio.play();
-};
+  };
 
-const playHoverSoundAvanseaza = () => {
+  const playHoverSoundAvanseaza = () => {
     const audio = new Audio(Avanseaza);
     audio.play();
-};
+  };
 
+  const playWordSound = (word: keyof typeof completedWords) => {
+    let sound;
+    switch (word) {
+      case 'PISICA':
+        sound = PisicaSound;
+        break;
+      case 'RAC':
+        sound = RacSound;
+        break;
+      case 'CASA':
+        sound = CasaSound;
+        break;
+      default:
+        return;
+    }
+    const audio = new Audio(sound);
+    audio.play();
+  };
 
-  // Handler pentru drop-ul unei litere in cuvânt
-  const handleDrop = (event: React.DragEvent, word: string) => {
+  const handleDrop = (event: React.DragEvent, word: keyof typeof completedWords) => {
     const letter = event.dataTransfer.getData("letter");
 
-    if (letter === "C") {
-      // Verificăm fiecare cuvânt
-      if (word === "PISICA" && !completedWords.PISICA) {
-        setCompletedWords((prev) => ({ ...prev, PISICA: true }));
-      } else if (word === "RAC" && !completedWords.RAC) {
-        setCompletedWords((prev) => ({ ...prev, RAC: true }));
-      } else if (word === "CASA" && !completedWords.CASA) {
-        setCompletedWords((prev) => ({ ...prev, CASA: true }));
-      }
+    if (letter === "C" && !completedWords[word]) {
+      setCompletedWords((prev) => ({
+        ...prev,
+        [word]: true,
+      }));
+      playWordSound(word);
+      increaseScore(); // Creșterea scorului la plasarea corectă a literei
     }
   };
 
-  // Permite drop-ul unei litere
   const allowDrop = (event: React.DragEvent) => {
     event.preventDefault(); // Permite plasarea
   };
 
-  // Verifică dacă toate cuvintele sunt completate
   const checkCompletion = () => {
-    const allCompleted =
-      Object.values(completedWords).every((wordCompleted) => wordCompleted);
+    const allCompleted = Object.values(completedWords).every((wordCompleted) => wordCompleted);
+    if (allCompleted) {
+      setTimeout(() => {
+        const bravoAudio = new Audio(BravoAudio);
+        bravoAudio.play();
+      }, 1000); // Sunet de "Bravo" cu delay
+    }
     setIsNextLevelDisabled(!allCompleted); // Activează butonul doar dacă toate cuvintele sunt completate
   };
 
-  // Folosim `useEffect` pentru a verifica starea la fiecare schimbare
   useEffect(() => {
     checkCompletion();
   }, [completedWords]);
 
-  // Handler pentru schimbarea stării când un "C" este folosit
   const handleLetterUse = (index: number) => {
     const newLettersUsed = [...lettersUsed];
     newLettersUsed[index] = true;

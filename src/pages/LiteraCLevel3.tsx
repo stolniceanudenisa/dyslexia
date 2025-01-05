@@ -16,7 +16,7 @@ import cuAudio from '../assets/sounds/CU.mp3';
 import ceceAudio from '../assets/sounds/CE-CE.mp3';
 import ciciAudio from '../assets/sounds/CI-CI.mp3';
 import cocoAudio from '../assets/sounds/CO-CO.mp3';
-
+import cucuAudio from '../assets/sounds/CU-CU.mp3';
 import LitML3 from "../assets/sounds/m-formare-cuvinte.mp3";
 
 
@@ -26,18 +26,18 @@ const LiteraCLevel3: React.FC<RouteComponentProps> = ({ history }) => {
  
  
  
-  useEffect(() => {
-    const audioTimeout = setTimeout(() => {
-      const audioPlayer = new Audio(LitML3);
-      audioPlayer.play();
-      return () => {
-        audioPlayer.pause();
-        audioPlayer.currentTime = 0;
-      };
-    }, 1000);
+  // useEffect(() => {
+  //   const audioTimeout = setTimeout(() => {
+  //     const audioPlayer = new Audio(LitML3);
+  //     audioPlayer.play();
+  //     return () => {
+  //       audioPlayer.pause();
+  //       audioPlayer.currentTime = 0;
+  //     };
+  //   }, 1000);
 
-    return () => clearTimeout(audioTimeout);
-  }, []);
+  //   return () => clearTimeout(audioTimeout);
+  // }, []);
 
  
  
@@ -50,9 +50,11 @@ const LiteraCLevel3: React.FC<RouteComponentProps> = ({ history }) => {
   ];
 
   const words = [
+    { text: 'CO-CO', audio: cocoAudio },
     { text: 'CE-CE', audio: ceceAudio },
     { text: 'CI-CI', audio: ciciAudio },
-    { text: 'CO-CO', audio: cocoAudio },
+    { text: 'CU-CU', audio: cucuAudio },
+   
   ];
 
   const playAudio = (audioFile: string) => {

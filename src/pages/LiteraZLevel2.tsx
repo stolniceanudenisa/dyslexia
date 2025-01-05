@@ -4,29 +4,29 @@ import './LiteraZLevel2.css';
 import CustomToolbar from '../components/CustomToolbar';
 import { RouteComponentProps } from 'react-router';
 import { arrowForwardOutline } from 'ionicons/icons';
-
-// Import imagini pentru cuvinte
+ 
 import muzeuImg from '../assets/images/muzeu.png';
-import buzeImg from '../assets/images/buze.png';  // Noua imagine pentru "BUZE"
+import buzeImg from '../assets/images/buze.png';   
 import varzaImg from '../assets/images/varza.png';
 
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { increaseScore, getScore } from './Home';
+import BravoAudio from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
+import MuzeuSound from '../assets/sounds/muzeu.mp3';
+import BuzeSound from '../assets/sounds/buze.mp3';
+import VarzaSound from '../assets/sounds/varza.mp3';
+
+
 
 const LiteraZLevel2: React.FC<RouteComponentProps> = ({ history }) => {
-
-  const [score, setScore] = useState(getScore());
-
   const [completedWords, setCompletedWords] = useState({
     MUZEU: false,
     BUZE: false,
     VARZA: false,
   });
 
-  // Starea pentru literele "Z" din linia de sus
   const [lettersUsed, setLettersUsed] = useState([false, false, false]);
-
   const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
 
   const playClickAudio = () => {
@@ -39,18 +39,35 @@ const LiteraZLevel2: React.FC<RouteComponentProps> = ({ history }) => {
     audio.play();
   };
 
-  // Handler pentru drop-ul unei litere în cuvânt
-  const handleDrop = (event: React.DragEvent, word: string) => {
+  const playWordSound = (word: keyof typeof completedWords) => {
+    let sound;
+    switch (word) {
+      case 'MUZEU':
+        sound = MuzeuSound;
+        break;
+      case 'BUZE':
+        sound = BuzeSound;
+        break;
+      case 'VARZA':
+        sound = VarzaSound;
+        break;
+      default:
+        return;
+    }
+    const audio = new Audio(sound);
+    audio.play();
+  };
+
+  const handleDrop = (event: React.DragEvent, word: keyof typeof completedWords) => {
     const letter = event.dataTransfer.getData("letter");
 
-    if (letter === "Z") {
-      if (word === "MUZEU" && !completedWords.MUZEU) {
-        setCompletedWords((prev) => ({ ...prev, MUZEU: true }));
-      } else if (word === "BUZE" && !completedWords.BUZE) {
-        setCompletedWords((prev) => ({ ...prev, BUZE: true }));
-      } else if (word === "VARZA" && !completedWords.VARZA) {
-        setCompletedWords((prev) => ({ ...prev, VARZA: true }));
-      }
+    if (letter === "Z" && !completedWords[word]) {
+      setCompletedWords((prev) => ({
+        ...prev,
+        [word]: true,
+      }));
+      playWordSound(word);
+      increaseScore(); // Creștere scor la plasarea corectă a literei
     }
   };
 
@@ -60,7 +77,13 @@ const LiteraZLevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
   const checkCompletion = () => {
     const allCompleted = Object.values(completedWords).every((wordCompleted) => wordCompleted);
-    setIsNextLevelDisabled(!allCompleted);
+    if (allCompleted) {
+      setTimeout(() => {
+        const bravoAudio = new Audio(BravoAudio);
+        bravoAudio.play();
+      }, 1000); // Sunet "Bravo" cu delay de 1 secundă
+    }
+    setIsNextLevelDisabled(!allCompleted); // Activează butonul doar dacă toate cuvintele sunt completate
   };
 
   useEffect(() => {
@@ -98,7 +121,6 @@ const LiteraZLevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
         {/* Linia cu cuvintele */}
         <div className="literaZLevel2-words-line">
-          {/* Cuvântul "MUZEU" */}
           <div
             className="literaZLevel2-word-container"
             onDrop={(e) => handleDrop(e, "MUZEU")}
@@ -108,7 +130,6 @@ const LiteraZLevel2: React.FC<RouteComponentProps> = ({ history }) => {
             <img src={muzeuImg} alt="Muzeu" className="literaZLevel2-word-image" />
           </div>
 
-          {/* Cuvântul "BUZE" */}
           <div
             className="literaZLevel2-word-container"
             onDrop={(e) => handleDrop(e, "BUZE")}
@@ -118,7 +139,6 @@ const LiteraZLevel2: React.FC<RouteComponentProps> = ({ history }) => {
             <img src={buzeImg} alt="Buze" className="literaZLevel2-word-image" />
           </div>
 
-          {/* Cuvântul "VARZĂ" */}
           <div
             className="literaZLevel2-word-container"
             onDrop={(e) => handleDrop(e, "VARZA")}
@@ -138,5 +158,4 @@ const LiteraZLevel2: React.FC<RouteComponentProps> = ({ history }) => {
     </IonPage>
   );
 };
-
 export default LiteraZLevel2;

@@ -11,7 +11,7 @@ import CustomToolbar from "../components/CustomToolbar";
 import { RouteComponentProps } from "react-router";
 import { arrowForwardOutline } from "ionicons/icons";
 
-import "./BonusOceanPage.css";
+import "./BonusPiratePage.css";
 import Pestisor from "../assets/sounds/pestisor-magic.mp3";
 
 
@@ -45,7 +45,7 @@ const BonusOceanPage: FC<RouteComponentProps> = ({ history }) => {
         />
       </IonHeader>
       <IonContent className="bonus-ocean-page-content">
-        <div className="video-container">
+        {/* <div className="video-container">
           <iframe
             width="100%"
             height="100%"
@@ -55,7 +55,22 @@ const BonusOceanPage: FC<RouteComponentProps> = ({ history }) => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
-        </div>
+        </div> */}
+
+<div className="video-container">
+  {/* Embedded MP4 video with a poster image */}
+  <video
+    width="100%"
+    height="100%"
+    controls
+    style={{ borderRadius: "8px" }}
+    poster="src\assets\videos\oceane-poster.png" // Imaginea de previzualizare
+  >
+    <source src="src\assets\videos\oceane.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+
 
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
           <IonFabButton
