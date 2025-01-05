@@ -84,7 +84,12 @@ const LiteraTLevel2: React.FC<RouteComponentProps> = ({ history }) => {
           // Check if all pairs are matched
           if (matchedCards.length + 2 === cards.length) {
             const audio = new Audio(Bravo);
-            audio.play();
+            
+
+            setTimeout(() => {
+               
+              audio.play();
+            }, 1000);
   
             setIsNextLevelDisabled(false); // Enable next level button
           }
@@ -147,7 +152,7 @@ const LiteraTLevel2: React.FC<RouteComponentProps> = ({ history }) => {
             </IonRow>
           </IonGrid>
   
-          <div className="score">Score: {score}</div> {/* Display score */}
+          
   
           <IonFab vertical="bottom" horizontal="end" slot="fixed">
             <IonFabButton

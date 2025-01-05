@@ -16,6 +16,8 @@ import muAudio from '../assets/sounds/MU.mp3';
 import mamaAudio from '../assets/sounds/MA-MA.mp3';
 import momoAudio from '../assets/sounds/MO-MO.mp3';
 import mumuAudio from '../assets/sounds/MU-MU.mp3';
+import memeAudio from '../assets/sounds/ME-ME.mp3';
+import mimiAudio from '../assets/sounds/MI-MI.mp3';
 
 import LitML3 from "../assets/sounds/m-formare-cuvinte.mp3";
 
@@ -51,8 +53,11 @@ const LiteraMLevel3: React.FC<RouteComponentProps> = ({ history }) => {
 
   const words = [
     { text: 'MA-MA', audio: mamaAudio },
+    { text: 'ME-ME', audio: memeAudio },  
+    { text: 'MI-MI', audio: mimiAudio },  
     { text: 'MO-MO', audio: momoAudio },
     { text: 'MU-MU', audio: mumuAudio },
+   
   ];
 
   const playAudio = (audioFile: string) => {

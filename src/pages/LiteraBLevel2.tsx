@@ -12,17 +12,21 @@ import zebrăImg from '../assets/images/zebra.png';
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { increaseScore, getScore } from './Home';
+import BravoAudio from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
+import BroascaSound from '../assets/sounds/broască.mp3';
+import CubSound from '../assets/sounds/cub.mp3';
+import ZebraSound from '../assets/sounds/zebră.mp3';
+
+
 
 const LiteraBLevel2: React.FC<RouteComponentProps> = ({ history }) => {
-    const [score, setScore] = useState(getScore());
-
     const [completedWords, setCompletedWords] = useState({
         BROASCĂ: false,
         CUB: false,
         ZEBRĂ: false,
     });
 
-    const [lettersUsed, setLettersUsed] = useState([false, false, false]); // 3 litere "B"
+    const [lettersUsed, setLettersUsed] = useState([false, false, false]);
     const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
 
     const playClickAudio = () => {
@@ -35,28 +39,55 @@ const LiteraBLevel2: React.FC<RouteComponentProps> = ({ history }) => {
         audio.play();
     };
 
-    const handleDrop = (event: React.DragEvent, word: string) => {
-        const letter = event.dataTransfer.getData("letter");
-        console.log(`Dropped letter: ${letter}, Target word: ${word}`);
+    const playWordSound = (word: keyof typeof completedWords) => {
+        let sound;
+        switch (word) {
+            case 'BROASCĂ':
+                sound = BroascaSound;
+                break;
+            case 'CUB':
+                sound = CubSound;
+                break;
+            case 'ZEBRĂ':
+                sound = ZebraSound;
+                break;
+            default:
+                return;
+        }
+        const audio = new Audio(sound);
+        audio.play();
+    };
 
-        if (letter === "B") {
-            if (word === "BROASCA" && !completedWords.BROASCĂ) {
-                setCompletedWords((prev) => ({ ...prev, BROASCĂ: true }));
-            } else if (word === "CUB" && !completedWords.CUB) {
-                setCompletedWords((prev) => ({ ...prev, CUB: true }));
-            } else if (word === "ZEBRA" && !completedWords.ZEBRĂ) {
-                setCompletedWords((prev) => ({ ...prev, ZEBRĂ: true }));
-            }
+    const handleDrop = (event: React.DragEvent, word: keyof typeof completedWords) => {
+        const letter = event.dataTransfer.getData("letter");
+
+        if (letter === "B" && !completedWords[word]) {
+            setCompletedWords((prev) => ({
+                ...prev,
+                [word]: true,
+            }));
+            playWordSound(word);
+            increaseScore(); // Creștere scor la plasarea corectă a literei
         }
     };
 
     const allowDrop = (event: React.DragEvent) => {
-        event.preventDefault(); // Permite plasarea
+        event.preventDefault();
+    };
+
+    const checkCompletion = () => {
+        const allCompleted = Object.values(completedWords).every((wordCompleted) => wordCompleted);
+        if (allCompleted) {
+            setTimeout(() => {
+                const bravoAudio = new Audio(BravoAudio);
+                bravoAudio.play();
+            }, 1000); // Sunet "Bravo" cu delay de 1 secundă
+        }
+        setIsNextLevelDisabled(!allCompleted);
     };
 
     useEffect(() => {
-        const allCompleted = Object.values(completedWords).every((wordCompleted) => wordCompleted);
-        setIsNextLevelDisabled(!allCompleted);
+        checkCompletion();
     }, [completedWords]);
 
     const handleLetterUse = (index: number) => {
@@ -78,11 +109,11 @@ const LiteraBLevel2: React.FC<RouteComponentProps> = ({ history }) => {
             <IonContent className="literaBLevel2-container">
                 {/* Linia cu literele */}
                 <div className="literaBLevel2-letters-line">
-                    {lettersUsed.map((used, index) => (
+                    {[...Array(3)].map((_, index) => (
                         <div
                             key={index}
-                            className={`literaBLevel2-letter ${used ? 'used' : ''}`}
-                            draggable={!used}
+                            className={`literaBLevel2-letter ${lettersUsed[index] ? 'used' : ''}`}
+                            draggable={!lettersUsed[index]}
                             onDragStart={(e) => {
                                 e.dataTransfer.setData("letter", "B");
                                 handleLetterUse(index);
@@ -95,10 +126,9 @@ const LiteraBLevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
                 {/* Linia cu cuvintele */}
                 <div className="literaBLevel2-words-line">
-                    {/* BROASCĂ */}
                     <div
                         className="literaBLevel2-word-container"
-                        onDrop={(e) => handleDrop(e, "BROASCA")}
+                        onDrop={(e) => handleDrop(e, "BROASCĂ")}
                         onDragOver={allowDrop}
                     >
                         <span className="literaBLevel2-word">
@@ -107,7 +137,6 @@ const LiteraBLevel2: React.FC<RouteComponentProps> = ({ history }) => {
                         <img src={broascăImg} alt="Broască" className="literaBLevel2-word-image" />
                     </div>
 
-                    {/* CUB */}
                     <div
                         className="literaBLevel2-word-container"
                         onDrop={(e) => handleDrop(e, "CUB")}
@@ -119,10 +148,9 @@ const LiteraBLevel2: React.FC<RouteComponentProps> = ({ history }) => {
                         <img src={cubImg} alt="Cub" className="literaBLevel2-word-image" />
                     </div>
 
-                    {/* ZEBRĂ */}
                     <div
                         className="literaBLevel2-word-container"
-                        onDrop={(e) => handleDrop(e, "ZEBRA")}
+                        onDrop={(e) => handleDrop(e, "ZEBRĂ")}
                         onDragOver={allowDrop}
                     >
                         <span className="literaBLevel2-word">
@@ -135,7 +163,7 @@ const LiteraBLevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
             <IonFab vertical="bottom" horizontal="end" slot="fixed">
                 <IonFabButton
-                    onClick={() => history.push('/literaT')}
+                    onClick={() => history.push('/literaBLevel3')}
                     disabled={isNextLevelDisabled}
                 >
                     <IonIcon

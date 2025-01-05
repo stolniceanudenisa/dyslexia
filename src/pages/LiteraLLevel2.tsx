@@ -12,23 +12,22 @@ import lumanareImg from '../assets/images/lumanare.png';
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { increaseScore, getScore } from './Home';
+import BravoAudio from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
+import LeuSound from '../assets/sounds/leu.mp3';
+import LacatSound from '../assets/sounds/lacat.mp3';
+import LumanareSound from '../assets/sounds/lumanare.mp3';
+
+
 
 const LiteraLLevel2: React.FC<RouteComponentProps> = ({ history }) => {
-
-    const [score, setScore] = useState(getScore());
-
     const [completedWords, setCompletedWords] = useState({
         LEU: false,
         LACAT: false,
         LUMANARE: false,
     });
 
-    // Starea pentru literele "L" din linia de sus
-    const [lettersUsed, setLettersUsed] = useState([false, false, false, false]);
-
+    const [lettersUsed, setLettersUsed] = useState([false, false, false]);
     const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
-
-    const [audioPlayer, setAudioPlayer] = useState<HTMLAudioElement | null>(null);
 
     const playClickAudio = () => {
         const audio = new Audio(Repeta);
@@ -40,40 +39,57 @@ const LiteraLLevel2: React.FC<RouteComponentProps> = ({ history }) => {
         audio.play();
     };
 
-    // Handler pentru drop-ul unei litere in cuvânt
-    const handleDrop = (event: React.DragEvent, word: string) => {
+    const playWordSound = (word: keyof typeof completedWords) => {
+        let sound;
+        switch (word) {
+            case 'LEU':
+                sound = LeuSound;
+                break;
+            case 'LACAT':
+                sound = LacatSound;
+                break;
+            case 'LUMANARE':
+                sound = LumanareSound;
+                break;
+            default:
+                return;
+        }
+        const audio = new Audio(sound);
+        audio.play();
+    };
+
+    const handleDrop = (event: React.DragEvent, word: keyof typeof completedWords) => {
         const letter = event.dataTransfer.getData("letter");
 
-        if (letter === "L") {
-            // Verificăm fiecare cuvânt
-            if (word === "LEU" && !completedWords.LEU) {
-                setCompletedWords((prev) => ({ ...prev, LEU: true }));
-            } else if (word === "LACAT" && !completedWords.LACAT) {
-                setCompletedWords((prev) => ({ ...prev, LACAT: true }));
-            } else if (word === "LUMANARE" && !completedWords.LUMANARE) {
-                setCompletedWords((prev) => ({ ...prev, LUMANARE: true }));
-            }
+        if (letter === "L" && !completedWords[word]) {
+            setCompletedWords((prev) => ({
+                ...prev,
+                [word]: true,
+            }));
+            playWordSound(word);
+            increaseScore(); // Creștere scor la plasarea corectă a literei
         }
     };
 
-    // Permite drop-ul unei litere
     const allowDrop = (event: React.DragEvent) => {
         event.preventDefault(); // Permite plasarea
     };
 
-    // Verifică dacă toate cuvintele sunt completate
     const checkCompletion = () => {
-        const allCompleted =
-            Object.values(completedWords).every((wordCompleted) => wordCompleted);
+        const allCompleted = Object.values(completedWords).every((wordCompleted) => wordCompleted);
+        if (allCompleted) {
+            setTimeout(() => {
+                const bravoAudio = new Audio(BravoAudio);
+                bravoAudio.play();
+            }, 1000); // Sunet "Bravo" cu delay de 1 secundă
+        }
         setIsNextLevelDisabled(!allCompleted); // Activează butonul doar dacă toate cuvintele sunt completate
     };
 
-    // Folosim `useEffect` pentru a verifica starea la fiecare schimbare
     useEffect(() => {
         checkCompletion();
     }, [completedWords]);
 
-    // Handler pentru schimbarea stării când un "L" este folosit
     const handleLetterUse = (index: number) => {
         const newLettersUsed = [...lettersUsed];
         newLettersUsed[index] = true;
@@ -83,7 +99,7 @@ const LiteraLLevel2: React.FC<RouteComponentProps> = ({ history }) => {
     return (
         <IonPage>
             <IonHeader>
-                <CustomToolbar title="Litera L Nivel 2" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()}  />
+                <CustomToolbar title="Litera L Nivel 2" titleStyle="title" onPlayClick={playClickAudio} onBackClick={() => history.goBack()} />
             </IonHeader>
             <IonContent className="literaLLevel2-container">
                 {/* Linia cu literele */}
@@ -105,7 +121,6 @@ const LiteraLLevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
                 {/* Linia cu cuvintele */}
                 <div className="literaLLevel2-words-line">
-                    {/* Cuvântul "LEU" */}
                     <div
                         className="literaLLevel2-word-container"
                         onDrop={(e) => handleDrop(e, "LEU")}
@@ -115,7 +130,6 @@ const LiteraLLevel2: React.FC<RouteComponentProps> = ({ history }) => {
                         <img src={leuImg} alt="Leu" className="literaLLevel2-word-image" />
                     </div>
 
-                    {/* Cuvântul "LACAT" */}
                     <div
                         className="literaLLevel2-word-container"
                         onDrop={(e) => handleDrop(e, "LACAT")}
@@ -125,7 +139,6 @@ const LiteraLLevel2: React.FC<RouteComponentProps> = ({ history }) => {
                         <img src={lacatImg} alt="Lacat" className="literaLLevel2-word-image" />
                     </div>
 
-                    {/* Cuvântul "LUMANARE" */}
                     <div
                         className="literaLLevel2-word-container"
                         onDrop={(e) => handleDrop(e, "LUMANARE")}
@@ -134,14 +147,12 @@ const LiteraLLevel2: React.FC<RouteComponentProps> = ({ history }) => {
                         <span className="literaLLevel2-word">{completedWords.LUMANARE ? "LUMANARE" : "_UMANARE"}</span>
                         <img src={lumanareImg} alt="Lumanare" className="literaLLevel2-word-image" />
                     </div>
-
-
                 </div>
             </IonContent>
 
             <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                <IonFabButton onClick={() => history.push('/literaV')} disabled={isNextLevelDisabled}>
-                    <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title='Next level' aria-label='Next level' onMouseEnter={playHoverSoundAvanseaza}  />
+                <IonFabButton onClick={() => history.push('/literaLLevel3')} disabled={isNextLevelDisabled}>
+                    <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title='Next level' aria-label='Next level' onMouseEnter={playHoverSoundAvanseaza} />
                 </IonFabButton>
             </IonFab>
         </IonPage>

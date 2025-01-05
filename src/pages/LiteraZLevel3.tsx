@@ -14,25 +14,28 @@ import zoAudio from '../assets/sounds/ZO.mp3';
 import zuAudio from '../assets/sounds/ZU.mp3';
 
 import zazaAudio from '../assets/sounds/ZA-ZA.mp3';
-import ziziAudio from '../assets/sounds/ZE-ZE.mp3';
-import zuzuAudio from '../assets/sounds/ZO-ZO.mp3';
+import zezeAudio from '../assets/sounds/ZE-ZE.mp3';
+import zozoAudio from '../assets/sounds/ZO-ZO.mp3';
+import ziziAudio from '../assets/sounds/ZI-ZI.mp3';
+ 
+
 
 import LitZL3 from "../assets/sounds/m-formare-cuvinte.mp3";
 
 const LiteraZLevel3: React.FC<RouteComponentProps> = ({ history }) => {
 
-  useEffect(() => {
-    const audioTimeout = setTimeout(() => {
-      const audioPlayer = new Audio(LitZL3);
-      audioPlayer.play();
-      return () => {
-        audioPlayer.pause();
-        audioPlayer.currentTime = 0;
-      };
-    }, 1000);
+  // useEffect(() => {
+  //   const audioTimeout = setTimeout(() => {
+  //     const audioPlayer = new Audio(LitZL3);
+  //     audioPlayer.play();
+  //     return () => {
+  //       audioPlayer.pause();
+  //       audioPlayer.currentTime = 0;
+  //     };
+  //   }, 1000);
 
-    return () => clearTimeout(audioTimeout);
-  }, []);
+  //   return () => clearTimeout(audioTimeout);
+  // }, []);
 
   const syllables = [
     { text: 'ZA', audio: zaAudio },
@@ -44,8 +47,10 @@ const LiteraZLevel3: React.FC<RouteComponentProps> = ({ history }) => {
 
   const words = [
     { text: 'ZA-ZA', audio: zazaAudio },
-    { text: 'ZE-ZE', audio: ziziAudio },
-    { text: 'ZO-ZO', audio: zuzuAudio },
+    { text: 'ZE-ZE', audio: zezeAudio },
+    { text: 'ZI-ZI', audio: ziziAudio },
+    { text: 'ZO-ZO', audio: zozoAudio },
+    
   ];
 
   const playAudio = (audioFile: string) => {

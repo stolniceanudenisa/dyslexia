@@ -55,7 +55,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     border: 2px solid #ccc;
     padding: 20px;
     width: 420px; /* Lățimea containerului mărită pentru mai mult spațiu */

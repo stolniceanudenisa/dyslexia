@@ -13,6 +13,15 @@ import vacaImg from '../assets/images/vaca.png';
 
 import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
+import BravoAudio from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
+import VestaSound from '../assets/sounds/vesta.mp3';
+import VeveritaSound from '../assets/sounds/veverita.mp3';
+import VioaraSound from '../assets/sounds/vioara.mp3';
+import VulcanSound from '../assets/sounds/vulcan.mp3';
+import VacaSound from '../assets/sounds/vaca.mp3';
+import { increaseScore, getScore } from './Home';
+
+
 
 const LiteraVLevel2: React.FC<RouteComponentProps> = ({ history }) => {
     const [completedWords, setCompletedWords] = useState({
@@ -23,7 +32,7 @@ const LiteraVLevel2: React.FC<RouteComponentProps> = ({ history }) => {
         VACA: false,
     });
 
-    const [lettersUsed, setLettersUsed] = useState([false, false, false, false, false, false]); // "V" letters
+    const [lettersUsed, setLettersUsed] = useState([false, false, false, false, false]);
     const [isNextLevelDisabled, setIsNextLevelDisabled] = useState(true);
 
     const playClickAudio = () => {
@@ -36,23 +45,56 @@ const LiteraVLevel2: React.FC<RouteComponentProps> = ({ history }) => {
         audio.play();
     };
 
-    const handleDrop = (event: React.DragEvent, word: string) => {
+    const playWordSound = (word: keyof typeof completedWords) => {
+        let sound;
+        switch (word) {
+            case 'VESTA':
+                sound = VestaSound;
+                break;
+            case 'VEVERITA':
+                sound = VeveritaSound;
+                break;
+            case 'VIOARA':
+                sound = VioaraSound;
+                break;
+            case 'VULCAN':
+                sound = VulcanSound;
+                break;
+            case 'VACA':
+                sound = VacaSound;
+                break;
+            default:
+                return;
+        }
+        const audio = new Audio(sound);
+        audio.play();
+    };
+
+    const handleDrop = (event: React.DragEvent, word: keyof typeof completedWords) => {
         const letter = event.dataTransfer.getData('letter');
-        if (letter === 'V') {
+        if (letter === 'V' && !completedWords[word]) {
             setCompletedWords((prev) => ({
                 ...prev,
                 [word]: true,
             }));
+            playWordSound(word);
+            increaseScore(); // Creștere scor la plasarea corectă a literei
         }
     };
 
     const allowDrop = (event: React.DragEvent) => {
-        event.preventDefault(); // Allow the drop
+        event.preventDefault(); // Permite plasarea
     };
 
     const checkCompletion = () => {
         const allCompleted = Object.values(completedWords).every((wordCompleted) => wordCompleted);
-        setIsNextLevelDisabled(!allCompleted); // Enable the next level button if all words are completed
+        if (allCompleted) {
+            setTimeout(() => {
+                const bravoAudio = new Audio(BravoAudio);
+                bravoAudio.play();
+            }, 1000); // Sunet "Bravo" cu delay de 1 secundă
+        }
+        setIsNextLevelDisabled(!allCompleted);
     };
 
     useEffect(() => {
@@ -69,7 +111,7 @@ const LiteraVLevel2: React.FC<RouteComponentProps> = ({ history }) => {
         <IonPage>
             <IonHeader>
                 <CustomToolbar
-                    title="Litera V Nivel 2 - Serpisor"
+                    title="Litera V Nivel 2 - Șerpișor"
                     titleStyle="title"
                     onPlayClick={playClickAudio}
                     onBackClick={() => history.goBack()}
@@ -77,13 +119,13 @@ const LiteraVLevel2: React.FC<RouteComponentProps> = ({ history }) => {
             </IonHeader>
             <IonContent className="literaVLevel2-container">
                 <div className="literaVLevel2-content">
-                    {/* Left Side - Serpent */}
+                    {/* Linia cu literele */}
                     <div className="literaVLevel2-serpent">
                         {[...Array(5)].map((_, index) => (
                             <div
                                 key={index}
                                 className={`literaVLevel2-letter ${lettersUsed[index] ? 'used' : ''}`}
-                                draggable={!lettersUsed[index]} // Make it draggable only if unused
+                                draggable={!lettersUsed[index]} // Permite drag doar dacă litera nu a fost folosită
                                 onDragStart={(e) => {
                                     e.dataTransfer.setData('letter', 'V');
                                     handleLetterUse(index);
@@ -94,33 +136,28 @@ const LiteraVLevel2: React.FC<RouteComponentProps> = ({ history }) => {
                         ))}
                     </div>
 
-                    {/* Right Side - Words with blanks */}
+                    {/* Linia cu cuvintele */}
                     <div className="literaVLevel2-words">
-                        {/* VESTA */}
                         <div className="literaVLevel2-word-container" onDrop={(e) => handleDrop(e, 'VESTA')} onDragOver={allowDrop}>
                             <span className="literaVLevel2-word">{completedWords.VESTA ? 'VESTA' : '_ESTA'}</span>
                             <img src={vestaImg} alt="Vesta" className="literaVLevel2-word-image" />
                         </div>
 
-                        {/* VEVERITA */}
                         <div className="literaVLevel2-word-container" onDrop={(e) => handleDrop(e, 'VEVERITA')} onDragOver={allowDrop}>
                             <span className="literaVLevel2-word">{completedWords.VEVERITA ? 'VEVERITA' : '_EVERITA'}</span>
                             <img src={veveritaImg} alt="Veverita" className="literaVLevel2-word-image" />
                         </div>
 
-                        {/* VIOARA */}
                         <div className="literaVLevel2-word-container" onDrop={(e) => handleDrop(e, 'VIOARA')} onDragOver={allowDrop}>
                             <span className="literaVLevel2-word">{completedWords.VIOARA ? 'VIOARA' : '_IOARA'}</span>
                             <img src={vioaraImg} alt="Vioara" className="literaVLevel2-word-image" />
                         </div>
 
-                        {/* VULCAN */}
                         <div className="literaVLevel2-word-container" onDrop={(e) => handleDrop(e, 'VULCAN')} onDragOver={allowDrop}>
                             <span className="literaVLevel2-word">{completedWords.VULCAN ? 'VULCAN' : '_ULCAN'}</span>
                             <img src={vulcanImg} alt="Vulcan" className="literaVLevel2-word-image" />
                         </div>
 
-                        {/* VACA */}
                         <div className="literaVLevel2-word-container" onDrop={(e) => handleDrop(e, 'VACA')} onDragOver={allowDrop}>
                             <span className="literaVLevel2-word">{completedWords.VACA ? 'VACA' : '_ACA'}</span>
                             <img src={vacaImg} alt="Vaca" className="literaVLevel2-word-image" />
@@ -130,7 +167,7 @@ const LiteraVLevel2: React.FC<RouteComponentProps> = ({ history }) => {
             </IonContent>
 
             <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                <IonFabButton onClick={() => history.push('/literaZ')} disabled={isNextLevelDisabled}>
+                <IonFabButton onClick={() => history.push('/literaVLevel3')} disabled={isNextLevelDisabled}>
                     <IonIcon
                         icon={arrowForwardOutline}
                         className="black-icon big-arrow"

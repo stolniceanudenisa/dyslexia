@@ -14,8 +14,11 @@ import soAudio from '../assets/sounds/SO.mp3';
 import suAudio from '../assets/sounds/SU.mp3';
 
 import sasaAudio from '../assets/sounds/SA-SA.mp3';
-import sisiAudio from '../assets/sounds/SE-SE.mp3';
+import seseAudio from '../assets/sounds/SE-SE.mp3';
 import susuAudio from '../assets/sounds/SU-SU.mp3';
+import sisiAudio from '../assets/sounds/SI-SI.mp3';
+import sosoAudio from '../assets/sounds/SO-SO.mp3';
+
 
 import LitSL3 from "../assets/sounds/m-formare-cuvinte.mp3";
 
@@ -44,7 +47,9 @@ const LiteraSLevel3: React.FC<RouteComponentProps> = ({ history }) => {
 
   const words = [
     { text: 'SA-SA', audio: sasaAudio },
-    { text: 'SE-SE', audio: sisiAudio },
+    { text: 'SE-SE', audio: seseAudio },
+    { text: 'SI-SI', audio: sisiAudio },
+    { text: 'SO-SO', audio: sosoAudio },
     { text: 'SU-SU', audio: susuAudio },
   ];
 

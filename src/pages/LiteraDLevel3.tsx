@@ -16,6 +16,8 @@ import cuAudio from '../assets/sounds/DU.mp3';
 import dadaAudio from '../assets/sounds/DA-DA.mp3';
 import didiAudio from '../assets/sounds/DI-DI.mp3';
 import duduAudio from '../assets/sounds/DU-DU.mp3';
+import dodoAudio from '../assets/sounds/DO-DO.mp3';
+import dedeAudio from '../assets/sounds/DE-DE.mp3';
 
 import LitML3 from "../assets/sounds/m-formare-cuvinte.mp3";
 
@@ -26,18 +28,18 @@ const LiteraDLevel3: React.FC<RouteComponentProps> = ({ history }) => {
  
  
  
-  useEffect(() => {
-    const audioTimeout = setTimeout(() => {
-      const audioPlayer = new Audio(LitML3);
-      audioPlayer.play();
-      return () => {
-        audioPlayer.pause();
-        audioPlayer.currentTime = 0;
-      };
-    }, 1000);
+  // useEffect(() => {
+  //   const audioTimeout = setTimeout(() => {
+  //     const audioPlayer = new Audio(LitML3);
+  //     audioPlayer.play();
+  //     return () => {
+  //       audioPlayer.pause();
+  //       audioPlayer.currentTime = 0;
+  //     };
+  //   }, 1000);
 
-    return () => clearTimeout(audioTimeout);
-  }, []);
+  //   return () => clearTimeout(audioTimeout);
+  // }, []);
 
  
  
@@ -51,7 +53,9 @@ const LiteraDLevel3: React.FC<RouteComponentProps> = ({ history }) => {
 
   const words = [
     { text: 'DA-DA', audio: dadaAudio },
+    { text: 'DE-DE', audio: dedeAudio },
     { text: 'DI-DI', audio: didiAudio },
+    { text: 'DO-DO', audio: dodoAudio },
     { text: 'DU-DU', audio: duduAudio },
   ];
 
@@ -114,7 +118,7 @@ const LiteraDLevel3: React.FC<RouteComponentProps> = ({ history }) => {
       </IonContent>
 
       <IonFab vertical="bottom" horizontal="end" slot="fixed">
-        <IonFabButton onClick={() => history.push('/LiteraF')}>
+        <IonFabButton onClick={() => history.push('/bonus-pirati')}>
           <IonIcon
             icon={arrowForwardOutline}
             className="black-icon big-arrow"
