@@ -1,0 +1,49 @@
+.literaCLevel3-container { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh; /* Full viewport height */
+    padding: 20px;
+    box-sizing: border-box; /* Ensures padding is included in total height */
+    
+  
+  }
+  
+  .literaCLevel3-syllables {
+    display: flex;
+    justify-content: space-around; /* Space between columns */
+    align-items: center;
+    width: 100%;
+    max-width: 1000px; /* Restricts maximum layout width */
+    gap: -40px; /* Reduced space between columns */
+    margin-left: 350px;
+  }
+  
+  .syllables-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Space between buttons */
+    margin-top: 80px; /* Centering adjustment */
+  }
+  
+  .syllable-item {
+    font-size: 2rem; /* Reduced font size for smaller buttons */
+    font-weight: bold;
+    padding: 20px 30px; /* Smaller button dimensions */
+    border: 3px solid #007bff; /* Slightly thinner border */
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: #f0f8ff;
+    margin: 10px; /* Smaller margin for consistent spacing */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap; /* Prevents text from breaking into multiple lines */
+  }
+  
+  .syllable-item:hover {
+    background-color: #007bff;
+    color: white;
+    transform: scale(1.05); /* Subtle enlargement on hover */
+  }
+  

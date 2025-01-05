@@ -93,9 +93,11 @@ import LiteraTLevel2 from "./pages/LiteraTLevel2";
 
 import LiteraCLevel1 from './pages/LiteraCLevel1';
 import LiteraCLevel2 from './pages/LiteraCLevel2';
+import LiteraCLevel3 from './pages/LiteraCLevel3';
 
 import LiteraDLevel1 from './pages/LiteraDLevel1';
 import LiteraDLevel2 from './pages/LiteraDLevel2';
+import LiteraDLevel3 from './pages/LiteraDLevel3';
  
 import LiteraHLevel1 from './pages/LiteraHLevel1';
 import LiteraHLevel2 from "./pages/LiteraHLevel2";
@@ -220,11 +222,13 @@ const App: React.FC = () => (
           <Route path="/literaC" component={LiteraC} exact={true} />
           <Route path="/LiteraCLevel1" component={LiteraCLevel1} exact={true} />
           <Route path="/LiteraCLevel2" component={LiteraCLevel2} exact={true} />
+          <Route path="/LiteraCLevel3" component={LiteraCLevel3} exact={true} />
           
 
           <Route path="/literaD" component={LiteraD} exact={true} />
           <Route path="/LiteraDLevel1" component={LiteraDLevel1} exact={true} />
           <Route path="/LiteraDLevel2" component={LiteraDLevel2} exact={true} /> 
+          <Route path="/LiteraDLevel3" component={LiteraDLevel3} exact={true} /> 
 
 
   	      <Route path="/literaF" component={LiteraF} exact={true}/>

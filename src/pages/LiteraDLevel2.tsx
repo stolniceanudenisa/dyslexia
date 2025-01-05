@@ -140,7 +140,7 @@ const playHoverSoundAvanseaza = () => {
       </IonContent>
 
       <IonFab vertical="bottom" horizontal="end" slot="fixed">
-        <IonFabButton onClick={() => history.push('/LiteraF')} disabled={isNextLevelDisabled}>
+        <IonFabButton onClick={() => history.push('/LiteraDLevel3')} disabled={isNextLevelDisabled}>
           <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title='Litera D Level 2' aria-label='Next level' onMouseEnter={playHoverSoundAvanseaza}  />
         </IonFabButton>
       </IonFab>
