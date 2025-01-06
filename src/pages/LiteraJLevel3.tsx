@@ -21,6 +21,8 @@ import jujuAudio from '../assets/sounds/JU-JU.mp3';
 import LitJL3 from "../assets/sounds/m-formare-cuvinte.mp3";
 
 const LiteraJLevel3: React.FC<RouteComponentProps> = ({ history }) => {
+
+
 //   useEffect(() => {
 //     const audioTimeout = setTimeout(() => {
 //       const audioPlayer = new Audio(LitJL3);
