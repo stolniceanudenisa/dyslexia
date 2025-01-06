@@ -129,6 +129,8 @@ import LiteraNLevel3 from './pages/LiteraNLevel3';
 import LiteraHLevel3 from './pages/LiteraHLevel3';
 import LiteraJLevel3 from './pages/LiteraJLevel3';
 import BonusPiratePage from './pages/BonusPiratePage';
+import LiteraVLevel3 from "./pages/LiteraVLevel3";
+import LiteraLLevel3 from "./pages/LiteraLLevel3";
 
 
 
@@ -250,11 +252,13 @@ const App: React.FC = () => (
           <Route path="/literaL" component={LiteraL} exact={true} />
           <Route path="/LiteraLLevel1" component={LiteraLLevel1} exact={true} />
           <Route path="/LiteraLLevel2" component={LiteraLLevel2} exact={true} />
+          <Route path="/LiteraLLevel3" component={LiteraLLevel3} exact={true} />
 
           <Route path="/literaV" component={LiteraV} exact={true} />
           <Route path="/LiteraVLevel1" component={LiteraVLevel1} exact={true} />
-          <Route path="/LiteraVLevel2" component={LiteraVLevel2} exact={true} />  
-            
+          <Route path="/LiteraVLevel2" component={LiteraVLevel2} exact={true} />
+          <Route path="/LiteraVLevel3" component={LiteraVLevel3} exact={true} />
+
           <Redirect exact from="/" to="/intro" />
 
         </Switch>
