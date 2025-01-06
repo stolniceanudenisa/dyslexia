@@ -124,8 +124,11 @@ import LiteraVLevel1 from "./pages/LiteraVLevel1";
 import LiteraVLevel2 from "./pages/LiteraVLevel2";
 import BonusOceanPage from './pages/BonusOceanPage';
 import LiteraMLevel3 from './pages/LiteraMLevel3';
-import BonusPiratePage from './pages/BonusPiratePage';
+ 
 import LiteraNLevel3 from './pages/LiteraNLevel3';
+import LiteraHLevel3 from './pages/LiteraHLevel3';
+import LiteraJLevel3 from './pages/LiteraJLevel3';
+import BonusPiratePage from './pages/BonusPiratePage';
 
 
 
@@ -211,10 +214,12 @@ const App: React.FC = () => (
           <Route path="/literaH" component={LiteraH} exact={true} />
           <Route path="/LiteraHLevel1" component={LiteraHLevel1} exact={true} />
           <Route path="/LiteraHLevel2" component={LiteraHLevel2} exact={true} />
+          <Route path="/LiteraHLevel3" component={LiteraHLevel3} exact={true} />
 
           <Route path="/literaJ" component={LiteraJ} exact={true} />
           <Route path="/LiteraJLevel1" component={LiteraJLevel1} exact={true} />
           <Route path="/LiteraJLevel2" component={LiteraJLevel2} exact={true} />
+          <Route path="/LiteraJLevel3" component={LiteraJLevel3} exact={true} />
 
 
           <Route path="/literaT" component={LiteraT} exact={true} />
