@@ -131,7 +131,7 @@ const LiteraGLevel2: React.FC<RouteComponentProps> = ({ history }) => {
                         onDrop={(e) => handleDrop(e, "GEANTA")}
                         onDragOver={allowDrop}
                     >
-                        <span className="literaOLevel2-word">{completedWords.GEANTA ? "GEANTA" : "_EANTA"}</span>
+                        <span className="literaGLevel3-word">{completedWords.GEANTA ? "GEANTA" : "_EANTA"}</span>
                         <img src={geanta} alt="Geanta" className="literaGLevel2-word-image" />
                     </div>
 
@@ -140,7 +140,7 @@ const LiteraGLevel2: React.FC<RouteComponentProps> = ({ history }) => {
             </IonContent>
 
             <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                <IonFabButton onClick={() => history.push('/literaO')} disabled={isNextLevelDisabled}>
+                <IonFabButton onClick={() => history.push('/literaGLevel3')} disabled={isNextLevelDisabled}>
                     <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title='Next level' aria-label='Next level' onMouseEnter={playHoverSoundAvanseaza}  />
                 </IonFabButton>
             </IonFab>
