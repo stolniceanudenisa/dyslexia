@@ -102,3 +102,25 @@ ion-fab-button {
   color: #00008b !important;
   font-size: 1.8em; /* Crește dimensiunea cu 10% */
 }
+
+
+ 
+.custom-home-button {
+  --background: rgba(255, 255, 255, 0.7); /* Alb transparent */
+  margin-left: 26px;
+ 
+  font-size: 2rem; /* Dimensiune mai mare pentru emoji */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-home-emoji {
+  font-size: 1.8rem; /* Dimensiune mare pentru emoji */
+  color: black;
+}
+
+.custom-home-button:hover {
+  --background: rgba(255, 255, 255, 0.9); /* Mai opac la hover */
+  transform: scale(1.05); /* Ușoară animație de mărire */
+}

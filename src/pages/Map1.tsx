@@ -13,28 +13,34 @@ const Map1: React.FC = () => {
   const [currentLevel, setCurrentLevel] = useState<number>(1);
 
 
-  useEffect(() => {
-    const level2Completed = localStorage.getItem('level2Completed');
-    console.log('Level 2 completed:', level2Completed);  // Debugging line to check the value
-    if (level2Completed === 'true') {
-      setCurrentLevel(2);  // Unlock "E" if level 2 is completed
-    }
-    // Check and load current level
-    const level = parseInt(localStorage.getItem('currentLevel') || '1');
-    setCurrentLevel(level);
-    console.log('Current Level:', level);
+  // useEffect(() => {
+  //   const level2Completed = localStorage.getItem('level2Completed');
+  //   console.log('Level 2 completed:', level2Completed);  // Debugging line to check the value
+  //   if (level2Completed === 'true') {
+  //     setCurrentLevel(2);  // Unlock "E" if level 2 is completed
+  //   }
+  //   // Check and load current level
+  //   const level = parseInt(localStorage.getItem('currentLevel') || '1');
+  //   setCurrentLevel(level);
+  //   console.log('Current Level:', level);
 
-    const audioTimeout = setTimeout(() => {
-      const audioPlayer = new Audio(Harta1Intro);
-      audioPlayer.play();
-      return () => {
-        audioPlayer.pause();
-        audioPlayer.currentTime = 0;
-      };
-    }, 1000);
+  //   const audioTimeout = setTimeout(() => {
+  //     const audioPlayer = new Audio(Harta1Intro);
+  //     audioPlayer.play();
+  //     return () => {
+  //       audioPlayer.pause();
+  //       audioPlayer.currentTime = 0;
+  //     };
+  //   }, 1000);
 
-    return () => clearTimeout(audioTimeout);
-  }, []);
+  //   return () => clearTimeout(audioTimeout);
+  // }, []);
+
+
+
+
+
+
 
 
   const playNarrationSound = () => {

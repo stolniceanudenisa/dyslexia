@@ -9,7 +9,7 @@ import Bineaivenit from '../assets/sounds/bine-ai-venit-intro-maps.mp3';
 import SoundButtonClick1 from "../assets/sounds/prima-harta-padurea.mp3"; 
 import SoundButtonClick2 from "../assets/sounds/a-doua-harta-subacvatic.mp3"; 
 import SoundButtonClick3 from "../assets/sounds/a-treia-harta-pestera-piratilor.mp3"; 
-
+ 
 
 import { useHistory } from 'react-router-dom';
 import './MapSelection.css';
@@ -19,18 +19,25 @@ const MapSelection: React.FC = () => {
   const progress = localStorage.getItem("progress") || "1"; // Default to first map unlocked
   
 
-  useEffect(() => {
-    const audioTimeout = setTimeout(() => {
-      const audioPlayer = new Audio(Bineaivenit);
-      audioPlayer.play();
-      return () => {
-        audioPlayer.pause();
-        audioPlayer.currentTime = 0;
-      };
-    }, 1000);
+  // useEffect(() => {
+  //   const audioTimeout = setTimeout(() => {
+  //     const audioPlayer = new Audio(Bineaivenit);
+  //     audioPlayer.play();
+  //     return () => {
+  //       audioPlayer.pause();
+  //       audioPlayer.currentTime = 0;
+  //     };
+  //   }, 1000);
 
-    return () => clearTimeout(audioTimeout);
-  }, []);
+  //   return () => clearTimeout(audioTimeout);
+  // }, []);
+
+  const playWelcomeSound = () => {
+    const audio = new Audio(Bineaivenit);
+    audio.play();
+  };
+
+
 
 
 
@@ -101,6 +108,13 @@ const MapSelection: React.FC = () => {
             {progress < "3" && <div className="locked-overlay" />}   
           </IonButton>
         </div>
+
+
+        {/* Hidden Sound Button in Bottom Right Corner */}
+        <button className="hidden-sound-button" onClick={playWelcomeSound}>
+           
+        </button>
+
       </IonContent>
     </IonPage>
   );

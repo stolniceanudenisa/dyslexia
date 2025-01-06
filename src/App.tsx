@@ -135,6 +135,8 @@ import LiteraVLevel3 from './pages/LiteraVLevel3';
 import LiteraLLevel3 from './pages/LiteraLLevel3';
 import LiteraTLevel3 from './pages/LiteraTLevel3';
 import LiteraBLevel3 from './pages/LiteraBLevel3';
+import SilabeZiCuZi from './pages/SilabeZiCuZi';
+import FinalPage from './pages/FinalPage';
 
 
 
@@ -212,6 +214,9 @@ const App: React.FC = () => (
           <Route path="/LiteraZLevel1" component={LiteraZLevel1} exact={true} />
           <Route path="/LiteraZLevel2" component={LiteraZLevel2} exact={true} /> 
           <Route path="/LiteraZLevel3" component={LiteraZLevel3} exact={true} />
+          <Route path="/zi-cu-zi" component={  SilabeZiCuZi } exact={true} />
+        
+
  
           <Route path="/literaB" component={LiteraB} exact={true} />
           <Route path="/LiteraBLevel1" component={LiteraBLevel1} exact={true} />
@@ -266,6 +271,11 @@ const App: React.FC = () => (
           <Route path="/LiteraVLevel1" component={LiteraVLevel1} exact={true} />
           <Route path="/LiteraVLevel2" component={LiteraVLevel2} exact={true} />  
           <Route path="/LiteraVLevel3" component={LiteraVLevel3} exact={true} /> 
+
+          <Route path="/final" component={FinalPage} exact={true} /> 
+          
+
+
             
           <Redirect exact from="/" to="/intro" />
 

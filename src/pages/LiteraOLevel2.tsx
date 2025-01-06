@@ -215,6 +215,17 @@ const playWordSound = (word: string) => {
         </div>
       </IonContent>
 
+
+
+
+
+              <IonFab vertical="bottom" horizontal="start" slot="fixed" className="custom-home-fab">
+        <IonFabButton className="custom-home-button" onClick={() => history.push('/map1')}>
+          <span className="custom-home-emoji" title="Go to Map">🏠</span>
+        </IonFabButton>
+      </IonFab>
+
+
       <IonFab vertical="bottom" horizontal="end" slot="fixed">
         <IonFabButton onClick={() => history.push('/literaU')} disabled={isNextLevelDisabled}>
           <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title='Next level' aria-label='Next level' onMouseEnter={playHoverSoundAvanseaza}  />

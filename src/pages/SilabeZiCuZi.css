@@ -1,0 +1,55 @@
+.silabe-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    margin-top: 100px; /* Mai mult spațiu față de partea de sus */
+  }
+  
+  .page-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 30px; /* Spațiu față de marginea de sus */
+    margin-bottom: 30px; /* Spațiu față de următorul element */
+  }
+  
+  .words-grid {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    max-width: 100%;
+  }
+  
+  .words-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Crește distanța dintre textbox-uri */
+  }
+  
+  .word-item {
+    font-size: 2.8rem;
+    font-weight: bold;
+    padding: 20px 25px; /* Mai mult spațiu în interiorul butoanelor */
+    background-color: #f0f8ff;
+    border: 3px solid #6a0dad;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+    margin-top: 20px; /* Adaugă distanță față de partea de sus a fiecărui textbox */
+  }
+  
+  .word-item:hover {
+    background-color: #6a0dad;
+    color: white;
+    transform: scale(1.05);
+  }
+  
+  .word-image {
+    width: 60px; /* Crește dimensiunea imaginii */
+    height: 60px;
+    margin-left: 10px;
+    border-radius: 50%;
+  }
+  

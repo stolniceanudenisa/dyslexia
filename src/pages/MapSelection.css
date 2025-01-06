@@ -109,3 +109,27 @@ body, html {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);   
   }
+
+
+
+
+  .hidden-sound-button {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    background-color: white;
+    color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    font-size: 24px;
+    opacity: 0.1; /* Aproape invizibil */
+    border-radius: 50%;
+    transition: opacity 0.3s ease, color 0.3s ease;
+  }
+  
+  .hidden-sound-button:hover {
+    opacity: 1; /* Devine vizibil la hover */
+    color: #6a0dad; /* Schimbă culoarea la un mov deschis */
+  }
+  

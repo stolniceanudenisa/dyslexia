@@ -13,18 +13,18 @@ const Map2: React.FC<RouteComponentProps> = ({ history }) => {
   const [audioPlayer, setAudioPlayer] = useState<HTMLAudioElement | null>(null);
 
 
-  useEffect(() => {
-    const audioTimeout = setTimeout(() => {
-      const audioPlayer = new Audio(Harta2Intro);
-      audioPlayer.play();
-      return () => {
-        audioPlayer.pause();
-        audioPlayer.currentTime = 0;
-      };
-    }, 1000);
+  // useEffect(() => {
+  //   const audioTimeout = setTimeout(() => {
+  //     const audioPlayer = new Audio(Harta2Intro);
+  //     audioPlayer.play();
+  //     return () => {
+  //       audioPlayer.pause();
+  //       audioPlayer.currentTime = 0;
+  //     };
+  //   }, 1000);
 
-    return () => clearTimeout(audioTimeout);
-  }, []);
+  //   return () => clearTimeout(audioTimeout);
+  // }, []);
 
   
   const playNarrationSound = () => {

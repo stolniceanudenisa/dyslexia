@@ -53,18 +53,18 @@ const LiteraE: React.FC<RouteComponentProps> = ({ history }) => {
   const words2 = ['EVANTAI', 'ESARFA', 'PERE', 'BANANE'];
 
 
-  useEffect(() => {
-    const audioTimeout = setTimeout(() => {
-      const audioPlayer = new Audio(LitE);
-      audioPlayer.play();
-      return () => {
-        audioPlayer.pause();
-        audioPlayer.currentTime = 0;
-      };
-    }, 1000);
+  // useEffect(() => {
+  //   const audioTimeout = setTimeout(() => {
+  //     const audioPlayer = new Audio(LitE);
+  //     audioPlayer.play();
+  //     return () => {
+  //       audioPlayer.pause();
+  //       audioPlayer.currentTime = 0;
+  //     };
+  //   }, 1000);
 
-    return () => clearTimeout(audioTimeout);
-  }, []);
+  //   return () => clearTimeout(audioTimeout);
+  // }, []);
 
   const playAudio = (index: number) => {
     const audio = new Audio(audios[index]);
@@ -153,6 +153,15 @@ const LiteraE: React.FC<RouteComponentProps> = ({ history }) => {
             ))}
           </div>
         </div>
+
+
+              <IonFab vertical="bottom" horizontal="start" slot="fixed" className="custom-home-fab">
+        <IonFabButton className="custom-home-button" onClick={() => history.push('/map1')}>
+          <span className="custom-home-emoji" title="Go to Map">🏠</span>
+        </IonFabButton>
+      </IonFab>
+
+
 
         {/* Next Level Button */}
         <IonFab vertical="bottom" horizontal="end" slot="fixed">

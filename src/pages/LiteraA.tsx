@@ -26,7 +26,7 @@ import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
 import { RouteComponentProps } from 'react-router';
-import { arrowForwardOutline } from 'ionicons/icons';
+import { arrowForwardOutline, home } from 'ionicons/icons';
 import LitA from "../assets/sounds/RepetaDupaMine.mp3";
 
 const LiteraA: React.FC<RouteComponentProps> = ({ history }) => {
@@ -126,6 +126,15 @@ const LiteraA: React.FC<RouteComponentProps> = ({ history }) => {
             ))}
           </div>
         </div>
+
+ 
+               <IonFab vertical="bottom" horizontal="start" slot="fixed" className="custom-home-fab">
+         <IonFabButton className="custom-home-button" onClick={() => history.push('/map1')}>
+           <span className="custom-home-emoji" title="Go to Map">🏠</span>
+         </IonFabButton>
+       </IonFab>
+
+
 
         {/* Next Level Button */}
         <IonFab vertical="bottom" horizontal="end" slot="fixed">

@@ -128,6 +128,16 @@ const LiteraR: React.FC<RouteComponentProps> = ({ history }) => {
                     </div>
                 </div>
 
+
+
+
+
+
+          <IonFab vertical="bottom" horizontal="start" slot="fixed" className="custom-home-fab">
+        <IonFabButton className="custom-home-button" onClick={() => history.push('/map2')}>
+          <span className="custom-home-emoji" title="Go to Map">🏠</span>
+        </IonFabButton>
+      </IonFab>
                 {/* Next Level Button */}
                 <IonFab vertical="bottom" horizontal="end" slot="fixed">
                     <IonFabButton onClick={() => history.push('/LiteraRLevel1')}>

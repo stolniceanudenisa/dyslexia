@@ -136,6 +136,14 @@ const LiteraHLevel1: React.FC<RouteComponentProps> = ({ history }) => {
                     </div>
                 </div>
 
+          <IonFab vertical="bottom" horizontal="start" slot="fixed" className="custom-home-fab">
+        <IonFabButton className="custom-home-button" onClick={() => history.push('/map3')}>
+          <span className="custom-home-emoji" title="Go to Map">🏠</span>
+        </IonFabButton>
+      </IonFab>
+
+
+
                 <IonFab vertical="bottom" horizontal="end" slot="fixed">
                     <IonFabButton onClick={() => history.push('/LiteraHLevel2')} disabled={isNextLevelDisabled}>
                         <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title="Litera H Level 2" aria-label="Next level" onMouseEnter={playHoverSoundAvanseaza} />
