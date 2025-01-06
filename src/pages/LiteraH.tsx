@@ -10,14 +10,14 @@ import hamster from '../assets/images/harpa.png';
 import haina from '../assets/images/haina.png';
 import helicopter from '../assets/images/homar.png';
 
-import HartaAudio from '../assets/sounds/harta!.mp3';
-import PaharAudio from '../assets/sounds/pahar!.mp3';
-import HotelAudio from '../assets/sounds/hotel!.mp3';
-import HartieAudio from '../assets/sounds/hartie!.mp3';
-import ZaharAudio from '../assets/sounds/zahar!.mp3';
-import HamsterAudio from '../assets/sounds/hamster!.mp3';
-import HainaAudio from '../assets/sounds/haina!.mp3';
-import HelicopterAudio from '../assets/sounds/helicopter!.mp3';
+import HartaAudio from '../assets/sounds/harta.mp3';
+import PaharAudio from '../assets/sounds/pahar.mp3';
+import HotelAudio from '../assets/sounds/hotel.mp3';
+import HartieAudio from '../assets/sounds/hartie.mp3';
+import ZaharAudio from '../assets/sounds/Zahar.mp3';
+import HamsterAudio from '../assets/sounds/harpa.mp3';
+import HainaAudio from '../assets/sounds/haina.mp3';
+import HelicopterAudio from '../assets/sounds/homar.mp3';
 
 import H from '../assets/sounds/H!.mp3';
 
