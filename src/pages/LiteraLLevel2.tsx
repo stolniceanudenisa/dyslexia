@@ -9,7 +9,7 @@ import leuImg from '../assets/images/leu.png';
 import lacatImg from '../assets/images/lacat.png';
 import lumanareImg from '../assets/images/lumanare.png';
 
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/trage-litera-L.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { increaseScore, getScore } from './Home';
 import BravoAudio from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';

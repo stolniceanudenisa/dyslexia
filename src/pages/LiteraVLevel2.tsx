@@ -11,7 +11,7 @@ import vioaraImg from '../assets/images/vioara.png';
 import vulcanImg from '../assets/images/vulcan.png';
 import vacaImg from '../assets/images/vaca.png';
 
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/trage-litera-V.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import BravoAudio from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import VestaSound from '../assets/sounds/vesta.mp3';

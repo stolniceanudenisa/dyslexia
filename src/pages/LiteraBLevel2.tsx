@@ -9,7 +9,7 @@ import broascăImg from '../assets/images/broasca.png';
 import cubImg from '../assets/images/cub.png';
 import zebrăImg from '../assets/images/zebra.png';
 
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/trage-litera-B.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { increaseScore, getScore } from './Home';
 import BravoAudio from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';

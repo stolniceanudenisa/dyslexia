@@ -9,7 +9,7 @@ import caracatitaImg from '../assets/images/caracatita.png';  {/* Imagine pentru
 import dinozaurImg from '../assets/images/dinozaur.png';    {/* Imagine pentru cuvântul DINOZAUR */}
 import rataImg from '../assets/images/rata.png';  {/* Imagine pentru cuvântul RATA */}
 
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/trage-litera-R.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { increaseScore, getScore } from './Home';
 

@@ -8,7 +8,7 @@ import R from '../assets/sounds/O!.mp3'; // Sunet pentru R
 import M from '../assets/sounds/O!.mp3'; // Sunet pentru M
 import N from '../assets/sounds/O!.mp3'; // Sunet pentru N
 import P from '../assets/sounds/O!.mp3'; // Sunet pentru P
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/alege-buline-litera-R.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
 

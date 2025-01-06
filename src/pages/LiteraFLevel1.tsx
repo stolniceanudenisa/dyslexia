@@ -4,13 +4,13 @@ import { arrowForwardOutline } from 'ionicons/icons';
 import { increaseScore, useGameSettings } from './Home';
 import { RouteComponentProps } from 'react-router';
 
-///AICI SUNETUL PENTRU CSI D ESTE AL LUI D PT CA NU LE GASESTE!!!!!!!!!!
+ 
 import F from '../assets/sounds/F!.mp3';
 import C from '../assets/sounds/C!.mp3'
 import D from '../assets/sounds/D!.mp3';
 
 
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/alege-buline-litera-F.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
 

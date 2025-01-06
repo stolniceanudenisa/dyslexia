@@ -7,7 +7,7 @@ import { RouteComponentProps } from 'react-router';
 import V from '../assets/sounds/V.mp3';
 import U from '../assets/sounds/U!.mp3';
 import T from '../assets/sounds/A!.mp3'; //de modificat aici
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/alege-buline-litera-V.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
 

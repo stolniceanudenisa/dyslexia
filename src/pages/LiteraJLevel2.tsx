@@ -7,7 +7,7 @@ import { arrowForwardOutline } from 'ionicons/icons';
 import jocImg from '../assets/images/joc.png';
 import garajImg from '../assets/images/garaj.png';
 import plajaImg from '../assets/images/plaja.png';
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/trage-litera-J.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { increaseScore, getScore } from './Home';
 import BravoAudio from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';

@@ -111,7 +111,7 @@ const LiteraZLevel3: React.FC<RouteComponentProps> = ({ history }) => {
       </IonContent>
 
       <IonFab vertical="bottom" horizontal="end" slot="fixed">
-        <IonFabButton onClick={() => history.push('/NextLevel')}>
+        <IonFabButton onClick={() => history.push('/Final')}>
           <IonIcon
             icon={arrowForwardOutline}
             className="black-icon big-arrow"

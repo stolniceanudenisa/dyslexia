@@ -25,7 +25,7 @@ import NasSound from "../assets/sounds/nas.mp3";
 import NufarSound from "../assets/sounds/nufar.mp3";
 
 import { increaseScore } from "./Home";
-import Repeta from '../assets/sounds/intoarce-cartonase-E.mp3';
+import Repeta from '../assets/sounds/intoarce-cartonase-litera-N.mp3';
 
 
 

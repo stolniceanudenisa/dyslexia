@@ -10,7 +10,7 @@ import VAudio from '../assets/sounds/Z.mp3';
 import SAudio from '../assets/sounds/Z.mp3';
 import LAudio from '../assets/sounds/Z.mp3';
 
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/alege-buline-litera-Z.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 
 import CustomToolbar from '../components/CustomToolbar';

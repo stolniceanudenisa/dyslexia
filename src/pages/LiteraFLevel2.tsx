@@ -25,7 +25,7 @@ import frunza from "../assets/images/frunza.png";
 import fundita from "../assets/images/funda.png";
 
 import { increaseScore } from "./Home";
-import Repeta from '../assets/sounds/intoarce-cartonase-E.mp3';
+import Repeta from '../assets/sounds/intoarce-cartonase-litera-F.mp3';
 import FloareSound from "../assets/sounds/FloareAudio.mp3";
 import FlutureSound from "../assets/sounds/fluture.mp3";
 import FocSound from "../assets/sounds/Foc.mp3";

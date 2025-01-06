@@ -9,7 +9,7 @@ import muzeuImg from '../assets/images/muzeu.png';
 import buzeImg from '../assets/images/buze.png';   
 import varzaImg from '../assets/images/varza.png';
 
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/trage-litera-Z.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { increaseScore, getScore } from './Home';
 import BravoAudio from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';

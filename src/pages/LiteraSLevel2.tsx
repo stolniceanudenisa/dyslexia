@@ -23,7 +23,7 @@ import sare from "../assets/images/sare.png";
 import { RouteComponentProps } from "react-router";
 
 import { increaseScore } from "./Home";
-import Repeta from '../assets/sounds/intoarce-cartonase-E.mp3';
+import Repeta from '../assets/sounds/intoarce-cartonase-litera-S.mp3';
 import SteaSound from "../assets/sounds/stea.mp3";
 import SalataSound from "../assets/sounds/salata.mp3";
 import SareSound from "../assets/sounds/sare.mp3";

@@ -21,7 +21,7 @@ import hartie from "../assets/images/hartie.png";
 import haina from "../assets/images/haina.png";
 import { RouteComponentProps } from "react-router";
 import { increaseScore } from "./Home";
-import Repeta from '../assets/sounds/intoarce-cartonase-E.mp3';
+import Repeta from '../assets/sounds/intoarce-cartonase-litera-H.mp3';
 
 import HartaSound from "../assets/sounds/harta!.mp3";
 import HartieSound from "../assets/sounds/hartie!.mp3";

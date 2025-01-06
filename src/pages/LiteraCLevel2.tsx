@@ -9,7 +9,7 @@ import PisicaImage from '../assets/images/pisica.png';
 import RacImage from '../assets/images/rac.png';     
 import CasaImage from '../assets/images/casa.png';   
 
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/trage-litera-C.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import BravoAudio from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import PisicaSound from '../assets/sounds/pisica.mp3';

@@ -7,7 +7,7 @@ import { RouteComponentProps } from 'react-router';
 import H from '../assets/sounds/H!.mp3';
 import F from '../assets/sounds/F!.mp3';
 import G from '../assets/sounds/G!.mp3';
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/alege-buline-litera-H.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import CustomToolbar from '../components/CustomToolbar';
 
@@ -64,22 +64,22 @@ const LiteraHLevel1: React.FC<RouteComponentProps> = ({ history }) => {
                     return newCounter;
                 });
                 increaseScore();
-                const audio = new Audio(H);
-                audio.playbackRate = 1.0;
-                audio.play();
+                // const audio = new Audio(H);
+                // audio.playbackRate = 1.0;
+                // audio.play();
             } else if (buttonType === "F") {
-                const audio = new Audio(F);
-                audio.playbackRate = 1.0;
-                audio.play();
+                // const audio = new Audio(F);
+                // audio.playbackRate = 1.0;
+                // audio.play();
             } else if (buttonType === "G") {
-                const audio = new Audio(G);
-                audio.playbackRate = 1.0;
-                audio.play();
+                // const audio = new Audio(G);
+                // audio.playbackRate = 1.0;
+                // audio.play();
             } else if (buttonType === "★") {
                 // Handle trap sound
-                const audio = new Audio(G); // You can set a trap sound here
-                audio.playbackRate = 1.0;
-                audio.play();
+                // const audio = new Audio(G); // You can set a trap sound here
+                // audio.playbackRate = 1.0;
+                // audio.play();
             }
         }
     };

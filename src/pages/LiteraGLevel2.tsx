@@ -9,7 +9,7 @@ import gaina from '../assets/images/gaina.png';
 import girafa from '../assets/images/Girafa.png';
 import geanta from '../assets/images/geanta.png';
 
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/trage-litera-G.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import { increaseScore, getScore } from './Home';
 import BravoAudio from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';

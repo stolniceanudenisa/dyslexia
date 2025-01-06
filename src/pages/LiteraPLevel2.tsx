@@ -11,7 +11,7 @@ import caprioaraImg from '../assets/images/caprioara.png';
 import piratImg from '../assets/images/pirat.png';
 import lapteImg from '../assets/images/lapte.png';
 
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/trage-litera-P.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import PadureSound from '../assets/sounds/padure.mp3';
 import CupaSound from '../assets/sounds/Cupa.mp3';

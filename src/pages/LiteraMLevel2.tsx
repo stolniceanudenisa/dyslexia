@@ -7,7 +7,7 @@ import { arrowForwardOutline } from 'ionicons/icons';
 import magarImg from '../assets/images/magar.png';
 import numarImg from '../assets/images/numar.png';
 import melcImg from '../assets/images/melc.png';
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/trage-litera-M.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import MagarAudio from '../assets/sounds/magar.mp3';
 import NumarAudio from '../assets/sounds/numar.mp3';

@@ -9,7 +9,7 @@ import DinteImage from '../assets/images/dinte.png';
 import PodImage from '../assets/images/pod.png';     
 import CadouImage from '../assets/images/cadou.png';   
 
-import Repeta from '../assets/sounds/RepetaDupaMine.mp3';
+import Repeta from '../assets/sounds/trage-litera-D.mp3';
 import Avanseaza from '../assets/sounds/nivelul-urmator!.mp3';
 import BravoAudio from '../assets/sounds/bravo-ai-castigat-toti-galbenii.mp3';
 import DinteSound from '../assets/sounds/dinte.mp3';
