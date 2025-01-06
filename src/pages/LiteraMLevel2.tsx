@@ -162,5 +162,4 @@ const LiteraMLevel2: React.FC<RouteComponentProps> = ({ history }) => {
     </IonPage>
   );
 };
-
 export default LiteraMLevel2;
