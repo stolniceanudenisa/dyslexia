@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './FinalPage.css';
 
 import finalImage from '../assets/images/final2.jpg';
-import LitML3 from "../assets/sounds/silabe-complexe.mp3";
+import LitML3 from "../assets/sounds/final-joc.mp3";
 const FinalPage: React.FC = () => {
 
 

@@ -68,6 +68,12 @@ const LiteraALevel1: React.FC<RouteComponentProps> = ({ history }) => {
         setButtonTextList(generateButtonTextList());
     }, []);
 
+
+    const completeLevelA1 = () => {
+        localStorage.setItem('levelA1Completed', 'true'); // Marchează nivelul 1 al literei A ca finalizat
+        history.push('/LiteraALevel2'); // Navighează la nivelul 2 al literei A
+      };
+
     const handleButtonClick = (buttonIndex: number) => {
         // Avoid clicking the same button twice
         if (!clickedButtons.includes(buttonIndex)) {
@@ -152,7 +158,7 @@ const LiteraALevel1: React.FC<RouteComponentProps> = ({ history }) => {
                 
 
                 <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                    <IonFabButton onClick={() => history.push('/LiteraALevel2')} disabled={isNextLevelDisabled}>
+                <IonFabButton onClick={completeLevelA1} disabled={isNextLevelDisabled}>
                         <IonIcon
                             icon={arrowForwardOutline}
                             className="black-icon big-arrow"

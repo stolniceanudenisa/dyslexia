@@ -158,6 +158,14 @@ const playWordSound = (word: string) => {
     setDraggingLetter(index);  // Set the current letter being dragged
   };
 
+
+  const completeLevelO2 = () => {
+    localStorage.setItem('levelO2Completed', 'true');  
+    localStorage.setItem('literaUUnlocked', 'true');  
+    history.push('/literaU');  
+  };
+
+
   return (
     <IonPage>
       <IonHeader>
@@ -227,7 +235,7 @@ const playWordSound = (word: string) => {
 
 
       <IonFab vertical="bottom" horizontal="end" slot="fixed">
-        <IonFabButton onClick={() => history.push('/literaU')} disabled={isNextLevelDisabled}>
+         <IonFabButton onClick={completeLevelO2} disabled={isNextLevelDisabled}>
           <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title='Next level' aria-label='Next level' onMouseEnter={playHoverSoundAvanseaza}  />
         </IonFabButton>
       </IonFab>

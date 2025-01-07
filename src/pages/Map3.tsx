@@ -65,6 +65,7 @@ const Map3: React.FC<RouteComponentProps> = ({ history }) => {
 
 
         <div className="button-container">
+{/*           
   <IonButton onClick={() => history.push('/literaF')} className="f">F</IonButton>
   <IonButton onClick={() => history.push('/literaG')} className="g">G</IonButton>
   <IonButton onClick={() => history.push('/literaH')} className="h">H</IonButton>
@@ -73,7 +74,44 @@ const Map3: React.FC<RouteComponentProps> = ({ history }) => {
   <IonButton onClick={() => history.push('/literaS')} className="s">S</IonButton>
   <IonButton onClick={() => history.push('/literaV')} className="v">V</IonButton>
   <IonButton onClick={() => history.push('/literaZ')} className="z">Z</IonButton>
+
+ */}
+
+   {/* Litera F (Unlocked) */}
+   <IonButton onClick={() => history.push('/literaF')} className="f unlocked">
+            F
+          </IonButton>
+
+          {/* Celelalte litere sunt disabled */}
+          <IonButton disabled className="g locked">
+            G
+          </IonButton>
+          <IonButton disabled className="h locked">
+            H
+          </IonButton>
+          <IonButton disabled className="j locked">
+            J
+          </IonButton>
+          <IonButton disabled className="l locked">
+            L
+          </IonButton>
+          <IonButton disabled className="s locked">
+            S
+          </IonButton>
+          <IonButton disabled className="v locked">
+            V
+          </IonButton>
+
+          {/* Litera Z (Unlocked) */}
+          <IonButton onClick={() => history.push('/literaZ')} className="z unlocked">
+            Z
+          </IonButton>
+
 </div>
+
+
+
+
       </IonContent>
 
 

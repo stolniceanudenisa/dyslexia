@@ -158,7 +158,11 @@ const playWordSound = (word: string) => {
   }, [completedWords]);
 
 
-
+  const completeLevelA2 = () => {
+    localStorage.setItem('levelA2Completed', 'true'); // Marchează nivelul 2 al literei A ca finalizat
+    localStorage.setItem('literaEUnlocked', 'true'); // Deblochează litera E
+    history.push('/literaE'); // Navighează la litera E
+  };
 
 
 
@@ -243,7 +247,7 @@ const playWordSound = (word: string) => {
       
 
       <IonFab vertical="bottom" horizontal="end" slot="fixed">
-        <IonFabButton onClick={() => history.push('/literaE')} disabled={isNextLevelDisabled}>
+      <IonFabButton onClick={completeLevelA2} disabled={isNextLevelDisabled}>
           <IonIcon
             icon={arrowForwardOutline}
             className="black-icon big-arrow"

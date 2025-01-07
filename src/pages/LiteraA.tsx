@@ -52,6 +52,12 @@ const LiteraA: React.FC<RouteComponentProps> = ({ history }) => {
   }, []);
 
 
+  const completeLevelA = () => {
+    localStorage.setItem('levelACompleted', 'true'); // Marchează nivelul A ca finalizat
+    history.push('/LiteraALevel1'); // Navighează la nivelul 1 al literei A
+  };
+
+
   const playAudio = (index: number) => {
     const audio = new Audio(audios[index]);
     audio.playbackRate = 0.8;
@@ -138,7 +144,7 @@ const LiteraA: React.FC<RouteComponentProps> = ({ history }) => {
 
         {/* Next Level Button */}
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
-          <IonFabButton onClick={() => history.push('/LiteraALevel1')}>
+          <IonFabButton onClick={completeLevelA}>
             <IonIcon icon={arrowForwardOutline} className="black-icon big-arrow" title="Litera A Level 1" aria-label="Next level" onMouseEnter={playHoverSoundAvanseaza} />
           </IonFabButton>
         </IonFab>

@@ -78,6 +78,15 @@ const LiteraI: React.FC<RouteComponentProps> = ({ history }) => {
       audio.play();
     };
   
+
+    const completeLevelI = () => {
+      localStorage.setItem('levelICompleted', 'true');  
+      history.push('/LiteraILevel1'); 
+    };
+    
+
+
+
     const formatWordWithBoldI = (word: string) => {
       return (
         <>
@@ -156,7 +165,7 @@ const LiteraI: React.FC<RouteComponentProps> = ({ history }) => {
 
           {/* Next Level Button */}
           <IonFab vertical="bottom" horizontal="end" slot="fixed">
-            <IonFabButton onClick={() => history.push('/LiteraILevel1')}>
+            <IonFabButton onClick={completeLevelI}>
               <IonIcon
                 icon={arrowForwardOutline}
                 className="black-icon big-arrow"

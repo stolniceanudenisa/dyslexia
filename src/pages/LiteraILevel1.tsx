@@ -105,6 +105,12 @@ const LiteraILevel1: React.FC<{ history: any }> = ({ history }) => {
         audio.play();
     };
 
+
+    const completeLevelI1 = () => {
+        localStorage.setItem('levelI1Completed', 'true');  
+        history.push('/LiteraILevel2'); 
+      };
+
     return (
         <IonPage>
             <IonHeader>
@@ -152,10 +158,7 @@ const LiteraILevel1: React.FC<{ history: any }> = ({ history }) => {
 
 
                 <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                    <IonFabButton
-                        onClick={() => history.push('/LiteraILevel2')}
-                        disabled={isNextLevelDisabled}
-                    >
+                     <IonFabButton onClick={completeLevelI1} disabled={isNextLevelDisabled}>
                         <IonIcon
                             icon={arrowForwardOutline}
                             className="black-icon big-arrow"

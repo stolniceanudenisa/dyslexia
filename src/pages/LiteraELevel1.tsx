@@ -104,6 +104,12 @@ const LiteraELevel1: React.FC<RouteComponentProps> = ({ history }) => {
         new Audio(Avanseaza).play();
     };
 
+
+    const completeLevelE1 = () => {
+        localStorage.setItem('levelE1Completed', 'true');  
+        history.push('/LiteraELevel2'); 
+      };
+
     return (
         <IonPage>
             <IonHeader>
@@ -154,10 +160,7 @@ const LiteraELevel1: React.FC<RouteComponentProps> = ({ history }) => {
 
 
                 <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                    <IonFabButton
-                        onClick={() => history.push('/LiteraELevel2')}
-                        disabled={isNextLevelDisabled}
-                    >
+                <IonFabButton onClick={completeLevelE1} disabled={isNextLevelDisabled}>
                         <IonIcon
                             icon={arrowForwardOutline}
                             onMouseEnter={playHoverSoundAvanseaza}

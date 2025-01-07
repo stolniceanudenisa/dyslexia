@@ -119,6 +119,15 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
     setLettersUsed(newLettersUsed);
   };
 
+
+  const completeLevelI2 = () => {
+    localStorage.setItem('levelI2Completed', 'true');  
+    localStorage.setItem('literaOUnlocked', 'true');  
+    history.push('/literaO');  
+  };
+
+ 
+
   return (
     <IonPage>
       <IonHeader>
@@ -205,7 +214,7 @@ const LiteraILevel2: React.FC<RouteComponentProps> = ({ history }) => {
 
 
       <IonFab vertical="bottom" horizontal="end" slot="fixed">
-        <IonFabButton onClick={() => history.push('/literaO')} disabled={isNextLevelDisabled}>
+        <IonFabButton onClick={completeLevelI2} disabled={isNextLevelDisabled}>
           <IonIcon
             icon={arrowForwardOutline}
             className="black-icon big-arrow"

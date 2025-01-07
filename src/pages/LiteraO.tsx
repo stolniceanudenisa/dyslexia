@@ -89,6 +89,14 @@ const LiteraO: React.FC<RouteComponentProps> = ({ history }) => {
         </>
       );
     };
+
+
+    const completeLevelO = () => {
+      localStorage.setItem('levelOCompleted', 'true');  
+      history.push('/LiteraOLevel1'); 
+    };
+    
+
   
     return (
       <IonPage>
@@ -158,7 +166,7 @@ const LiteraO: React.FC<RouteComponentProps> = ({ history }) => {
   
           {/* Next Level Button */}
           <IonFab vertical="bottom" horizontal="end" slot="fixed">
-            <IonFabButton onClick={() => history.push('/LiteraOLevel1')}>
+            <IonFabButton onClick={completeLevelO}>
               <IonIcon
                 icon={arrowForwardOutline}
                 className="black-icon big-arrow"

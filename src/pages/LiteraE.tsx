@@ -87,6 +87,13 @@ const LiteraE: React.FC<RouteComponentProps> = ({ history }) => {
     audio.play();
   };
 
+
+  const completeLevelE = () => {
+    localStorage.setItem('levelECompleted', 'true'); // Marchează nivelul E ca finalizat
+    history.push('/LiteraELevel1'); // Navighează la nivelul 1 al literei E
+  };
+  
+
   const formatWordWithBoldE = (word: string) => {
     return (
       <>
@@ -165,7 +172,7 @@ const LiteraE: React.FC<RouteComponentProps> = ({ history }) => {
 
         {/* Next Level Button */}
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
-          <IonFabButton onClick={() => history.push('/LiteraELevel1')}>
+        <IonFabButton onClick={completeLevelE}>
             <IonIcon
               icon={arrowForwardOutline}
               className="black-icon big-arrow"
