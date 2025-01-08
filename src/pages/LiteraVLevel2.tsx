@@ -174,7 +174,7 @@ const LiteraVLevel2: React.FC<RouteComponentProps> = ({ history }) => {
             
 
             <IonFab vertical="bottom" horizontal="end" slot="fixed">
-                <IonFabButton onClick={() => history.push('/literaVLevel3')} disabled={isNextLevelDisabled}>
+                <IonFabButton onClick={() => history.push('/LiteraVLevel3')} disabled={isNextLevelDisabled}>
                     <IonIcon
                         icon={arrowForwardOutline}
                         className="black-icon big-arrow"
